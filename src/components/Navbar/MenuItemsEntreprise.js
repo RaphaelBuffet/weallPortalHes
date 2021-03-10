@@ -1,0 +1,44 @@
+export const MenuItemsMain = [
+    {
+        title:'Profil',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Offre',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Paramètres',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Déconnexion',
+        url:'#',
+        cName:'nav-links'
+    }
+]
+export const MenuItemsOffre = [
+    {
+        title:'Profil',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Offre',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Paramètres',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Déconnexion',
+        url:'#',
+        cName:'nav-links'
+    }
+]

@@ -1,0 +1,32 @@
+export const MenuItems = [
+    {
+        title:'Profil',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Filtre de Recherche',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Swipe',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Chat',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Paramètres',
+        url:'#',
+        cName:'nav-links'
+    },
+    {
+        title:'Déconnexion',
+        url:'#',
+        cName:'nav-links'
+    }
+]
