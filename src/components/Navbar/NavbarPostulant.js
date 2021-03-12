@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {MenuItems} from './MenuItemsPostulant'
 import './Navbar.css'
-import { Button } from '../Button'
+import { Button } from '../Button/Button'
+import logo from '../../image/logo.png';
 
 class Navbar extends Component {
 
@@ -14,7 +15,7 @@ class Navbar extends Component {
     render(){
         return(
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">WeAll<i className="fab fa-react"></i></h1>
+                <h1 className="navbar-logo"><img src={logo} alt="Logo" className="logo" /></h1>
                 
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times':'fas fa-bars'}></i>
@@ -31,7 +32,7 @@ class Navbar extends Component {
                     })}
                 </ul>
                 <Button>
-                   Se connecter
+                   Déconnexion
                 </Button>
             </nav>
         )

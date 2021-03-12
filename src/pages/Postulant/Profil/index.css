@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.main-page {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.section {
+  padding-top: 10px;
+}

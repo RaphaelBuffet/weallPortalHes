@@ -1,0 +1,28 @@
+.AccordionSection {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    position: realtive;
+    width: 100%;
+    background: #FFF;
+}
+.Dropdown {
+background: #1c1c1c;
+color: #00ffb9;
+width: 100%;
+height: 100px;
+flex-direction:column;
+align-items:center;
+border-bottom:1px solid #00ffb9;
+border-top:1px solid #00ffb9;
+}
+.Wrap {
+    background: #5c8de9;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}

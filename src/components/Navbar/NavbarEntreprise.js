@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {MenuItemsMain,MenuItemsOffre} from './MenuItemsEntreprise'
-import { Button } from '../Button'
+import { Button } from '../Button/Button'
+import logo from '../../image/logo.png';
 import './Navbar.css'
 class Navbar extends Component {
 
@@ -12,7 +13,7 @@ class Navbar extends Component {
     render(){
         return(
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">WeAll<i className="fab fa-react"></i></h1>
+                <h1 className="navbar-logo"><img src={logo} alt="Logo" /></h1>
                 
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times':'fas fa-bars'}></i>
@@ -28,6 +29,9 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
+                <Button>
+                   Déconnexion
+                </Button>
             </nav>
         )
     }

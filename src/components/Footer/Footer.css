@@ -1,0 +1,55 @@
+.main-footer{
+    color: white;
+    background-color: #128124;
+    padding-top: 1em;
+    bottom: 0;
+    width: 100%;
+    flex-direction: row;
+}
+.Row {
+    flex-direction: row;
+    display: flex;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+}
+.Col-left {
+    flex-direction: column;
+    flex:1;
+}
+.Col-right {
+    position: absolute;
+    left: 67%;
+    padding-left: 1em;
+    flex-direction: column;
+    flex:1;
+    right: 10px;
+}
+.social-button {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.Col-center {
+    flex-direction: column;
+    flex: 1;
+    align-self: center;
+}
+.Container-footer {
+    flex-direction: column;
+    display: flex;
+}
+.list-unstyled {
+    list-style-type: none;
+    padding-left: 0%;
+}
+.col-sm {
+    align-items: flex-end;
+    padding-bottom: 1em;
+}
+.privacy {
+    padding-top: 1em;
+    align-self: flex-end;
+    padding-right: 1em;
+}

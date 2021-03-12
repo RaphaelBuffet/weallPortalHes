@@ -10,6 +10,7 @@
     color: #FFF;
     justify-self: start;
     margin-left: 20px;
+    margin-right: 40px;
     cursor: pointer;
 }
 
@@ -48,6 +49,10 @@
 .menu-icon {
     display: none;
 }
+.logo {
+    height: 70px;
+    width: 70px;
+}
 
 @media screen and (max-width:960px) {
     .NavbarItems {
@@ -84,8 +89,7 @@
     .navbar-logo {
         position:absolute;
         top:0;
-        left:0;
-        transform: translate(25%,50%);
+        left: 10px;;
     }
 
     .menu-icon {
@@ -117,5 +121,9 @@
         background: white;
         color: #6568f4;
         transition: 250ms;
+    }
+    .logo {
+        height: 70px;
+        width: 70px;
     }
 }
