@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
 import './index.css';
 import Accordion from '../../../components/Accordion/Accordion'
+import InfoPersonelle from './div/InfoPersonelle'
+import Formation from './div/Formation'
 
 function App() {
   return (<div>
@@ -12,12 +14,12 @@ function App() {
       <h1>Profil</h1>
       <div className="section">
       <Accordion title="Infomations Personelle">
-          <p>hello</p>
+          <InfoPersonelle/>
         </Accordion>
       </div>
       <div className="section">
         <Accordion title="Formations">
-          <p>hello</p>
+          <Formation/>
         </Accordion>
       </div>
       <div className="section">

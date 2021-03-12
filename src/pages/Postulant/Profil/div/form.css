@@ -1,0 +1,80 @@
+.line {
+    columns: 2;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.line-simple {
+    columns: 1;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.input {
+    flex: 1;
+    width: 90%;
+    margin-top: 1em;
+    margin-right: 2em;
+    margin-left: 1em;
+}
+.line-double {
+    columns: 2;
+    width: 100%;
+    flex-direction: column;
+}
+.inputlong {
+    flex: 1;
+    width: 90%;
+    margin-top: 1em;
+    margin-right: 2em;
+    resize: none;
+    height: 7em;
+    background-color: rgb(196, 195, 195);
+    margin-left: 1em;
+}
+.inputmonoline{
+    flex: 1;
+    width: 95%;
+    margin-top: 1em;
+    margin-right: 2em;
+    margin-left: 1em;
+}
+.intitulé {
+    flex: 1;
+    margin-left: 1em;
+}
+.form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-style: ridge;
+    padding-bottom: 1em;
+}
+.img {
+    flex: 1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkgreen;
+    height: 120px;
+    width: 250px;
+}
+.btn-enregistrer {
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: 3em;
+    display: block;
+    width: 20%;
+}
+.accordion{
+    margin-left: 1em;
+}
+.btn-full {
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
