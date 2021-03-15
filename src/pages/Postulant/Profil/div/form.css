@@ -10,6 +10,12 @@
     flex-direction: column;
     margin-top: 1em;
 }
+.line-half {
+    columns: 2;
+    width: 50%;
+    flex-direction: column;
+    margin-top: 1em;
+}
 .input {
     flex: 1;
     width: 90%;
@@ -77,4 +83,19 @@
     display: block;
     width: 100%;
     text-align: left;
+}
+.accordion-secondary{
+    background-color: brown;
+}
+.block {
+    padding-top: 1em;
+}
+.line5 {
+    columns: 5;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.checkbox {
+    margin-left: 1em;
 }

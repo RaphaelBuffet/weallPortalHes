@@ -1,8 +1,8 @@
 import React from 'react'
-import {AccordionSecondary} from '../../../../components/Accordion/Accordion'
+import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
 import './form.css'
-var formation = [];
-export default class Formation extends React.Component {
+var experience = [];
+export default class Experience extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,11 +14,11 @@ export default class Formation extends React.Component {
         this.setState({ length: this.state.length + 1 });
     }
     render() {
-        formation = []
+        experience = []
         for (let i = 0; i < this.state.length; i++) {
-            formation.push(
+            experience.push(
                 <div key={i}>
-                    <AccordionSecondary title={"Formations "+(i+1)} className='accordion-secondary'>
+                    <AccordionSecondary title={"Expérience professionelle " + (i + 1)} className='accordion-secondary'>
                         <form onSubmit={this.handleEnregistrer} className='form'>
                             <div className='line-half'>
                                 <div className='column'>
@@ -32,14 +32,11 @@ export default class Formation extends React.Component {
                             </div>
                             <div className='line'>
                                 <div className='column'>
-                                    <p className='intitulé'>Cursus</p>
-                                    <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
-                                        <option value="0">Universiatire</option>
-                                        <option value="1">Haute école spécialisée</option>
-                                    </select>
+                                    <p className='intitulé'>Entreprise</p>
+                                    <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>Institut</p>
+                                    <p className='intitulé'>Secteur d'activité</p>
                                     <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
                                         <option value="0">Informatique de gestion</option>
                                         <option value="1">Tourisme</option>
@@ -49,19 +46,22 @@ export default class Formation extends React.Component {
                             </div>
                             <div className='line'>
                                 <div className='column'>
-                                    <p className='intitulé'>Degré d'étude</p>
-                                    <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
-                                        <option value="0">Universiatire</option>
-                                        <option value="1">Haute école spécialisée</option>
-                                    </select>
+                                    <p className='intitulé'>Poste occupé</p>
+                                    <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>Nom du diplôme</p>
+                                    <p className='intitulé'>localité</p>
                                     <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
                                         <option value="0">Informatique de gestion</option>
                                         <option value="1">Tourisme</option>
                                         <option value="2">Economie et Service</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div className='line-simple'>
+                                <div className='column'>
+                                    <p className='intitulé'>Tâches principales</p>
+                                    <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlong' />
                                 </div>
                             </div>
                             <input type="submit" value="enregistrer les informations" className='btn-enregistrer' />
@@ -72,9 +72,9 @@ export default class Formation extends React.Component {
         }
         return (
             <div className='accordion'>
-                {formation}
+                {experience}
                 <div>
-                    <button className='btn-full' onClick={this.addFormation}>ajouter une formation</button>
+                    <button className='btn-full' onClick={this.addFormation}>ajouter une experience</button>
                 </div>
             </div>
         );

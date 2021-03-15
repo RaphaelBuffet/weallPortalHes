@@ -4,6 +4,9 @@ import './index.css';
 import Accordion from '../../../components/Accordion/Accordion'
 import InfoPersonelle from './div/InfoPersonelle'
 import Formation from './div/Formation'
+import Experience from './div/Experience'
+import Competence from './div/Competence'
+import Langue from './div/Langue'
 
 function App() {
   return (<div>
@@ -24,14 +27,17 @@ function App() {
       </div>
       <div className="section">
       <Accordion title="Experiences professionnelles">
-          <p>hello</p>
+          <Experience/>
+        </Accordion>
+      </div>
+      <div className="section">
+      <Accordion title="Langues">
+          <Langue/>
         </Accordion>
       </div>
       <div className="section">
       <Accordion title="Compétences et Softskills">
-          <p>hello</p>
-          <button>test</button>
-          <input></input>
+         <Competence/>
         </Accordion>
       </div>
     </div>

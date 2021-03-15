@@ -77,22 +77,22 @@ export default class InfoPersonelle extends React.Component {
       <form onSubmit={this.handleEnregistrer} className='form'>
 
         <div className='line'>
-          <div className='colomn'>
+          <div className='column'>
             <p className='intitulé'>Nom</p>
             <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
           </div>
-          <div className='colomn'>
+          <div className='column'>
             <p className='intitulé'>Prénom</p>
             <input type="text" value={this.state.nom} onChange={this.handleNom} className='input' />
           </div>
         </div>
 
         <div className='line'>
-          <div className='colomn'>
+          <div className='column'>
             <p className='intitulé'>Date de naissance</p>
             <input type="date" value={this.state.naissance} onChange={this.handleNaissance} className='input' />
           </div>
-          <div className='colomn'>
+          <div className='column'>
             <p className='intitulé'>Sexe</p>
             <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
             <option value="0">Homme</option>
@@ -103,11 +103,11 @@ export default class InfoPersonelle extends React.Component {
         </div>
         
         <div className='line'>
-          <div className='colomn'>
+          <div className='column'>
             <p className='intitulé'>Description</p>
             <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlong'/>
           </div>
-          <div className='colomn'>
+          <div className='column'>
           <img src={download} alt="Logo" className='img'/>
             <button className='input'>Télécharger une image</button>
           </div>
@@ -120,10 +120,10 @@ export default class InfoPersonelle extends React.Component {
         </div>
 
         <div className='line-double'>
-          <div className='colomn'>
+          <div className='column'>
             <input type="text" value={this.state.npa} onChange={this.handleNpa} className='input' placeholder='code postal' />
           </div>
-          <div className='colomn'>
+          <div className='column'>
           <select value={this.state.localité} onChange={this.handleLocalite} className='input'>
             <option value="0">Sion</option>
             <option value="1">Sierre</option>
