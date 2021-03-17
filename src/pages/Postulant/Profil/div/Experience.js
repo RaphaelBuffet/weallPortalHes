@@ -1,21 +1,32 @@
 import React from 'react'
 import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
 import './form.css'
+import {data} from './data'
 var experience = [];
 export default class Experience extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            length: 2
+            experience: data.experience
         };
-        this.addFormation = this.addFormation.bind(this);
+        this.addExperience = this.addExperience.bind(this);
     }
-    addFormation() {
-        this.setState({ length: this.state.length + 1 });
+    addExperience() {
+        let newexperience=this.state.experience
+        newexperience.push({
+            debut:'2021-01-01',
+            fin:'2021-01-01',
+            entreprise: '',
+            secteurs: 0,
+            Poste: '',
+            localite: 0,
+            description:""
+        })
+        this.setState({ experience: newexperience });
     }
     render() {
         experience = []
-        for (let i = 0; i < this.state.length; i++) {
+        for (let i = 0; i < this.state.experience.length; i++) {
             experience.push(
                 <div key={i}>
                     <AccordionSecondary title={"Expérience professionelle " + (i + 1)} className='accordion-secondary'>

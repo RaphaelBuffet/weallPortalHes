@@ -26,5 +26,25 @@ export const data = {
             degre: 1,
             diplome: 'Maturité commerciale'
         }
+    ],
+    experience :[
+        {
+            debut:'2017-09-23',
+            fin:'2021-03-01',
+            entreprise: 'Constellium Valais Sa',
+            secteurs: 1,
+            Poste: 'Stagiaire',
+            localite: 1,
+            description:"je suis la description des taches de Bernard"
+        },
+        {
+            debut:'2012-08-01',
+            fin:'2016-07-30',
+            entreprise: 'Constellium Valais Sa',
+            secteurs: 1,
+            Poste: 'Employée de bureua',
+            localite: 1,
+            description:"je suis la description des taches de Bernard"
+        }
     ]
 }
