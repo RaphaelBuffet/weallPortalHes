@@ -73,6 +73,13 @@
     display: block;
     width: 20%;
 }
+.btn-enregistrer-less-margin{
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: 0.5em;
+    display: block;
+    width: 20%;
+}
 .accordion{
     margin-left: 1em;
 }
@@ -105,6 +112,14 @@
     width: 100%;
     text-align: center;
     background-color: cadetblue;
+}
+.btn-unclick {
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    background-color: cornsilk;
 }
 .btn-container {
     margin-left: 0.5em;

@@ -8,54 +8,54 @@ export default class Competence extends React.Component {
         super(props);
         this.state = {
             competence: data.competence,
-            softskillsize :data.softskill,
+            softskillsize: data.softskill,
             softskill: [
                 {
-                    nom:'1',
-                    clicked:false
+                    nom: '1',
+                    clicked: false
                 },
                 {
-                    nom:'2',
-                    clicked:true
+                    nom: '2',
+                    clicked: true
                 },
                 {
-                    nom:'3',
-                    clicked:true
+                    nom: '3',
+                    clicked: true
                 },
                 {
-                    nom:'4',
-                    clicked:false
+                    nom: '4',
+                    clicked: false
                 },
                 {
-                    nom:'5',
-                    clicked:false
+                    nom: '5',
+                    clicked: false
                 },
                 {
-                    nom:'6',
-                    clicked:true
+                    nom: '6',
+                    clicked: true
                 },
                 {
-                    nom:'7',
-                    clicked:false
+                    nom: '7',
+                    clicked: false
                 },
                 {
-                    nom:'8',
-                    clicked:false
+                    nom: '8',
+                    clicked: false
                 },
                 {
-                    nom:'9',
-                    clicked:false
+                    nom: '9',
+                    clicked: false
                 },
                 {
-                    nom:'10',
-                    clicked:false
+                    nom: '10',
+                    clicked: false
                 },
             ]
         };
         // changement des input
         this.handleNom = this.handleNom.bind(this);
         this.handleNiveau = this.handleNiveau.bind(this);
-        this.handlesoftkillbtn =this.handlesoftkillbtn.bind(this);
+        this.handlesoftkillbtn = this.handlesoftkillbtn.bind(this);
         // gestion des actions des bouttons
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
         this.addcompetence = this.addcompetence.bind(this);
@@ -79,26 +79,26 @@ export default class Competence extends React.Component {
         this.state.competence[index].niveau = value.target.value
         this.forceUpdate()
     }
-    handlesoftkillbtn(index,state){
+    handlesoftkillbtn(index, state) {
         if (state) {
-            if (this.state.softskillsize.length === 3){
+            if (this.state.softskillsize.length === 3) {
                 alert("3 softskill deja choisi")
                 return
             }
-            this.state.softskill[index].clicked=state
+            this.state.softskill[index].clicked = state
             this.state.softskillsize.push(index)
             this.forceUpdate();
             return
         }
-        else{
-            this.state.softskillsize.splice(0,1)
-            this.state.softskill[index].clicked=state
+        else {
+            this.state.softskillsize.splice(0, 1)
+            this.state.softskill[index].clicked = state
             this.forceUpdate();
             return
         }
 
-        
-        
+
+
     }
     createCompetence() {
         competence = []
@@ -135,8 +135,8 @@ export default class Competence extends React.Component {
             softskillbtn.push(
                 <div key={i} className='btn-container'>
                     {this.state.softskill[i].clicked
-                    ?<button className='btn-click'onClick={()=> {this.handlesoftkillbtn(i,false)}}>{this.state.softskill[i].nom}</button>:
-                    <button className='btn-full'onClick={()=> {this.handlesoftkillbtn(i,true)}}>{this.state.softskill[i].nom}</button>}
+                        ? <button className='btn-click' onClick={() => { this.handlesoftkillbtn(i, false) }}>{this.state.softskill[i].nom}</button> :
+                        <button className='btn-unclick' onClick={() => { this.handlesoftkillbtn(i, true) }}>{this.state.softskill[i].nom}</button>}
                 </div>
             )
         }
@@ -146,7 +146,7 @@ export default class Competence extends React.Component {
         this.createSoftkill()
         return (
             <div className='accordion'>
-
+                <div className='form'>
                     <div className='block'>
                         <h1>Compétence</h1>
                         {competence}
@@ -161,7 +161,9 @@ export default class Competence extends React.Component {
                             {softskillbtn}
                         </div>
                     </div>
-                    <button className='btn-enregistrer' onClick={this.handleEnregistrer}>enregistrer les informations</button>
+
+                    <button className='btn-enregistrer-less-margin' onClick={this.handleEnregistrer}>enregistrer les informations</button>
+                </div>
             </div>
         );
     }

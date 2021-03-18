@@ -60,7 +60,7 @@ export const data = {
         }
     ],
     softskill : [1,2,3],
-    Langue : [
+    langue : [
         {
             nom:1,
             niveau:1,
@@ -82,7 +82,7 @@ export const data = {
             ]
         },
         {
-            nom:1,
+            nom:2,
             niveau:1,
             certificat:'',
             date:'2016-01-01',
