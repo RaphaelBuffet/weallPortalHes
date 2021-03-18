@@ -1,3 +1,5 @@
+import Competence from "./Competence";
+
 export const data = {
     nom:"Raphy",
     prenom:'Buffet',
@@ -45,6 +47,46 @@ export const data = {
             poste: 'Employée de bureua',
             localite: 1,
             description:"je suis la description des taches de Bernard"
+        }
+    ],
+    competence : [
+        {
+            nom:1,
+            niveau:1
+        },
+        {
+            nom:2,
+            niveau:1
+        }
+    ],
+    softskill : [1,2,3],
+    Langue : [
+        {
+            nom:1,
+            niveau:1,
+            certificat:'DALF',
+            date:'2018-01-01',
+            sejours: [
+                {
+                    pays:'France',
+                    type:'1',
+                    debut:'2015-01-01',
+                    fin:'2016-01-01'
+                },
+                {
+                    pays:'Suisse',
+                    type:'1',
+                    debut:'2016-01-01',
+                    fin:'2018-01-01'
+                }
+            ]
+        },
+        {
+            nom:1,
+            niveau:1,
+            certificat:'',
+            date:'2016-01-01',
+            sejours: []
         }
     ]
 }
