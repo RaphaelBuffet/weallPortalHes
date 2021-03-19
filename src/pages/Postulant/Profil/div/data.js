@@ -1,5 +1,3 @@
-import Competence from "./Competence";
-
 export const data = {
     nom:"Raphy",
     prenom:'Buffet',

@@ -1,17 +1,17 @@
 export const MenuItemsMain = [
     {
         title:'Profil',
-        url:'#',
+        url:'/entreprise/profil',
         cName:'nav-links'
     },
     {
         title:'Offre',
-        url:'#',
+        url:'/entreprise/offre',
         cName:'nav-links'
     },
     {
         title:'Paramètres',
-        url:'#',
+        url:'/entreprise/parametre',
         cName:'nav-links'
     },
     {

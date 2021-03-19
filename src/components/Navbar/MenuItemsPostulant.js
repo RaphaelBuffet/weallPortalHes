@@ -1,27 +1,27 @@
 export const MenuItems = [
     {
         title:'Profil',
-        url:'profil',
+        url:'/postulant/profil',
         cName:'nav-links'
     },
     {
         title:'Filtre de Recherche',
-        url:'filtre',
+        url:'/postulant/filtre',
         cName:'nav-links'
     },
     {
         title:'Swipe',
-        url:'swipe',
+        url:'/postulant/swipe',
         cName:'nav-links'
     },
     {
         title:'Chat',
-        url:'chat',
+        url:'/postulant/chat',
         cName:'nav-links'
     },
     {
         title:'Paramètres',
-        url:'parametre',
+        url:'/postulant/parametre',
         cName:'nav-links'
     }
 ]
