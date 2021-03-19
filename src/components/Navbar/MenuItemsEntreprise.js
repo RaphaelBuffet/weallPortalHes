@@ -13,11 +13,6 @@ export const MenuItemsMain = [
         title:'Paramètres',
         url:'/entreprise/parametre',
         cName:'nav-links'
-    },
-    {
-        title:'Déconnexion',
-        url:'#',
-        cName:'nav-links'
     }
 ]
 export const MenuItemsOffre = [

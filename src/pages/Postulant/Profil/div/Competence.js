@@ -72,12 +72,14 @@ export default class Competence extends React.Component {
         this.setState({ competence: newcompetence });
     }
     handleNom(index, value) {
-        this.state.competence[index].nom = value.target.value
-        this.forceUpdate()
+        let newvalue=this.state.competence
+        newvalue[index].nom = value.target.value
+        this.setState({ competence: newvalue })
     }
     handleNiveau(index, value) {
-        this.state.competence[index].niveau = value.target.value
-        this.forceUpdate()
+        let newvalue=this.state.competence
+        newvalue[index].niveau = value.target.value
+        this.setState({ competence: newvalue })
     }
     handlesoftkillbtn(index, state) {
         if (state) {

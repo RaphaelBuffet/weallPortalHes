@@ -87,7 +87,6 @@ export default class InfoEntreprise extends React.Component {
     this.createbenef()
     return (
       <form onSubmit={this.handleEnregistrer} className='form'>
-
         <div className='line'>
           <div className='column'>
             <p className='intitulé'>Nom de l'entreprise</p>

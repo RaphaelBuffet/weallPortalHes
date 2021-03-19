@@ -39,7 +39,7 @@ export function RoutesPostulant() {
         <Route path="/offre/Chat" component={ChatEntreprise}  />
         <Route path="/entreprise/Parametre" component={ParametreEntreprise}  />
         {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
-        <Route component={ParametrePostulant} />
+        <Route component={ProfilEntreprise} />
       </Switch>
     );
   }
