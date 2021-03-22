@@ -42,7 +42,7 @@ export const data = {
             fin:'2016-07-30',
             entreprise: 'Constellium Valais Sa',
             secteurs: 1,
-            poste: 'Employée de bureua',
+            poste: 'Employée de bureau',
             localite: 1,
             description:"je suis la description des taches de Bernard"
         }

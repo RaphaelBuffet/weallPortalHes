@@ -21,28 +21,34 @@ export default class Formation extends React.Component {
     this.addFormation = this.addFormation.bind(this);
     }
     handleDateDebut(index,value) {
-        this.state.formation[index].debut=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.formation
+        newValue[index].debut=value.target.value
+        this.setState ({formation:newValue})
       }
       handleDateFin(index,value) {
-        this.state.formation[index].fin=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.formation
+        newValue[index].fin=value.target.value
+        this.setState ({formation:newValue})
       }
       handleCursus(index,value) {
-        this.state.formation[index].cursus=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.formation
+        newValue[index].cursus=value.target.value
+        this.setState ({formation:newValue})
       }
       handleInstitut(index,value) {
-        this.state.formation[index].institut=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.formation
+        newValue[index].institut=value.target.value
+        this.setState ({formation:newValue})
       }
       handleDegreEtude(index,value) {
-        this.state.formation[index].degre=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.formation
+        newValue[index].degre=value.target.value
+        this.setState ({formation:newValue})
       }
       handleDiplome(index,value) {
-        this.state.formation[index].diplome=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.formation
+        newValue[index].diplome=value.target.value
+        this.setState ({formation:newValue})
       }
     addFormation() {
         let newformation=this.state.formation
@@ -64,7 +70,7 @@ export default class Formation extends React.Component {
         for (let i = 0; i < this.state.formation.length; i++) {
             formation.push(
                 <div key={i}>
-                    <AccordionSecondary title={"Formations "+(i+1)} className='accordion-secondary'>
+                    <AccordionSecondary title={this.state.formation[i].diplome} className='accordion-secondary'>
                         <form onSubmit={this.handleEnregistrer} className='form'>
                             <div className='line-half'>
                                 <div className='column'>

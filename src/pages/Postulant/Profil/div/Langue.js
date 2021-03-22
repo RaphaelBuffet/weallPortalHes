@@ -27,37 +27,55 @@ export default class Langue extends React.Component {
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
         this.addExperience=this.addExperience.bind(this);
     }
+    SwitchCaseLangue(value) {
+        switch(value) {
+          case 0:
+            return 'Français';
+          case 1:
+            return 'Allemand';
+          case 2:
+            return 'Autre';
+        }
+    }
     handleNom(index, value) {
-        this.state.langue[index].nom = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[index].nom = value.target.value
+        this.setState ({langue:newValue})
     }
     handleNiveau(index, value) {
-        this.state.langue[index].niveau = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[index].niveau = value.target.value
+        this.setState ({langue:newValue})
     }
     handleCertificat(index, value) {
-        this.state.langue[index].certificat = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[index].certificat = value.target.value
+        this.setState ({langue:newValue})
     }
     handleDate(index, value) {
-        this.state.langue[index].date = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[index].date = value.target.value
+        this.setState ({langue:newValue})
     }
     handleNomExperience(index, value,langueid) {
-        this.state.langue[langueid].sejours[index].pays = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[langueid].sejours[index].pays = value.target.value
+        this.setState ({langue:newValue})
     }
     handleTypeExperience(index, value,langueid) {
-        this.state.langue[langueid].sejours[index].type = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[langueid].sejours[index].type = value.target.value
+        this.setState ({langue:newValue})
     }
     handleDebutExperience(index, value,langueid) {
-        this.state.langue[langueid].sejours[index].debut = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[langueid].sejours[index].debut = value.target.value
+        this.setState ({langue:newValue})
     }
     handleFinExperience(index, value,langueid) {
-        this.state.langue[langueid].sejours[index].fin = value.target.value
-        this.forceUpdate()
+        let newValue= this.state.langue
+        newValue[langueid].sejours[index].fin = value.target.value
+        this.setState ({langue:newValue})
     }
     handleEnregistrer() {
         alert('coucou')
@@ -92,6 +110,7 @@ export default class Langue extends React.Component {
         xpLangue = [];
         for (let i = 0; i < this.state.langue[langueid].sejours.length; i++) {
             xpLangue.push(
+                <div className='accordion'>
                 <div className='form'>
                     <div className='line'>
                         <div className='column'>
@@ -117,6 +136,7 @@ export default class Langue extends React.Component {
                         </div>
                     </div>
                 </div>
+                </div>
             )
             allXp[langueid]=xpLangue
         }
@@ -127,7 +147,7 @@ export default class Langue extends React.Component {
             this.createLanguageExperience(i);
             langue.push(
                 <div key={i}>
-                    <AccordionSecondary title={"langue " + (i + 1)} className='accordion-secondary'>
+                    <AccordionSecondary title={this.SwitchCaseLangue(this.state.langue[i].nom)} className='accordion-secondary'>
                         <div className='form'>
                             <div className='line'>
                                 <div className='column'>

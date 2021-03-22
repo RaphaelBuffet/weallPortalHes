@@ -24,13 +24,6 @@
     margin-right: 2em;
     margin-left: 1em;
 }
-.input-mono {
-    flex: 1;
-    width: 45%;
-    margin-top: 1em;
-    margin-right: 2em;
-    margin-left: 1em;
-}
 .line-double {
     columns: 2;
     width: 100%;

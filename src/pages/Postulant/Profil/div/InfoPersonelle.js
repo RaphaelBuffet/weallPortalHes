@@ -75,7 +75,6 @@ export default class InfoPersonelle extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleEnregistrer} className='form'>
-
         <div className='line'>
           <div className='column'>
             <p className='intitulé'>Nom</p>

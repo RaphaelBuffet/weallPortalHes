@@ -23,32 +23,39 @@ export default class Experience extends React.Component {
     }
 
     handleDateDebut(index,value) {
-        this.state.experience[index].debut=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].debut=value.target.value
+        this.setState ({experience:newValue})
       }
       handleDateFin(index,value) {
-        this.state.formation[index].fin=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].fin=value.target.value
+        this.setState ({experience:newValue})
       }
       handleEntreprise(index,value) {
-        this.state.formation[index].entreprise=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].entreprise=value.target.value
+        this.setState ({experience:newValue})
       }
       handleSecteurs(index,value) {
-        this.state.formation[index].secteurs=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].secteurs=value.target.value
+        this.setState ({experience:newValue})
       }
       handlePoste(index,value) {
-        this.state.formation[index].poste=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].poste=value.target.value
+        this.setState ({experience:newValue})
       }
       handleLocalite(index,value) {
-        this.state.formation[index].localite=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].localite=value.target.value
+        this.setState ({experience:newValue})
       }
       handleDescription(index,value) {
-        this.state.formation[index].descritpion=value.target.value
-        this.forceUpdate()
+        let newValue= this.state.experience
+        newValue[index].description=value.target.value
+        this.setState ({experience:newValue})
       }
     addExperience() {
         let newexperience=this.state.experience
@@ -71,7 +78,7 @@ export default class Experience extends React.Component {
         for (let i = 0; i < this.state.experience.length; i++) {
             experience.push(
                 <div key={i}>
-                    <AccordionSecondary title={"Expérience professionelle " + (i + 1)} className='accordion-secondary'>
+                    <AccordionSecondary title={this.state.experience[i].poste+" chez "+this.state.experience[i].entreprise} className='accordion-secondary'>
                         <form onSubmit={this.handleEnregistrer} className='form'>
                             <div className='line-half'>
                                 <div className='column'>

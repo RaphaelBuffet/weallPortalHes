@@ -87,20 +87,23 @@ export default class Competence extends React.Component {
                 alert("3 softskill deja choisi")
                 return
             }
-            this.state.softskill[index].clicked = state
-            this.state.softskillsize.push(index)
-            this.forceUpdate();
+            let newState=this.state.softskill;
+            newState[index].clicked=state
+            this.setState({ softskill: newState })
+            newState=this.state.softskillsize
+            newState.push(index)
+            this.setState({ softskillsize: newState })
             return
         }
         else {
-            this.state.softskillsize.splice(0, 1)
-            this.state.softskill[index].clicked = state
-            this.forceUpdate();
+            let newState=this.state.softskillsize;
+            newState.splice(0, 1)
+            this.setState ({ softskillsize: newState })
+            newState=this.state.softskill
+            newState[index].clicked=state
+            this.setState ({softskill: newState})
             return
         }
-
-
-
     }
     createCompetence() {
         competence = []
@@ -147,7 +150,6 @@ export default class Competence extends React.Component {
         this.createCompetence()
         this.createSoftkill()
         return (
-            <div className='accordion'>
                 <div className='form'>
                     <div className='block'>
                         <h1>Compétence</h1>
@@ -166,7 +168,6 @@ export default class Competence extends React.Component {
 
                     <button className='btn-enregistrer-less-margin' onClick={this.handleEnregistrer}>enregistrer les informations</button>
                 </div>
-            </div>
         );
     }
 }

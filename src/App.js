@@ -5,7 +5,7 @@ import {RoutesPostulant,RoutesEntreprises} from './routes';
 import Footer from './components/Footer/Footer';
 import './App.css'
 let state={
-  isentreprise:true
+  isentreprise:false
 }
 function App() {
   return (
