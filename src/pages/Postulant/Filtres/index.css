@@ -3,6 +3,13 @@
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
 .main-page {
   padding-left: 1em;
   padding-right: 1em;
@@ -159,4 +166,14 @@
 }
 .display {
   display: flex;
+}
+.info {
+  display: flex;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.icon {
+  margin-right: 1em;
 }
