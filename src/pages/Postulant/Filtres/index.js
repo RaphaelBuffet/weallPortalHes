@@ -3,7 +3,6 @@ import Navbar from '../../../components/Navbar/NavbarPostulant'
 import './index.css';
 import Select from 'react-select';
 import { FaInfoCircle } from 'react-icons/fa';
-import { render } from '@testing-library/react';
 import { data } from './data'
 
 
