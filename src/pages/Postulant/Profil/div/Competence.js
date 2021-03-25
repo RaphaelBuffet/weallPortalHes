@@ -71,6 +71,11 @@ export default class Competence extends React.Component {
         })
         this.setState({ competence: newcompetence });
     }
+    removeCompetence(index) {
+        let newcompetence = this.state.competence
+        newcompetence.splice(index,1)
+        this.setState({ competence: newcompetence });
+    }
     handleNom(index, value) {
         let newvalue=this.state.competence
         newvalue[index].nom = value.target.value
@@ -129,7 +134,11 @@ export default class Competence extends React.Component {
                                 <option value="5">C2</option>
                             </select>
                         </div>
+                        
                     </div>
+                    <div className='flex-div'>
+                        <button className='btn-supprimer' onClick={()=>this.removeCompetence(i)}> Supprimer cette compétence</button>
+                        </div>
                 </div>
             )
         }
@@ -153,14 +162,17 @@ export default class Competence extends React.Component {
                 <div className='form'>
                     <div className='block'>
                         <h1>Compétence</h1>
-                        {competence}
+                        {this.state.competence.length===0
+                        ?<p className='text-bold'>Vous n'avez pas renseigner de compétence</p>
+                        :competence   
+                    }
                     </div>
 
                     <div>
                         <button className='btn-full' onClick={this.addcompetence}>ajouter une competence</button>
                     </div>
                     <div className='block'>
-                        <h1>softskill (séléctionner maximum 3)</h1>
+                        <h1>Softskill (maximum 3)</h1>
                         <div className='line5'>
                             {softskillbtn}
                         </div>

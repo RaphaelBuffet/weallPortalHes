@@ -16,7 +16,7 @@ export const data = {
             cursus: 1,
             institut: 1,
             degre: 1,
-            diplome: 'informatique de gestion'
+            diplome: 'Informatique de gestion'
         },
         {
             debut:'2012-08-01',

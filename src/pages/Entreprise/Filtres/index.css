@@ -173,3 +173,13 @@ h2 {
 .icon {
   margin-right: 1em;
 }
+.inputlong-mono {
+  flex: 1;
+  width: 95%;
+  margin-top: 1em;
+  margin-right: 2em;
+  resize: none;
+  height: 7em;
+  background-color: rgb(196, 195, 195);
+  margin-left: 1em;
+}
