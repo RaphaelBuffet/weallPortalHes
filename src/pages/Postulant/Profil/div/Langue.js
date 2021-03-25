@@ -2,7 +2,6 @@ import React from 'react'
 import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
 import './form.css'
 import { data } from './data'
-import { MdLocationOff } from 'react-icons/md';
 var langue = [];
 var xpLangue = [];
 var allXp =[];
@@ -198,7 +197,7 @@ export default class Langue extends React.Component {
                             <div className='line-simple'>
                                 <button className='btn-full'onClick={()=>{this.addExperience(i)}}>ajouter une experience/sejour lingusitique</button>
                             </div>
-                            {this.state.langue[i].sejours.length!=0
+                            {this.state.langue[i].sejours.length!==0
                                 ? allXp[i]
                                 : null}
                            <div className='flex-div'>

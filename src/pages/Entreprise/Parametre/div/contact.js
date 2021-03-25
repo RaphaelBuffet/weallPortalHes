@@ -54,7 +54,7 @@ export default class Contact extends React.Component {
                         </select>
                     </div>
                 </div>
-                <textarea value={this.state.message} onChange={this.handleDescription} onChange={this.handleMessage} className='inputlong-mono' placeholder='Message' />
+                <textarea value={this.state.message} onChange={this.handleMessage} className='inputlong-mono' placeholder='Message' />
                 <button className='btn-enregistrer' onClick={this.handleEnregistrer}>envoyer</button>
             </div>
         );
