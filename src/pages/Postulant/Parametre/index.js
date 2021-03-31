@@ -10,8 +10,9 @@ function App() {
       <Navbar/>
     </div>
     <div className="main-page">
-    <h1>Parametre</h1>
-    
+    <div className="section">
+    <h1>Paramètre</h1>
+    </div>
     <div className="section">
       <Accordion title="Aide et contact">
           <Contact/>

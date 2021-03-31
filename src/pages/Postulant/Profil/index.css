@@ -13,5 +13,11 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+}
+.recherche {
+  border-style: groove;
+  padding-left: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgb(221, 236, 195);
 }

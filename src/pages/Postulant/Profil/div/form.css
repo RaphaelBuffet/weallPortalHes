@@ -10,9 +10,21 @@
     flex-direction: column;
     margin-top: 1em;
 }
-.line-half {
-    columns: 2;
+.line-alone {
+    columns: 1;
     width: 50%;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.line-half {
+    columns: 3;
+    width: 50%;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.line-3 {
+    columns: 3;
+    width: 67%;
     flex-direction: column;
     margin-top: 1em;
 }
@@ -56,6 +68,7 @@
     width: 100%;
     border-style: ridge;
     padding-bottom: 1em;
+    padding-top: 1em;
 }
 .img {
     flex: 1;

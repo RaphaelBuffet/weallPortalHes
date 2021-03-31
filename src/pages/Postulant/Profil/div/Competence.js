@@ -161,18 +161,18 @@ export default class Competence extends React.Component {
         return (
                 <div className='form'>
                     <div className='block'>
-                        <h1>Compétence</h1>
+                        <h1>Compétence technique</h1>
                         {this.state.competence.length===0
-                        ?<p className='text-bold'>Vous n'avez pas renseigner de compétence</p>
+                        ?<p className='text-bold'>Vous n'avez pas renseigner de compétence technique</p>
                         :competence   
                     }
                     </div>
 
                     <div>
-                        <button className='btn-full' onClick={this.addcompetence}>ajouter une competence</button>
+                        <button className='btn-full' onClick={this.addcompetence}>ajouter une competence technique</button>
                     </div>
                     <div className='block'>
-                        <h1>Softskill (maximum 3)</h1>
+                        <h1>Softskill (Compétence non technique) maximum 3</h1>
                         <div className='line5'>
                             {softskillbtn}
                         </div>

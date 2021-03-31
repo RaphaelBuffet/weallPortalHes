@@ -99,6 +99,7 @@ export default class Formation extends React.Component {
                                     <select value={this.state.formation[i].cursus} onChange={(value) => this.handleCursus(i, value)} className='input'>
                                         <option value="0">Universiatire</option>
                                         <option value="1">Haute école spécialisée</option>
+                                        <option value="2">Autre (Par exemple étude a l'étranger)</option>
                                     </select>
                                 </div>
                                 <div className='column'>

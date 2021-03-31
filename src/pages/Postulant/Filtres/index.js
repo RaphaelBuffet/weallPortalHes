@@ -27,8 +27,11 @@ export default class Filtres extends React.Component {
         <Navbar />
       </div>
       <div className='main-page'>
+        <div className='section'>
         <h1>Filtre de recherche</h1>
         <p>&gt; Sélectionnez les filtres de recherche pour découvrir des offres adaptées</p>
+        </div>
+        <div className='section'>
         <div className='form'>
           <div className='display'>
             <div className='select'>
@@ -150,6 +153,7 @@ export default class Filtres extends React.Component {
         <button className='btn-enregistrer-less-margin'>
           enregistrer les filtres
         </button>
+      </div>
       </div>
     </div>
     );

@@ -16,12 +16,18 @@ export default class Experience extends React.Component {
         this.handleSecteurs = this.handleSecteurs.bind(this);
         this.handlePoste = this.handlePoste.bind(this);
         this.handleLocalite = this.handleLocalite.bind(this);
+        this.handlePays = this.handlePays.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
+        this.handleActuelle = this.handleActuelle.bind(this);
         // gestion des actions des bouttons
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
         this.addExperience = this.addExperience.bind(this);
     }
-
+    handleActuelle(index) {
+        let newValue = this.state.experience
+        newValue[index].actuelle = !this.state.experience[index].actuelle
+        this.setState({ experience: newValue })
+    }
     handleDateDebut(index, value) {
         let newValue = this.state.experience
         newValue[index].debut = value.target.value
@@ -50,6 +56,11 @@ export default class Experience extends React.Component {
     handleLocalite(index, value) {
         let newValue = this.state.experience
         newValue[index].localite = value.target.value
+        this.setState({ experience: newValue })
+    }
+    handlePays(index, value) {
+        let newValue = this.state.experience
+        newValue[index].pays = value.target.value
         this.setState({ experience: newValue })
     }
     handleDescription(index, value) {
@@ -85,15 +96,29 @@ export default class Experience extends React.Component {
                 <div key={i}>
                     <AccordionSecondary title={this.state.experience[i].poste + " chez " + this.state.experience[i].entreprise} className='accordion-secondary'>
                         <div className='form'>
+                            <div clasname="inputmonoline">
+                                <input type="checkbox" checked={this.state.experience[i].actuelle} onChange={() => this.handleActuelle(i)} className='intitulé' />
+                                <label className='intitulé'> Poste actuelle</label>
+                            </div>
+
                             <div className='line-half'>
                                 <div className='column'>
                                     <p className='intitulé'>Date de début</p>
                                     <input type="date" value={this.state.experience[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='input' />
                                 </div>
-                                <div className='column'>
-                                    <p className='intitulé'>Date de fin</p>
-                                    <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' />
-                                </div>
+                                {
+                                    this.state.experience[i].actuelle ?
+                                        <div className='column'>
+                                            <p className='intitulé'>Date de fin</p>
+                                            <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' disabled='true' />
+                                        </div>
+                                        : <div className='column'>
+                                            <p className='intitulé'>Date de fin</p>
+                                            <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' />
+                                        </div>
+                                }
+
+
                             </div>
                             <div className='line'>
                                 <div className='column'>
@@ -115,14 +140,27 @@ export default class Experience extends React.Component {
                                     <input type="text" value={this.state.experience[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>localité</p>
-                                    <select value={this.state.experience[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
-                                        <option value="0">Sion</option>
-                                        <option value="1">Sierre</option>
-                                        <option value="2">Martigny</option>
+                                    <p className='intitulé'>Pays</p>
+                                    <select value={this.state.experience[i].pays} onChange={(value) => this.handlePays(i, value)} className='input'>
+                                        <option value="0">Suisse</option>
+                                        <option value="1">France</option>
+                                        <option value="2">Allemagne</option>
                                     </select>
                                 </div>
                             </div>
+                            {this.state.experience[i].pays === "0" ?
+                                <div className='line-alone'>
+                                    <div className='column'>
+                                        <p className='intitulé'>Localité</p>
+                                        <select value={this.state.experience[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
+                                            <option value="0">Sion</option>
+                                            <option value="1">Sierre</option>
+                                            <option value="2">Martigny</option>
+                                        </select>
+                                    </div>
+                                </div> : null
+                            }
+
                             <div className='line-simple'>
                                 <div className='column'>
                                     <p className='intitulé'>Tâches principales</p>

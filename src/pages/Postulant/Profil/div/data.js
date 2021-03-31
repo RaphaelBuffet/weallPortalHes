@@ -35,7 +35,9 @@ export const data = {
             secteurs: 1,
             poste: 'Stagiaire',
             localite: 1,
-            description:"je suis la description des taches de Bernard"
+            description:"je suis la description des taches de Bernard",
+            actuelle:true,
+            pays:0
         },
         {
             debut:'2012-08-01',
@@ -44,7 +46,9 @@ export const data = {
             secteurs: 1,
             poste: 'Employée de bureau',
             localite: 1,
-            description:"je suis la description des taches de Bernard"
+            description:"je suis la description des taches de Bernard",
+            actuelle:false,
+            pays:1
         }
     ],
     competence : [
