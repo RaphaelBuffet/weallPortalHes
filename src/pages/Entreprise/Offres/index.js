@@ -14,37 +14,42 @@ class App extends React.Component {
     }
   }
   handlePoste(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].poste = value.target.value
     this.setState({ offre: newvalue })
   }
+  handleLocalite(index, value) {
+    let newvalue = this.state.offre
+    newvalue[index].localite = value.target.value
+    this.setState({ offre: newvalue })
+  }
   handleTaux(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].taux = value.target.value
     this.setState({ offre: newvalue })
   }
   handleContrat(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].contrat = value.target.value
     this.setState({ offre: newvalue })
   }
   handleDuree(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].duree = value.target.value
     this.setState({ offre: newvalue })
   }
   handleDisponibilite(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].dispo = value.target.value
     this.setState({ offre: newvalue })
   }
   handleSalaire(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].salaire = value.target.value
     this.setState({ offre: newvalue })
   }
   handleUrl(index, value) {
-    let newvalue=this.state.offre
+    let newvalue = this.state.offre
     newvalue[index].url = value.target.value
     this.setState({ offre: newvalue })
   }
@@ -64,10 +69,19 @@ class App extends React.Component {
       dispo: '2021-01-01',
       salaire: 0,
       url: '',
-      publish: false
+      publish: false,
+      localite: ''
     }
     )
     this.setState({ offre: newoffre })
+  }
+  removeOffre(index) {
+    let newoffre = this.state.offre
+    newoffre.splice(index, 1)
+    this.setState({ offre: newoffre })
+  }
+  handleEnregistrer(){
+    alert("offre enregistrer")
   }
   DisplayOffre() {
     offres = []
@@ -79,11 +93,11 @@ class App extends React.Component {
               <div className='line'>
                 <div className='column'>
                   <p className='intitulé'>Titre du poste</p>
-                  <input type="text" value={this.state.offre[i].poste} onChange={(value)=>this.handlePoste(i,value)} className='input' />
+                  <input type="text" value={this.state.offre[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
                 </div>
                 <div className='column'>
                   <p className='intitulé'>Taux d'activité</p>
-                  <select value={this.state.offre[i].taux} onChange={(value)=>this.handleTaux(i,value)} className='input'>
+                  <select value={this.state.offre[i].taux} onChange={(value) => this.handleTaux(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
                     <option value="2">Autre</option>
@@ -93,7 +107,7 @@ class App extends React.Component {
               <div className='line'>
                 <div className='column'>
                   <p className='intitulé'>Contrat</p>
-                  <select value={this.state.offre[i].contrat} onChange={(value)=>this.handleContrat(i,value)} className='input'>
+                  <select value={this.state.offre[i].contrat} onChange={(value) => this.handleContrat(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
                     <option value="2">Autre</option>
@@ -101,7 +115,7 @@ class App extends React.Component {
                 </div>
                 <div className='column'>
                   <p className='intitulé'>Durée</p>
-                  <select value={this.state.offre[i].duree} onChange={(value)=>this.handleDuree(i,value)} className='input'>
+                  <select value={this.state.offre[i].duree} onChange={(value) => this.handleDuree(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
                     <option value="2">Autre</option>
@@ -111,11 +125,11 @@ class App extends React.Component {
               <div className='line'>
                 <div className='column'>
                   <p className='intitulé'>Disponibilité</p>
-                  <input type="date" value={this.state.offre[i].dispo} onChange={(value)=>this.handleDisponibilite(i,value)} className='input' />
+                  <input type="date" value={this.state.offre[i].dispo} onChange={(value) => this.handleDisponibilite(i, value)} className='input' />
                 </div>
                 <div className='column'>
                   <p className='intitulé'>Fourchette de salaire</p>
-                  <select value={this.state.offre[i].salaire} onChange={(value)=>this.handleSalaire(i,value)} className='input'>
+                  <select value={this.state.offre[i].salaire} onChange={(value) => this.handleSalaire(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
                     <option value="2">Autre</option>
@@ -125,17 +139,26 @@ class App extends React.Component {
               <div className='line'>
                 <div className='column'>
                   <p className='intitulé'>Lien de votre cahier des charges</p>
-                  <input type="text" value={this.state.offre[i].url} onChange={(value)=>this.handleUrl(i,value)} className='input' />
+                  <input type="text" value={this.state.offre[i].url} onChange={(value) => this.handleUrl(i, value)} className='input' />
                 </div>
                 <div className='column'>
-                  <button className='btn-enregistrer'>Enregistrer l'offre </button>
-                  <div className='toogle'>
+                  <p className='intitulé'>Localite</p>
+                  <select value={this.state.offre[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
+                    <option value="0">Sion</option>
+                    <option value="1">Sierre</option>
+                    <option value="2">Autre</option>
+                  </select>
+                </div>
+              </div>
+              <div className='toogle'>
                     <FormControlLabel
                       control={<Switch checked={this.state.offre[i].publish} onChange={() => this.handleToogle(i)} name="checkedA" />}
                       label={this.state.offre[i].publish ? 'offre actuellement active' : 'offre actuellement inactive'}
                     />
                   </div>
-                </div>
+              <div className='flex-div'>
+                <button className='btn-supprimer' onClick={() => this.removeOffre(i)}> Supprimer cette offre</button>
+                <button className='btn-enregistrer' onClick={this.handleEnregistrer}> Enregistrer cette offre</button>
               </div>
             </div>
           </Accordion>
@@ -151,9 +174,14 @@ class App extends React.Component {
           <Navbar />
         </div>
         <div className="main-page">
-          <h1>Offres</h1>
+        <div className="section">
+          <h1>Vos Offres</h1>
+          <p>&gt; Créez vos offres d'emplois</p>
+          </div>
           <div className="section">
-            {offres}
+            {this.state.offre.length===0
+            ?<p className='text-bold'>Vous n'avez aucune offre répertorié</p>
+            :offres}
           </div>
           <div className="section">
             <button className='btn-full' onClick={() => this.addOffre()}>ajouter une nouvelle offre</button>

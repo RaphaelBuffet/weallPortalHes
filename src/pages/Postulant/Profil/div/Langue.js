@@ -2,7 +2,6 @@ import React from 'react'
 import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
 import './form.css'
 import { data } from './data'
-import { MdLocationOff } from 'react-icons/md';
 var langue = [];
 var xpLangue = [];
 var allXp =[];
@@ -91,18 +90,32 @@ export default class Langue extends React.Component {
         })
         this.setState({ langue: newLangue });
     }
+    removeLangue(index) {
+        if(this.state.langue.length>1){
+            let newLangue = this.state.langue
+            newLangue.splice(index, 1)
+            this.setState({ langue: newLangue });
+        }
+        else{
+            alert("Vous ne pouvez pas supprimer cette langue car vous devez renseigner au minimum votre langue maternelle")
+        }
+    }
     addExperience(langueid) {
-        let newExperience= this.state.langue[langueid].sejours
-        newExperience.push({
+        let newLangue = this.state.langue
+        newLangue[langueid].sejours.push({
             pays:'',
             type:'0',
             debut:'2020-01-01',
             fin:'2021-01-01'
         })
-        this.state.langue[langueid].sejours=newExperience
-        this.forceUpdate()
-        
+        this.setState({langue: newLangue})
     }
+    removeExperience(langueid,index) {
+        let newLangue = this.state.langue
+        newLangue[langueid].sejours.splice(index,1)
+        this.setState({langue: newLangue})
+    }
+    
     handlehavexp() {
         this.setState({ havexp: !this.state.havexp })
     }
@@ -135,6 +148,7 @@ export default class Langue extends React.Component {
                             <input type="date" value={this.state.langue[langueid].sejours[i].fin} onChange={(value) => this.handleFinExperience(i, value,langueid)} className='input' />
                         </div>
                     </div>
+                    <button className='btn-supprimer' onClick={()=>this.removeExperience(langueid,i)}> Supprimer cette experience</button>
                 </div>
                 </div>
             )
@@ -167,6 +181,7 @@ export default class Langue extends React.Component {
                                         <option value="3">B2</option>
                                         <option value="4">C1</option>
                                         <option value="5">C2</option>
+                                        <option value="6">maternelle</option>
                                     </select>
                                 </div>
                             </div>
@@ -183,10 +198,13 @@ export default class Langue extends React.Component {
                             <div className='line-simple'>
                                 <button className='btn-full'onClick={()=>{this.addExperience(i)}}>ajouter une experience/sejour lingusitique</button>
                             </div>
-                            {this.state.langue[i].sejours.length!=0
+                            {this.state.langue[i].sejours.length!==0
                                 ? allXp[i]
                                 : null}
-                           <button className='btn-enregistrer' onClick={this.handleEnregistrer}>enregistrer les informations</button> 
+                           <div className='flex-div'>
+                                <button className='btn-supprimer' onClick={()=>this.removeLangue(i)}> Supprimer cette langue</button>
+                                <button className='btn-enregistrer' onClick={this.handleEnregistrer}> Enregistrer cette langue</button>
+                            </div>
                         </div>
                     </AccordionSecondary>
                 </div>

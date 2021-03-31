@@ -3,6 +3,13 @@
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
 .main-page {
   padding-left: 1em;
   padding-right: 1em;
@@ -16,7 +23,6 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
 }
 .line {
   columns: 2;
@@ -38,11 +44,11 @@
 }
 .input {
   flex: 1;
-  width: 90%;
+  width: 80%;
   margin-top: 1em;
   margin-right: 2em;
   margin-left: 1em;
-  height: 3em;
+  height: 2em;
 }
 .line-double {
   columns: 2;
@@ -108,7 +114,7 @@
   margin-top: 1em;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 90%;
   text-align: center;
 }
 .accordion-secondary{
@@ -146,17 +152,23 @@
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
-.column {
-  display: grid;
-  background-color: chartreuse;
-}
 .select {
-  width: 48%;
+  width: 45%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 4em;
+}
+.display {
+  display: flex;
+}
+.info {
+  display: flex;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 1em;
   margin-right: 1em;
 }
-.display {
-  display: flex;
+.icon {
+  margin-right: 1em;
 }

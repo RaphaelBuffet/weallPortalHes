@@ -10,30 +10,23 @@ export const MenuItemsMain = [
         cName:'nav-links'
     },
     {
+        title:'Filtre',
+        url:'/offre/filtre',
+        cName:'nav-links'
+    },
+    {
+        title:'Swipe',
+        url:'/offre/swipe',
+        cName:'nav-links'
+    },
+    {
+        title:'Chat',
+        url:'/offre/chat',
+        cName:'nav-links'
+    },
+    {
         title:'Paramètres',
         url:'/entreprise/parametre',
-        cName:'nav-links'
-    }
-]
-export const MenuItemsOffre = [
-    {
-        title:'Profil',
-        url:'#',
-        cName:'nav-links'
-    },
-    {
-        title:'Offre',
-        url:'#',
-        cName:'nav-links'
-    },
-    {
-        title:'Paramètres',
-        url:'#',
-        cName:'nav-links'
-    },
-    {
-        title:'Déconnexion',
-        url:'#',
         cName:'nav-links'
     }
 ]

@@ -22,7 +22,7 @@ const Accordion = (props) => {
                     <div className="Wrap" onClick={() => {
                         toggle()
                     }}>
-                        <h1>{title}</h1>
+                        <h2>{title}</h2>
                         <span>
                             {clicked ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                         </span>
@@ -57,7 +57,7 @@ export const AccordionSecondary = (props) => {
                     <div className="Wrap-secondary" onClick={() => {
                         toggle()
                     }}>
-                        <h1>{title}</h1>
+                        <h2>{title}</h2>
                         <span>
                             {clicked ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                         </span>

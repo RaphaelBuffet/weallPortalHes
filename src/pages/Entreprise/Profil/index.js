@@ -15,7 +15,10 @@ function App() {
         <Navbar />
       </div>
       <div className="main-page">
-        <h1>Profil</h1>
+      <div className="section">
+          <h1>Votre Profil</h1>
+          <p>&gt; Créez le profil de votre entreprise</p>
+          </div>
         <div className="section">
           <Accordion title="Infomations De l'entreprise">
             <InfoEntreprise />

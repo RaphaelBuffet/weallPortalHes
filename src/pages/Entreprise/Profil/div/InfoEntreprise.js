@@ -126,6 +126,24 @@ export default class InfoEntreprise extends React.Component {
             <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlongmonoline'/>
           </div>
         </div>
+        <div className='line-simple'>
+                <p className='intitulé'>Adresse</p>
+                <input type="text" value={this.state.adresse} onChange={this.handleAdresse} className='inputmonoline'/>
+                <input type="text" value={this.state.adresseSuplement} onChange={this.handleAdresseSuplement} className='inputmonoline'/>
+            </div>
+    
+            <div className='line-double'>
+              <div className='column'>
+                <input type="text" value={this.state.npa} onChange={this.handleNpa} className='input' placeholder='code postal' />
+              </div>
+              <div className='column'>
+              <select value={this.state.localité} onChange={this.handleLocalite} className='input'>
+                <option value="0">Sion</option>
+                <option value="1">Sierre</option>
+                <option value="2">Autre</option>
+              </select>
+              </div>
+            </div>
 
         <div className='line'>
           <div className='column'>
