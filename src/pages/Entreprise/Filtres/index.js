@@ -24,6 +24,11 @@ export default class Filtres extends React.Component {
     })
     this.setState({ langues: newLangue })
   }
+  deleteLangue(index) {
+    let newLangue = this.state.langue
+    newLangue.splice(index,1)
+    this.setState({ langues: newLangue })
+  }
   handleLangueName(index, value) {
     let newlangue = this.state.langue
     newlangue[index].nom = value.target.value
@@ -62,7 +67,7 @@ export default class Filtres extends React.Component {
 
           </div>
           <div className='line'>
-            <button className='btn-enregistrer'>supprimer</button>
+            <button className='btn-enregistrer' onClick={()=>this.deleteLangue(i)}>supprimer</button>
           </div>
         </div>
 
@@ -138,7 +143,7 @@ export default class Filtres extends React.Component {
           </div>
           {langues}
           <div>
-            <button className='btn-full' onClick={() => this.addLangue()}>ajouter une langue</button>
+            <button className='btn-full' onClick={() => this.addLangue()}>Ajouter une langue à filtrer</button>
           </div>
           <div className='info'>
             <FaInfoCircle className='icon' />

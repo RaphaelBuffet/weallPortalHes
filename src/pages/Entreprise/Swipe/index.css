@@ -3,3 +3,45 @@
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
+.titre{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-page {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  border-style: ridge;
+  padding-bottom: 1em;
+  margin-top: 1em;
+}
+.explication {
+  background-color: rgb(226, 226, 226);
+  border-style: ridge;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.paragraphe {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+.section-bordered {
+  border-style: ridge;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  margin-top: 1em;
+}

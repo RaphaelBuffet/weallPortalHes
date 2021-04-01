@@ -158,6 +158,7 @@ class App extends React.Component {
                   </div>
               <div className='flex-div'>
                 <button className='btn-supprimer' onClick={() => this.removeOffre(i)}> Supprimer cette offre</button>
+                <button className='btn-selection' onClick={()=> this.changeCurrentOffre(i)}>Sélectionner cette offre</button>
                 <button className='btn-enregistrer' onClick={this.handleEnregistrer}> Enregistrer cette offre</button>
               </div>
             </div>
