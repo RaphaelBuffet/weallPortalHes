@@ -16,52 +16,58 @@ export default class Filtres extends React.Component {
       langue: data.langue
     }
   }
-  addLangue(){
-    let newLangue=this.state.langue
-    newLangue.push( {
-      nom:'0',
-      niveau:'0'
+  addLangue() {
+    let newLangue = this.state.langue
+    newLangue.push({
+      nom: '0',
+      niveau: '0'
     })
-    this.setState({langues:newLangue})
+    this.setState({ langues: newLangue })
   }
-  handleLangueName(index,value){
-    let newlangue=this.state.langue
-    newlangue[index].nom=value.target.value
-    this.setState({langues:newlangue})
+  handleLangueName(index, value) {
+    let newlangue = this.state.langue
+    newlangue[index].nom = value.target.value
+    this.setState({ langues: newlangue })
   }
-  handleLangueNiveau(index,value){
-    let newlangue=this.state.langue
-    newlangue[index].niveau=value.target.value
-    this.setState({langues:newlangue})
+  handleLangueNiveau(index, value) {
+    let newlangue = this.state.langue
+    newlangue[index].niveau = value.target.value
+    this.setState({ langues: newlangue })
   }
   createLangue() {
     langues = []
     for (let i = 0; i < this.state.langue.length; i++) {
       langues.push(
-        <div className='line'>
-          <div className='column'>
-            <h2 className='intitulé'>Langue</h2>
-            <select value={this.state.langue[i].nom} onChange={(value) => this.handleLangueName(i, value)} className='input'>
-              <option value='0'>Français</option>
-              <option value='1'>Allemand</option>
-              <option value='2'>Anglais</option>
-            </select>
+        <div>
+          <div className='line'>
+            <div className='column'>
+              <h2 className='intitulé'>Langue</h2>
+              <select value={this.state.langue[i].nom} onChange={(value) => this.handleLangueName(i, value)} className='input'>
+                <option value='0'>Français</option>
+                <option value='1'>Allemand</option>
+                <option value='2'>Anglais</option>
+              </select>
+            </div>
+            <div className='column'>
+              <h2 className='intitulé'>Niveau</h2>
+              <select value={this.state.langue[i].niveau} onChange={(value) => this.handleLangueNiveau(i, value)} className='input'>
+                <option value="0">A1</option>
+                <option value="1">A2</option>
+                <option value="2">B1</option>
+                <option value="3">B2</option>
+                <option value="4">C1</option>
+                <option value="5">C2</option>
+              </select>
+            </div>
+
           </div>
-          <div className='column'>
-            <h2 className='intitulé'>Niveau</h2>
-            <select value={this.state.langue[i].niveau} onChange={(value) => this.handleLangueNiveau(i, value)} className='input'>
-              <option value="0">A1</option>
-              <option value="1">A2</option>
-              <option value="2">B1</option>
-              <option value="3">B2</option>
-              <option value="4">C1</option>
-              <option value="5">C2</option>
-            </select>
+          <div className='line'>
+            <button className='btn-enregistrer'>supprimer</button>
           </div>
         </div>
+
       )
     }
-
 
   }
   render() {
@@ -132,7 +138,7 @@ export default class Filtres extends React.Component {
           </div>
           {langues}
           <div>
-            <button className='btn-full' onClick={()=>this.addLangue()}>ajouter une langue</button>
+            <button className='btn-full' onClick={() => this.addLangue()}>ajouter une langue</button>
           </div>
           <div className='info'>
             <FaInfoCircle className='icon' />
