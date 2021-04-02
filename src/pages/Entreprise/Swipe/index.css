@@ -45,3 +45,29 @@
   width: 95%;
   margin-top: 1em;
 }
+.test {
+  width: 95%;
+  border-style: ridge;
+  margin-top: 1em;
+  display: flex;
+  align-content: space-between;
+  background-color: lawngreen;
+  height: 100vh;
+  }
+.btn-refus {
+  background-color: green;
+  height: 100%;
+  border-style: solid;
+  border-width: 4px;
+}
+.btn-accepter {
+  background-color: red;
+  height: 100%;
+  border-style: solid;
+  border-width: 4px;
+}
+.profil {
+  margin-right: auto;
+  margin-left:auto;
+  width:92%
+}
