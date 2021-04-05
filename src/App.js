@@ -3,7 +3,7 @@ import { Router } from 'react-router-dom'
 import history from './services/history';
 import {RoutesPostulant,RoutesEntreprises} from './routes';
 import Footer from './components/Footer/Footer';
-import './App.css'
+import '../src/styles/app.css'
 
 class App extends React.Component{
   constructor(props) {

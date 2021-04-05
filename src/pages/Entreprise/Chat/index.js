@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
-import './index.css';
+import '../../../styles/chat.css';
 
-function App() {
+function Chat() {
   return (<div>
     <div className="App">
       <Navbar/>
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default Chat;
