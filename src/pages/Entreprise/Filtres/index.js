@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
-import './index.css';
+import '../../../styles/filtre.css';
 import Select from 'react-select';
 import { data } from './data'
 import { FaInfoCircle } from 'react-icons/fa';

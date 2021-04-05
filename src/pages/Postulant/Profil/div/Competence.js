@@ -1,5 +1,5 @@
 import React from 'react'
-import './form.css'
+import '../../../../styles/profil.css';
 import { data } from './data'
 var competence = [];
 var softskillbtn = [];

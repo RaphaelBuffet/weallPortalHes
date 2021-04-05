@@ -1,4 +1,8 @@
-.abonnementcontainer {
+.text-bold {
+    padding-left: 0.5em;
+    font-weight: bold
+  }
+  .abonnementcontainer {
     display: flex;
     width: 95%;
     margin-left: auto;

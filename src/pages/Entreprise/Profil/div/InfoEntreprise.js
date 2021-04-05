@@ -1,5 +1,5 @@
 import React from 'react'
-import './form.css'
+import '../../../../styles/profil.css'
 import {data} from './data'
 import download from '../../../../image/logo.png'
 var benefice=[]

@@ -1,5 +1,5 @@
 import React from 'react'
-import './abonnement.css'
+import '../../../../styles/parametre.css';
 export default class Contact extends React.Component {
     constructor(props) {
         super(props);

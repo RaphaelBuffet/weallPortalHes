@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
-import './index.css';
+import '../../../styles/profil.css'
 import { data } from './data'
 import Accordion from '../../../components/Accordion/Accordion'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
