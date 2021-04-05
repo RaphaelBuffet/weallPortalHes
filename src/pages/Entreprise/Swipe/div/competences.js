@@ -24,19 +24,19 @@ export default class competences extends React.Component {
             competencesView.push(
                 <div key={i}>
                     <div className='line-4'>
-                        <div className='columnLeft'>
+                        <div className='column'>
                             <label>{this.displayCompetence(this.state.competencesData[i].nom)}</label>
                         </div>
-                        <div className='columnCenter'>
+                        <div className='column'>
                             <label>{this.displayNiveau(this.state.competencesData[i].niveau)}</label>
                         </div>
                         {this.state.competencesData[i + 1] !== undefined
                             ?
                             <div>
-                                <div className='columnLeft'>
+                                <div className='column'>
                                     <label>{this.displayCompetence(this.state.competencesData[i + 1].nom)}</label>
                                 </div>
-                                <div className='columnCenter'>
+                                <div className='column'>
                                     <label>{this.displayNiveau(this.state.competencesData[i + 1].niveau)}</label>
                                 </div>
                             </div>
