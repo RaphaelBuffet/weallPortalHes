@@ -44,6 +44,7 @@
     margin-right: auto;
     width: 95%;
     margin-top: 1em;
+    padding-bottom: 1em;
   }
   .test {
     width: 100%;
@@ -64,6 +65,15 @@
     border-style: solid;
     border-width: 4px;
   }
+  .btn-full {
+    background-color: grey;
+    height: auto;
+    border-style: solid;
+    border-width: 4px;
+    width: 100%;
+    margin-top: 0.2em;
+    height: 3em;
+  }
   .profil {
     margin-top: 1em;
     margin-right: auto;
@@ -75,14 +85,9 @@
     columns: 3;
     width: 100%;
   }
-  .columnLeft {
+  .column {
     text-align: left;
-  }
-  .columnCenter {
-    text-align: left;
-  }
-  .columnRight {
-    text-align: left;
+    padding-top: 1em;
   }
   .line-4 {
     text-align: center;

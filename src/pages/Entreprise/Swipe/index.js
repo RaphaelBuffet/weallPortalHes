@@ -67,6 +67,12 @@ class App extends React.Component {
             <ArrowForwardIosIcon />
           </button>
         </div>
+        <div>
+        <button className='btn-full'>
+          Revoir plus tard
+        </button>
+        </div>
+        
 
       </div>
     </div>
