@@ -7,9 +7,12 @@ function Chat() {
     <div className="App">
       <Navbar/>
     </div>
-    <div>
-    <h1>Chat</h1>
-    </div>
+    <div className="main-page">
+          <div className="section">
+            <h1>Chat</h1>
+            <p>&gt; Discutez avec les entreprises matchées et organisez un entretien !</p>
+          </div>
+        </div>
     </div>
   );
 }
