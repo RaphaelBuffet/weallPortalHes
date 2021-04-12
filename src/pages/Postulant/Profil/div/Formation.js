@@ -1,6 +1,6 @@
 import React from 'react'
 import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
-import '../../../../styles/profil.css';
+import '../../../../styles/profil.scss';
 import { data } from './data'
 var formation = [];
 export default class Formation extends React.Component {

@@ -75,10 +75,12 @@
     height: 3em;
   }
   .profil {
-    margin-top: 1em;
+    padding-top: 1em;
     margin-right: auto;
     margin-left:auto;
-    width:92%
+    width:100%;
+    border-style: dotted;
+    display: inline-block;
   }
   .line-3 {
     text-align: center;
@@ -94,6 +96,30 @@
     columns: 4;
     width: 100%;
     padding-top: 1em;
+  }
+  .infoGenerale {
+    flex-direction: column;
+  }
+  .imagediv {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: blue;
+  }
+  .info {
+    display: inline-block;
+    padding-left: 4em;
+  }
+  .offre {
+    border-style: ridge;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgb(209, 209, 209);
   }
   /*style mobile*/
   @media screen and (max-width:960px) {
@@ -265,5 +291,20 @@
       width: 50%;
       flex-direction: column;
       margin-top: 1em;
+  }
+  .infoGenerale {
+    flex-direction: column;
+  }
+  .imagediv {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: blue;
+  }
+  .info {
+    display: inline-block;
+    padding-left: 4em;
   }
   }

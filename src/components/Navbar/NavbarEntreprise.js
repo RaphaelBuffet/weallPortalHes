@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {MenuItemsMain} from './MenuItemsEntreprise'
 import { Button } from '../Button/Button'
 import logo from '../../image/logo.png';
-import '../../styles/header.css'
+import '../../styles/header.scss'
 class Navbar extends Component {
 
     state = { clicked:false}

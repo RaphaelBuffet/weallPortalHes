@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
-import '../../../styles/profil.css';
+import '../../../styles/profil.scss';
 import Accordion from '../../../components/Accordion/Accordion'
 import InfoPersonelle from './div/InfoPersonelle'
 import Formation from './div/Formation'

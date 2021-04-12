@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/profil.css';
+import '../../../../styles/profil.scss';
 import download from '../../../../image/profil.jpg'
 import {data} from './data'
 export default class InfoPersonelle extends React.Component {
