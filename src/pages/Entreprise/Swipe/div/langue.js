@@ -27,13 +27,13 @@ export default class langue extends React.Component {
             langueView.push(
                 <div key={i}>
                     <div className='line-3'>
-                        <div className='columnLeft'>
+                        <div className='column'>
                             <label>{this.displayLangue(this.state.langueData[i].nom)}</label>
                         </div>
-                        <div className='columnCenter'>
+                        <div className='column'>
                             <label> Niveau : {this.displayNiveau(this.state.langueData[i].niveau)}</label>
                         </div>
-                        <div className='columnRight'>
+                        <div className='column'>
                             <label> Certificat : {this.state.langueData[i].certificat === '' ? 'Pas de certificat' : this.state.langueData[i].certificat}</label>
                         </div>
                     </div>

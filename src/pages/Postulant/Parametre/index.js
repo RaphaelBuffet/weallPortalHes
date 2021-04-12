@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
-import '../../../styles/parametre.css';
+import '../../../styles/parametre.scss';
 import Accordion from '../../../components/Accordion/Accordion'
 import Contact from './div/contact'
 

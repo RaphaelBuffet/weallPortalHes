@@ -24,13 +24,13 @@ export default class formations extends React.Component {
       formationsView.push(
         <div key={i}>
           <div className='line-3'>
-            <div className='columnLeft'>
+            <div className='column'>
               <label>{this.state.formationsData[i].debut.slice(8, 10)}.{this.state.formationsData[i].debut.slice(5, 7)}.{this.state.formationsData[i].debut.slice(0, 4)}   - {this.state.formationsData[i].fin.slice(8, 10)}.{this.state.formationsData[i].fin.slice(5, 7)}.{this.state.formationsData[i].fin.slice(0, 4)}</label>
             </div>
-            <div className='columnCenter'>
+            <div className='column'>
               <label> Cursus : {this.displayCursus(this.state.formationsData[i].cursus)}</label>
             </div>
-            <div className='columnRight'>
+            <div className='column'>
               <label> Diplôme : {this.state.formationsData[i].diplome}</label>
             </div>
           </div>

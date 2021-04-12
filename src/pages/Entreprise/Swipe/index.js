@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
-import '../../../styles/swipe.css'
+import '../../../styles/swipe.scss'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Formation from './div/formations';
@@ -67,6 +67,12 @@ class App extends React.Component {
             <ArrowForwardIosIcon />
           </button>
         </div>
+        <div>
+        <button className='btn-full'>
+          Revoir plus tard
+        </button>
+        </div>
+        
 
       </div>
     </div>

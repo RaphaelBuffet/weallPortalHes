@@ -1,0 +1,53 @@
+.text-bold {
+    padding-left: 0.5em;
+    font-weight: bold
+  }
+  .abonnementcontainer {
+    display: flex;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: ridge;
+    background-color: rgb(196, 195, 195);
+    margin-top: 1em;
+    padding-bottom: 1em;
+    padding-top: 0.5em;
+}
+.abonnementdescription {
+    flex: 4;
+    margin-left: 0.5em;
+    
+}
+.abonnementprix {
+    flex: 1;
+    margin-right: 0.5em;
+    align-self: flex-end;
+}
+/*style mobile*/
+@media screen and (max-width:960px) {
+    .text-bold {
+        padding-left: 0.5em;
+        font-weight: bold
+      }
+      .abonnementcontainer {
+        display: flex;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: ridge;
+        background-color: rgb(196, 195, 195);
+        margin-top: 1em;
+        padding-bottom: 1em;
+        padding-top: 0.5em;
+    }
+    .abonnementdescription {
+        flex: 4;
+        margin-left: 0.5em;
+        
+    }
+    .abonnementprix {
+        flex: 1;
+        margin-right: 0.5em;
+        align-self: flex-end;
+    }
+}

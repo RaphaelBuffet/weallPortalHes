@@ -1,0 +1,310 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .titre{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-page {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    border-style: ridge;
+    padding-bottom: 1em;
+    margin-top: 1em;
+  }
+  .explication {
+    background-color: rgb(226, 226, 226);
+    border-style: ridge;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .paragraphe {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+  }
+  .section-bordered {
+    border-style: ridge;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    margin-top: 1em;
+    padding-bottom: 1em;
+  }
+  .test {
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    align-content: space-between;
+    background-color: rgb(222, 253, 191);
+    }
+  .btn-refus {
+    background-color: green;
+    height: auto;
+    border-style: solid;
+    border-width: 4px;
+  }
+  .btn-accepter {
+    background-color: red;
+    height: auto;
+    border-style: solid;
+    border-width: 4px;
+  }
+  .btn-full {
+    background-color: grey;
+    height: auto;
+    border-style: solid;
+    border-width: 4px;
+    width: 100%;
+    margin-top: 0.2em;
+    height: 3em;
+  }
+  .profil {
+    padding-top: 1em;
+    margin-right: auto;
+    margin-left:auto;
+    width:100%;
+    border-style: dotted;
+    display: inline-block;
+  }
+  .line-3 {
+    text-align: center;
+    columns: 3;
+    width: 100%;
+  }
+  .column {
+    text-align: left;
+    padding-top: 1em;
+  }
+  .line-4 {
+    text-align: center;
+    columns: 4;
+    width: 100%;
+    padding-top: 1em;
+  }
+  .infoGenerale {
+    flex-direction: column;
+  }
+  .imagediv {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: blue;
+  }
+  .info {
+    display: inline-block;
+    padding-left: 4em;
+  }
+  .offre {
+    border-style: ridge;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgb(209, 209, 209);
+  }
+  /*style mobile*/
+  @media screen and (max-width:960px) {
+    .main-page {
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-bottom: 1em;
+    }
+    .section {
+      padding-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  .line {
+      columns: 2;
+      width: 100%;
+      flex-direction: column;
+      margin-top: 1em;
+      display: block;
+  }
+  .line-simple {
+      columns: 1;
+      width: 100%;
+      flex-direction: column;
+      margin-top: 1em;
+  }
+  .line-half {
+      columns: 2;
+      width: 50%;
+      flex-direction: column;
+      margin-top: 1em;
+  }
+  .input {
+      flex: 1;
+      width: 90%;
+      margin-top: 1em;
+      margin-right: 2em;
+      margin-left: 1em;
+  }
+  .line-double {
+      columns: 2;
+      width: 100%;
+      flex-direction: column;
+  }
+  .inputlong {
+      flex: 1;
+      width: 90%;
+      margin-top: 1em;
+      margin-right: 2em;
+      resize: none;
+      height: 7em;
+      background-color: rgb(196, 195, 195);
+      margin-left: 1em;
+  }
+  .inputmonoline{
+      flex: 1;
+      width: 95%;
+      margin-top: 1em;
+      margin-right: 2em;
+      margin-left: 1em;
+  }
+  .intitulé {
+      flex: 1;
+      margin-left: 1em;
+  }
+  .form {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      border-style: ridge;
+      padding-bottom: 1em;
+  }
+  .img {
+      flex: 1;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: darkgreen;
+      height: 120px;
+      width: 250px;
+  }
+  .btn-enregistrer {
+      margin-top: 1em;
+      margin-left: auto;
+      margin-right: 3em;
+      display: block;
+      width: 20%;
+  }
+  .btn-enregistrer-less-margin{
+      margin-top: 1em;
+      margin-left: auto;
+      margin-right: 0.5em;
+      display: block;
+      width: 20%;
+  }
+  .accordion{
+      margin-left: 1em;
+  }
+  .btn-full {
+      margin-top: 1em;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      text-align: center;
+  }
+  .accordion-secondary{
+      background-color: brown;
+  }
+  .block {
+      padding-top: 1em;
+  }
+  .line5 {
+      columns: 5;
+      width: 100%;
+      flex-direction: column;
+      margin-top: 1em;
+  }
+  .checkbox {
+      margin-left: 1em;
+  }
+  .btn-click {
+      margin-top: 1em;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      text-align: center;
+      background-color: cadetblue;
+  }
+  .btn-unclick {
+      margin-top: 1em;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      text-align: center;
+      background-color: cornsilk;
+  }
+  .btn-container {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+  }
+  .inputlongmonoline{
+      flex: 1;
+      width: 95%;
+      margin-top: 1em;
+      margin-right: 2em;
+      resize: none;
+      height: 7em;
+      background-color: rgb(196, 195, 195);
+      margin-left: 1em;
+  }
+  .img-square {
+      flex: 1;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: white;
+      height: 180px;
+      width: 180px;
+  }
+  .column {
+      display: block;
+      width: 100%;
+      height: 100%;
+  }
+  .column-mono {
+      columns: 1;
+      width: 50%;
+      flex-direction: column;
+      margin-top: 1em;
+  }
+  .infoGenerale {
+    flex-direction: column;
+  }
+  .imagediv {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: blue;
+  }
+  .info {
+    display: inline-block;
+    padding-left: 4em;
+  }
+  }
