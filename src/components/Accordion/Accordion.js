@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IconContext } from 'react-icons'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
-import '../../styles/accordion.css'
+import '../../styles/accordion.scss'
 
 
 const Accordion = (props) => {

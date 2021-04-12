@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
-import '../../../styles/chat.css';
+import '../../../styles/chat.scss';
 import ChatShell from './containers/shell/ChatShell';
 
 class Chat extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/profil.css'
+import '../../../../styles/profil.scss'
 import {data} from './data'
 
 export default class InfoPersonelle extends React.Component {

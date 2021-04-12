@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
-import '../../../styles/profil.css'
+import '../../../styles/profil.scss'
 import Accordion from '../../../components/Accordion/Accordion'
 import InfoEntreprise from './div/InfoEntreprise'
 import PersonneDeContact from './div/PersonneDeContat'
