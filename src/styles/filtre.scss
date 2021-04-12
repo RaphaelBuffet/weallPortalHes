@@ -1,3 +1,5 @@
+@import 'src/styles/colors.scss';
+
 .main-page {
     padding-left: 1em;
     padding-right: 1em;
@@ -72,6 +74,7 @@
     width: 100%;
     border-style: ridge;
     padding-bottom: 1em;
+    background-color: white;
   }
   .img {
     flex: 1;

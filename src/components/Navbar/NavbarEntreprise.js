@@ -29,7 +29,7 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button>
+                <Button className="btn">
                    Déconnexion
                 </Button>
             </nav>

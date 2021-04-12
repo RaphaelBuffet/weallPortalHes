@@ -1,5 +1,7 @@
+@import '/src/styles/colors.scss';
+
 .NavbarItems {
-    background: #073d41;
+    background: $Header;
     height: 80px;
     display: flex ;
     justify-content: center;
@@ -26,6 +28,8 @@
     text-align: center;
     width: 80vw;
     justify-content: start;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .nav-links {

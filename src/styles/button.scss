@@ -1,19 +1,60 @@
+@import 'src/styles/colors.scss';
+
+
 :root {
-    --primary: #0a8045;
+    --primary: transparent;
+    --buttonTypeValue: 'validate';
 }
-.btn {
+
+$buttonType: var(--buttonTypeValue);
+.btn-neutral {
     padding: 8px 20px;
     border-radius: 4px;
     outline: none;
-    border: none;
     cursor: pointer;
+    background-color: $Police;
+    color: white;
+    border: 2px solid $TrypanBlue;
 }
-.btn:hover{
+
+.btn-neutral:hover{
     padding: 8px 20px;
     transition: all 0.3s ease-out;
-    background: #FFF;
-    color: #5668F4;
     transition: 250ms;
+    background: $Header;
+    color: white;
+}
+
+.btn-validate{
+    padding: 8px 20px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 2px solid $ValidateColor;
+}
+.btn-validate:hover{
+    padding: 8px 20px;
+    transition: all 0.3s ease-out;
+    transition: 250ms;
+    background: $ValidateColor;
+}
+
+.btn-reject{
+    padding: 8px 20px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 2px solid $RejectColor;
+}
+.btn-reject:hover{
+    padding: 8px 20px;
+    transition: all 0.3s ease-out;
+    transition: 250ms;
+    background: $RejectColor;
 }
 
 .btn--primary {
