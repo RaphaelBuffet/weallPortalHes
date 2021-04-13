@@ -1,37 +1,17 @@
 import React from 'react';
-import { Router } from 'react-router-dom'
-import history from './services/history';
-import {RoutesPostulant,RoutesEntreprises} from './routes';
-import Footer from './components/Footer/Footer';
-import '../src/styles/app.scss'
+import Store from './Store/configureStore'
+import { Provider } from 'react-redux';
+import WeAll from "./Weall";
 
-class App extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state={
-      isentreprise:true
-    }
-  }
-  handleclick(){
-    this.setState({ isentreprise: !this.state.isentreprise })
-    console.log(this.state.isentreprise)
-  }
-  render(){
+export default class App extends React.Component {
+
+  render() {
     return (
-      <div className="page-container">
-        <div className="content-wrap">
-          <Router history={history}>
-            {this.state.isentreprise?
-            <RoutesEntreprises/>:
-            <RoutesPostulant />
-            }
-          </Router>
+        <Provider store={Store}>
+          <div>
+            <WeAll/>
           </div>
-          <Footer />
-          <button onClick={()=> this.handleclick()}>change profil</button>
-      </div>
-    );
+        </Provider>
+    )
   }
 }
-export default App;
-
