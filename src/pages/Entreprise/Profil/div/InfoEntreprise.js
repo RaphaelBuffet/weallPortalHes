@@ -30,6 +30,11 @@ export default class InfoEntreprise extends React.Component {
     this.handleImage = this.handleImage.bind(this);
     this.handleEnregistrer = this.handleEnregistrer.bind(this);
   }
+  componentDidMount(){
+    this.setState({ nom: localStorage.getItem('entreprise') });
+    console.log('---------------------------ici---------------------------------')
+    console.log(localStorage.getItem('entreprise'))
+  }
 
   handleEntreprise(event) {
     this.setState({ entreprise: event.target.value });
