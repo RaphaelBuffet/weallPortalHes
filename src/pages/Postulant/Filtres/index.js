@@ -30,7 +30,7 @@ export default class Filtres extends React.Component {
       <div className='main-page'>
         <div className='section'>
         <h1>Filtre de recherche</h1>
-        <p>&gt; Sélectionnez les filtres de recherche pour découvrir des offres adaptées</p>
+        <p>Sélectionnez les filtres de recherche pour découvrir des offres adaptées</p>
         </div>
         <div className='section'>
         <div className='form'>
