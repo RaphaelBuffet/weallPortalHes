@@ -146,13 +146,15 @@ export default class Filtres extends React.Component {
               />
             </div>
           </div>
-          <div className='info'>
-            <FaInfoCircle className='icon' />
-            <p>Vos filtres de recherche sont enregistrés même après votre déconnexion.</p>
-          </div>
         </div>
+        <div className='info'>      
+            <p>
+              <FaInfoCircle className='icon'/>
+              Vos filtres de recherche sont enregistrés même après votre déconnexion.
+            </p>
+          </div>
         <button className='btn-neutral'>
-          enregistrer les filtres
+          Enregistrer les filtres
         </button>
       </div>
       </div>

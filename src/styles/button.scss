@@ -3,57 +3,48 @@
 
 :root {
     --primary: transparent;
-    --buttonTypeValue: 'validate';
 }
 
-$buttonType: var(--buttonTypeValue);
-.btn-neutral {
+.btn-neutral, .btn-validate, .btn-reject{
+    float: right;
     padding: 8px 20px;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
     background-color: $Police;
+}
+
+.btn-validate, .btn-reject{
+    background-color: transparent;
     color: white;
-    border: 2px solid $TrypanBlue;
+}
+
+.btn-neutral:hover, .btn-validate:hover, .btn-reject:hover{
+    transition: all 0.3s ease-out;
+    transition: 250ms;
+}
+
+.btn-neutral { 
+    color: white;
+    border: 2px solid ;
 }
 
 .btn-neutral:hover{
-    padding: 8px 20px;
-    transition: all 0.3s ease-out;
-    transition: 250ms;
-    background: $Header;
+    background: $TrypanBlue;
     color: white;
 }
 
 .btn-validate{
-    padding: 8px 20px;
-    border-radius: 4px;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
-    color: white;
     border: 2px solid $ValidateColor;
 }
 .btn-validate:hover{
-    padding: 8px 20px;
-    transition: all 0.3s ease-out;
-    transition: 250ms;
     background: $ValidateColor;
 }
 
 .btn-reject{
-    padding: 8px 20px;
-    border-radius: 4px;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
-    color: white;
     border: 2px solid $RejectColor;
 }
 .btn-reject:hover{
-    padding: 8px 20px;
-    transition: all 0.3s ease-out;
-    transition: 250ms;
     background: $RejectColor;
 }
 
