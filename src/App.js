@@ -26,9 +26,9 @@ class App extends React.Component{
             <RoutesPostulant />
             }
           </Router>
-          <button onClick={()=> this.handleclick()}>change profil</button>
           </div>
           <Footer />
+          <button onClick={()=> this.handleclick()}>change profil</button>
       </div>
     );
   }

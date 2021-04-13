@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {MenuItems} from './MenuItemsPostulant'
 import '../../styles/header.scss'
-import { Button } from '../Button/Button'
+import '../../styles/button.scss'
 import logo from '../../image/logo.png';
 
 class Navbar extends Component {
@@ -31,9 +31,9 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button>
+                <button className="btn-reject">
                    Déconnexion
-                </Button>
+                </button>
             </nav>
         )
     }
