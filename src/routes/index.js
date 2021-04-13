@@ -12,6 +12,8 @@ import FiltreEntreprise from '../pages/Entreprise/Filtres';
 import OffreEntreprise from '../pages/Entreprise/Offres';
 import ParametreEntreprise from '../pages/Entreprise/Parametre';
 import SwipeEntreprise from '../pages/Entreprise/Swipe';
+import ConnexionEntreprise from '../pages/Entreprise/Connexion';
+import ConnexionPostulant from '../pages/Entreprise/Connexion';
 
 export function RoutesPostulant() {
     return (
@@ -21,9 +23,9 @@ export function RoutesPostulant() {
         <Route path="/postulant/filtre" component={FiltrePostulant}  />
         <Route path="/postulant/swipe" component={SwipePostulant}  />
         <Route path="/postulant/chat" component={ChatPostulant}  />
-        <Route path="/postulant/paramètre" component={ParametrePostulant}  />
+        <Route path="/postulant/parametre" component={ParametrePostulant}  />
         {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
-        <Route component={ParametrePostulant} />
+        <Route component={ConnexionPostulant} />
       </Switch>
     );
   }
@@ -39,7 +41,7 @@ export function RoutesPostulant() {
         <Route path="/offre/Chat" component={ChatEntreprise}  />
         <Route path="/entreprise/Parametre" component={ParametreEntreprise}  />
         {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
-        <Route component={ProfilEntreprise} />
+        <Route component={ConnexionEntreprise} />
       </Switch>
     );
   }

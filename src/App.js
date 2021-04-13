@@ -9,7 +9,7 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state={
-      isentreprise:false
+      isentreprise:true
     }
   }
   handleclick(){
@@ -26,9 +26,9 @@ class App extends React.Component{
             <RoutesPostulant />
             }
           </Router>
-          <button onClick={()=> this.handleclick()}>change profil</button>
           </div>
           <Footer />
+          <button onClick={()=> this.handleclick()}>change profil</button>
       </div>
     );
   }

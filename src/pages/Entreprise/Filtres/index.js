@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
 import '../../../styles/filtre.scss';
+import '../../../styles/button.scss';
 import Select from 'react-select';
 import { data } from './data'
 import { FaInfoCircle } from 'react-icons/fa';
@@ -150,7 +151,7 @@ export default class Filtres extends React.Component {
             <p>Vos filtres de recherche sont enregistrés même après votre déconnexion.</p>
           </div>
         </div>
-        <button className='btn-enregistrer-less-margin'>
+        <button className='btn-neutral'>
           enregistrer les filtres
         </button>
       </div>
