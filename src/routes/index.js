@@ -25,7 +25,7 @@ export function RoutesPostulant() {
         <Route path="/postulant/chat" component={ChatPostulant}  />
         <Route path="/postulant/parametre" component={ParametrePostulant}  />
         {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
-        <Route component={ConnexionPostulant} />
+        <Route component={ParametrePostulant} />
       </Switch>
     );
   }
@@ -41,7 +41,7 @@ export function RoutesPostulant() {
         <Route path="/offre/Chat" component={ChatEntreprise}  />
         <Route path="/entreprise/Parametre" component={ParametreEntreprise}  />
         {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
-        <Route component={ConnexionEntreprise} />
+        <Route component={ParametreEntreprise} />
       </Switch>
     );
   }

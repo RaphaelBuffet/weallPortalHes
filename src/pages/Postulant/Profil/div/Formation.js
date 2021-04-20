@@ -83,19 +83,25 @@ export default class Formation extends React.Component {
                 <div key={i}>
                     <AccordionSecondary title={this.state.formation[i].diplome} className='accordion-secondary'>
                         <div className='form'>
-                            <div className='line-half'>
-                                <div className='column'>
-                                    <p className='intitulé'>Date de début</p>
-                                    <input type="date" value={this.state.formation[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='input' />
-                                </div>
-                                <div className='column'>
-                                    <p className='intitulé'>Date de fin</p>
-                                    <input type="date" value={this.state.formation[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' />
-                                </div>
+                                <div>
+                                    <p className='intituleProfil'>Durée</p>
+                                    <table class="dateZone" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                            <input type="date" value={this.state.formation[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='input' />
+                                            </th>
+                                            <th>à</th>
+                                            <th>
+                                            <input type="date" value={this.state.formation[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' />
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                    </table>
                             </div>
                             <div className='line'>
                                 <div className='column'>
-                                    <p className='intitulé'>Cursus</p>
+                                    <p className='intituleProfil'>Cursus</p>
                                     <select value={this.state.formation[i].cursus} onChange={(value) => this.handleCursus(i, value)} className='input'>
                                         <option value="0">Universiatire</option>
                                         <option value="1">Haute école spécialisée</option>
@@ -103,7 +109,7 @@ export default class Formation extends React.Component {
                                     </select>
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>Institut</p>
+                                    <p className='intituleProfil'>Institut</p>
                                     <select value={this.state.formation[i].institut} onChange={(value) => this.handleInstitut(i, value)} className='input'>
                                         <option value="0">Informatique de gestion</option>
                                         <option value="1">Tourisme</option>
@@ -113,14 +119,14 @@ export default class Formation extends React.Component {
                             </div>
                             <div className='line'>
                                 <div className='column'>
-                                    <p className='intitulé'>Degré d'étude</p>
+                                    <p className='intituleProfil'>Degré d'étude</p>
                                     <select value={this.state.formation[i].degre} onChange={(value) => this.handleDegreEtude(i, value)} className='input'>
                                         <option value="0">Bachelor</option>
                                         <option value="1">Master</option>
                                     </select>
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>Nom du diplôme</p>
+                                    <p className='intituleProfil'>Nom du diplôme</p>
                                     <input type="text" value={this.state.formation[i].diplome} onChange={(value) => this.handleDiplome(i, value)} className='input' />
                                 </div>
                             </div>

@@ -4,6 +4,9 @@ import '../../../styles/filtre.scss';
 import '../../../styles/button.scss';
 import Select from 'react-select';
 import { FaInfoCircle } from 'react-icons/fa';
+import { FaTrash} from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
+
 import { data } from './data'
 
 
@@ -147,15 +150,15 @@ export default class Filtres extends React.Component {
             </div>
           </div>
         </div>
+        <button className='btn-neutral'>
+          Enregistrer les filtres
+        </button>
         <div className='info'>      
             <p>
               <FaInfoCircle className='icon'/>
               Vos filtres de recherche sont enregistrés même après votre déconnexion.
             </p>
           </div>
-        <button className='btn-neutral'>
-          Enregistrer les filtres
-        </button>
       </div>
       </div>
     </div>

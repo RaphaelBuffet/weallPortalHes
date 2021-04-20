@@ -9,22 +9,12 @@ export default class InfoPersonelle extends React.Component {
           nom: data.contact.nom,
           prenom: data.contact.prenom,
           poste: data.contact.poste,
-          adresse: data.contact.adresse,
-          adresseSuplement: data.contact.adresseSuplement,
-          descritpion: data.descritpion,
-          npa: data.contact.npa,
-          localité: data.contact.localité,
           telephone: data.contact.telephone
         };
         // changement des input
         this.handleNom = this.handleNom.bind(this);
         this.handlePrenom = this.handlePrenom.bind(this);
         this.handlePoste = this.handlePoste.bind(this);
-        this.handleAdresse = this.handleAdresse.bind(this);
-        this.handleAdresseSuplement = this.handleAdresseSuplement.bind(this);
-        this.handleDescription = this.handleDescription.bind(this);
-        this.handleNpa = this.handleNpa.bind(this);
-        this.handleLocalite = this.handleLocalite.bind(this);
         this.handleTelephone = this.handleTelephone.bind(this);
         // gestion des actions des bouttons
         this.handleImage = this.handleImage.bind(this);
@@ -39,21 +29,6 @@ export default class InfoPersonelle extends React.Component {
       }
       handlePoste(event) {
         this.setState({ poste: event.target.value });
-      }
-      handleAdresse(event) {
-        this.setState({ adresse: event.target.value });
-      }
-      handleAdresseSuplement(event) {
-        this.setState({ adresseSuplement: event.target.value });
-      }
-      handleDescription(event) {
-        this.setState({ descritpion: event.target.value });
-      }
-      handleNpa(event) {
-        this.setState({ npa: event.target.value });
-      }
-      handleLocalite(event) {
-        this.setState({ localité: event.target.value });
       }
       handleTelephone(event) {
         this.setState({ telephone: event.target.value });
@@ -73,26 +48,29 @@ export default class InfoPersonelle extends React.Component {
     
             <div className='line'>
               <div className='column'>
-                <p className='intitulé'>Nom</p>
+                <p className='intituleProfil'>Nom</p>
                 <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
               </div>
               <div className='column'>
-                <p className='intitulé'>Prénom</p>
+                <p className='intituleProfil'>Prénom</p>
                 <input type="text" value={this.state.nom} onChange={this.handleNom} className='input' />
               </div>
             </div>
             <div className='line'>
             <div className='column'>
-                <p className='intitulé'>Poste occupée</p>
+                <p className='intituleProfil'>Poste occupée</p>
                 <input type="text" value={this.state.poste} onChange={this.handlePoste} className='input' />
                 </div>
               <div className='column'>
-                <p className='intitulé'>Numéro de téléphone professionelle</p>
+                <p className='intituleProfil'>Numéro de téléphone professionel</p>
                 <input type="text" value={this.state.telephone} onChange={this.handleTelephone} className='input'/>
             </div>
             </div>
-            <input type="submit" value="
-              enregistrer les informations" className='btn-enregistrer'/>
+            <div className="finalButtonZone">
+              <button type="submit" value="enregistrer les informations" className='btn-neutral'>
+                  Enregistrer les informations
+              </button>
+            </div>
           </form>
         );
       }
