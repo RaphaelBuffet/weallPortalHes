@@ -32,7 +32,7 @@ class Connexion extends React.Component {
             password: this.state.password
         })
             .then((res) => {
-                console.log(res)
+                console.log(res.data.token)
                 if (res.data.isEnterprise) {
                     this.props.reduxUpdateUser({
                         token: res.data.token,
