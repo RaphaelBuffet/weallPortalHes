@@ -43,7 +43,7 @@ class Navbar extends Component {
     }
 
 }
-// Mise à jour des variables de rédux
+// Mise à jour des variables de réducer
 const mapDispatchToProps = (dispatch) =>{
     return{
         reduxLogOut:()=>dispatch(logout()),
