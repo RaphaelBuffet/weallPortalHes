@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { messagesRequested } from '../../store/actions';
+import { messagesRequested } from '../../../../../Store/actions';
 import Message from '../../components/message/Message';
 import './MessageList.scss';
 
