@@ -19,12 +19,17 @@
   h1 {
     font-family: 'Verdana';
     font-size: 2em;
-    font-weight: 700
+    font-weight: 700;  
+    margin-right: 0.5em;
+    display: inline-block;
   }
   h2 {
     font-family: 'Verdana';
-    margin-bottom: 0.5em;
     font-weight: normal;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    margin-left: 1em;
   }
   h3 {
     font-family: 'Tahoma';

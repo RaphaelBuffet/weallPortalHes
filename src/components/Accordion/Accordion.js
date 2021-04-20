@@ -18,7 +18,6 @@ const Accordion = (props) => {
     return (
         <IconContext.Provider value={{ color: '#454545', size: '25px' }}>
             <div className="AccordionSection">
-                
                     <div className="Wrap" onClick={() => {
                         toggle()
                     }}>
@@ -32,8 +31,6 @@ const Accordion = (props) => {
                             {children}
                         </div>
                     ) : null}
-
-
                 </div>
             
         </IconContext.Provider>
