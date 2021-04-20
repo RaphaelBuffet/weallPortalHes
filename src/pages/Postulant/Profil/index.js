@@ -31,7 +31,7 @@ class Profil extends React.Component {
         <div className="main-page">
         <div className="section">
           <h1>Votre Profil</h1>
-          <p>&gt; Créez votre profil pour commencer vos recherches !</p>
+          <p>Créez votre profil pour commencer vos recherches !</p>
           </div>
           <div className="section">
             <Accordion title="Infomations Personelle">

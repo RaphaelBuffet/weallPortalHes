@@ -1,10 +1,19 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
-import '../../../styles/profil.scss'
-import { data } from './data'
 import Accordion from '../../../components/Accordion/Accordion'
+
+import '../../../styles/profil.scss'
+import '../../../styles/button.scss';
+import { data } from './data'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+
+import { FaSave } from 'react-icons/fa';
+import { FaTrash} from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
+import { FaHandPointer} from 'react-icons/fa';
+
+
 var offres = []
 class App extends React.Component {
   constructor(props) {
@@ -58,6 +67,7 @@ class App extends React.Component {
     newoffre[index].publish = !newoffre[index].publish
     this.setState({ offre: newoffre })
     console.log("test")
+    
   }
   addOffre() {
     let newoffre = this.state.offre
@@ -92,21 +102,27 @@ class App extends React.Component {
             <div className='form'>
               <div className='line'>
                 <div className='column'>
-                  <p className='intitulé'>Titre du poste</p>
+                  <p className='intituleProfil'>Titre du poste</p>
                   <input type="text" value={this.state.offre[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
                 </div>
                 <div className='column'>
-                  <p className='intitulé'>Taux d'activité</p>
+                  <p className='intituleProfil'>Taux d'activité</p>
                   <select value={this.state.offre[i].taux} onChange={(value) => this.handleTaux(i, value)} className='input'>
-                    <option value="0">Sion</option>
-                    <option value="1">Sierre</option>
-                    <option value="2">Autre</option>
+                    <option value="0">100%</option>
+                    <option value="1">80%</option>
+                    <option value="2">70%</option>
+                    <option value="2">60%</option>
+                    <option value="2">50%</option>
+                    <option value="2">40%</option>
+                    <option value="2">30%</option>
+                    <option value="2">20%</option>
+                    <option value="2">10%</option>
                   </select>
                 </div>
               </div>
               <div className='line'>
                 <div className='column'>
-                  <p className='intitulé'>Contrat</p>
+                  <p className='intituleProfil'>Contrat</p>
                   <select value={this.state.offre[i].contrat} onChange={(value) => this.handleContrat(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
@@ -114,7 +130,7 @@ class App extends React.Component {
                   </select>
                 </div>
                 <div className='column'>
-                  <p className='intitulé'>Durée</p>
+                  <p className='intituleProfil'>Durée</p>
                   <select value={this.state.offre[i].duree} onChange={(value) => this.handleDuree(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
@@ -124,11 +140,11 @@ class App extends React.Component {
               </div>
               <div className='line'>
                 <div className='column'>
-                  <p className='intitulé'>Disponibilité</p>
+                  <p className='intituleProfil'>Disponibilité</p>
                   <input type="date" value={this.state.offre[i].dispo} onChange={(value) => this.handleDisponibilite(i, value)} className='input' />
                 </div>
                 <div className='column'>
-                  <p className='intitulé'>Fourchette de salaire</p>
+                  <p className='intituleProfil'>Fourchette de salaire</p>
                   <select value={this.state.offre[i].salaire} onChange={(value) => this.handleSalaire(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
@@ -138,11 +154,11 @@ class App extends React.Component {
               </div>
               <div className='line'>
                 <div className='column'>
-                  <p className='intitulé'>Lien de votre cahier des charges</p>
+                  <p className='intituleProfil'>Lien de votre cahier des charges</p>
                   <input type="text" value={this.state.offre[i].url} onChange={(value) => this.handleUrl(i, value)} className='input' />
                 </div>
                 <div className='column'>
-                  <p className='intitulé'>Localite</p>
+                  <p className='intituleProfil'>Localite</p>
                   <select value={this.state.offre[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
                     <option value="0">Sion</option>
                     <option value="1">Sierre</option>
@@ -151,15 +167,27 @@ class App extends React.Component {
                 </div>
               </div>
               <div className='toogle'>
-                    <FormControlLabel
-                      control={<Switch checked={this.state.offre[i].publish} onChange={() => this.handleToogle(i)} name="checkedA" />}
-                      label={this.state.offre[i].publish ? 'offre actuellement active' : 'offre actuellement inactive'}
+              </div>
+              <div className='btn-div'>
+              <FormControlLabel
+                      control={
+                        <Switch 
+                          checked={this.state.offre[i].publish} 
+                          onChange={() => this.handleToogle(i)} name="checkedA" 
+                          color="primary"
+                          />
+                              }
+                      label={this.state.offre[i].publish ? 'Offre active' : 'Offre inactive'}
                     />
-                  </div>
-              <div className='flex-div'>
-                <button className='btn-supprimer' onClick={() => this.removeOffre(i)}> Supprimer cette offre</button>
-                <button className='btn-selection' onClick={()=> this.changeCurrentOffre(i)}>Sélectionner cette offre</button>
-                <button className='btn-enregistrer' onClick={this.handleEnregistrer}> Enregistrer cette offre</button>
+                <button title="Sélectionner l'offre" className='btn-formAdd' onClick={()=> this.changeCurrentOffre(i)}>
+                    <FaHandPointer/>
+                </button>
+                <button title="Enregistrer les modifications faites à l'offre" className='btn-formAdd' onClick={this.handleEnregistrer}>
+                    <FaSave/>
+                </button>
+                <button title="Supprimer l'offre" className='btn-formRemove' onClick={() => this.removeOffre(i)}>
+                    <FaTrash/>
+                </button>
               </div>
             </div>
           </Accordion>
@@ -171,21 +199,34 @@ class App extends React.Component {
     this.DisplayOffre()
     return (
       <div>
-        <div className="App">
+        <div className="Header">
           <Navbar />
         </div>
         <div className="main-page">
         <div className="section">
-          <h1>Vos Offres</h1>
-          <p>&gt; Créez vos offres d'emplois</p>
+        <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-cly1">
+                  <h1>Vos Offres</h1>
+              </th>
+              <th class="tg-nrix" rowspan="2">
+                <button className='btn-formAdd' title="Nouvelle offre"onClick={() => this.addOffre()}>
+                  <FaPlus/>
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <td class="tg-cly1"><p>Créez vos offres d'emplois</p>
+          </td>
+            </tr>
+          </thead>
+          </table>
           </div>
           <div className="section">
             {this.state.offre.length===0
-            ?<p className='text-bold'>Vous n'avez aucune offre répertorié</p>
+            ?<p className='text-bold'>Vous n'avez aucune offre répertoriée</p>
             :offres}
-          </div>
-          <div className="section">
-            <button className='btn-full' onClick={() => this.addOffre()}>ajouter une nouvelle offre</button>
           </div>
         </div>
       </div>

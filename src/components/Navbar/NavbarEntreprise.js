@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {MenuItemsMain} from './MenuItemsEntreprise'
-import { Button } from '../Button/Button'
 import logo from '../../image/logo.png';
 import {logout} from "../../Store/User/UsersActions";
 import {connect} from "react-redux";
@@ -36,15 +35,15 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button className="btn" onClick={() => this.logout()}>
+                <button className="btn-reject"onClick={() => this.logout()}>
                    Déconnexion
-                </Button>
+                </button>
             </nav>
         )
     }
 
 }
-// Mise à jour des variables de rédux
+// Mise à jour des variables de réducer
 const mapDispatchToProps = (dispatch) =>{
     return{
         reduxLogOut:()=>dispatch(logout()),

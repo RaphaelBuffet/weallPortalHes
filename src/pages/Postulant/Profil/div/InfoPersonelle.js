@@ -1,7 +1,9 @@
 import React from 'react'
 import '../../../../styles/profil.scss';
 import download from '../../../../image/profil.jpg'
-import {data} from './data'
+import { data } from './data'
+import { FaFileExport } from 'react-icons/fa';
+
 export default class InfoPersonelle extends React.Component {
   constructor(props) {
     super(props);
@@ -68,7 +70,7 @@ export default class InfoPersonelle extends React.Component {
     event.preventDefault();
   }
   handleEnregistrer(event) {
-    alert('Le nom a été soumis : ' + this.state.nom + " "+this.state.prenom);
+    alert('Le nom a été soumis : ' + this.state.nom + " " + this.state.prenom);
     event.preventDefault();
   }
 
@@ -77,67 +79,93 @@ export default class InfoPersonelle extends React.Component {
       <form onSubmit={this.handleEnregistrer} className='form'>
         <div className='line'>
           <div className='column'>
-            <p className='intitulé'>Nom</p>
+            <p className='intituleProfil'>Nom</p>
             <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
           </div>
           <div className='column'>
-            <p className='intitulé'>Prénom</p>
+            <p className='intituleProfil'>Prénom</p>
             <input type="text" value={this.state.nom} onChange={this.handleNom} className='input' />
           </div>
         </div>
 
         <div className='line'>
           <div className='column'>
-            <p className='intitulé'>Date de naissance</p>
+            <p className='intituleProfil'>Date de naissance</p>
             <input type="date" value={this.state.naissance} onChange={this.handleNaissance} className='input' />
           </div>
           <div className='column'>
-            <p className='intitulé'>Sexe</p>
+            <p className='intituleProfil'>Sexe</p>
             <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
-            <option value="0">Homme</option>
-            <option value="1">Femme</option>
-            <option value="2">Autre</option>
-          </select>
-          </div>
-        </div>
-        
-        <div className='line'>
-          <div className='column'>
-            <p className='intitulé'>Description</p>
-            <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlong'/>
-          </div>
-          <div className='column'>
-          <img src={download} alt="Logo" className='img'/>
-            <button className='input'>Télécharger une image</button>
+              <option value="0">Homme</option>
+              <option value="1">Femme</option>
+              <option value="2">Autre</option>
+            </select>
           </div>
         </div>
 
-        <div className='line-simple'>
-            <p className='intitulé'>Adresse</p>
-            <input type="text" value={this.state.adresse} onChange={this.handleAdresse} className='inputmonoline'/>
-            <input type="text" value={this.state.adresseSuplement} onChange={this.handleAdresseSuplement} className='inputmonoline'/>
+        <div className='line'>
+          <div className='column'>
+            <p className='intituleProfil'>Description</p>
+            <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputthick' />
+          </div>
+          <div className='column'>
+            <p className='intituleProfil'>Photo de profil</p>
+            <table className="downloadZone">
+              <thead>
+                <tr>
+                  <th>
+                    <img src={download} alt="Logo" className='img-square' />
+                  </th>
+                  <th>
+                    <button className='btn-formAdd' title="Ajouter votre logo">
+                      <FaFileExport />
+                    </button>
+                  </th>
+                  <th>
+                    <p>
+                      Format d'images: JPG, JPEG et PNG.
+                    </p>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <p className='intituleProfil'>Adresse</p>
+          <div className='line-double'>
+            <div className='column'>
+              <input type="text" value={this.state.adresse} onChange={this.handleAdresse} className='input' placeholder='Rue et numéro' />
+              <div className='column'>
+                <input type="text" value={this.state.npa} onChange={this.handleNpa} className='inputmini' placeholder='Code postal' />
+                <select value={this.state.localité} onChange={this.handleLocalite} className='inputmini'>
+                  <option value="0">Sion</option>
+                  <option value="1">Sierre</option>
+                  <option value="2">Autre</option>
+                </select>
+              </div>
+            </div>
+            <div className='column'>
+              <textarea type="text" value={this.state.adresseSuplement} onChange={this.handleAdresseSuplement} className='inputthick' placeholder='Informations complémentaires (Exemple: étage)' />
+            </div>
+          </div>
         </div>
 
         <div className='line-double'>
           <div className='column'>
-            <input type="text" value={this.state.npa} onChange={this.handleNpa} className='input' placeholder='code postal' />
-          </div>
-          <div className='column'>
-          <select value={this.state.localité} onChange={this.handleLocalite} className='input'>
-            <option value="0">Sion</option>
-            <option value="1">Sierre</option>
-            <option value="2">Autre</option>
-          </select>
+            <p className='intituleProfil'>Numéro de téléphone</p>
+            <input type="text" value={this.state.telephone} onChange={this.handleTelephone} className='input' />
           </div>
         </div>
 
-        <div className='line-simple'>
-            <p className='intitulé'>Numéro de téléphone</p>
-            <input type="text" value={this.state.telephone} onChange={this.handleTelephone} className='inputmonoline'/>
+        <div className="finalButtonZone">
+          <button type="submit" value="
+          enregistrer les informations" className='btn-neutral'>
+            Enregistrer les informations
+          </button>
         </div>
 
-        <input type="submit" value="
-          enregistrer les informations" className='btn-enregistrer'/>
       </form>
     );
   }

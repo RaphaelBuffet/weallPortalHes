@@ -6,7 +6,6 @@
 }
 
 .btn-neutral, .btn-validate, .btn-reject{
-    float: right;
     padding: 8px 20px;
     border-radius: 4px;
     outline: none;
@@ -36,6 +35,7 @@
 
 .btn-validate{
     border: 2px solid $ValidateColor;
+    background: $Header;
 }
 .btn-validate:hover{
     background: $ValidateColor;
@@ -43,9 +43,46 @@
 
 .btn-reject{
     border: 2px solid $RejectColor;
+    background: $Header;
 }
 .btn-reject:hover{
     background: $RejectColor;
+}
+//-----------------------------------------------------------------------------
+// Form buttons
+//-----------------------------------------------------------------------------
+
+.btn-form, .btn-formAdd, .btn-formRemove{
+    padding: 3px 6px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: $SecondBackground;
+    text-align: center;
+    vertical-align: baseline;
+    margin: 0.05em;
+}
+
+
+.btn-formAdd:hover{
+    background: $ValidateColor;
+}
+
+.btn-formRemove:hover{
+    background: $RejectColor;
+}
+
+.btn-div{
+    // text-align: right;
+    // width: 92%;
+    // margin-top: 5em;
+    display: flex;
+    float:right;
+    justify-content: space-between;
+    margin-right: 9%;
+    margin-top: 2em;
+    padding: 10px 0;
 }
 
 .btn--primary {
@@ -73,6 +110,7 @@
     font-size: 20px;
     color: #FFF
 }
+
 /*style mobile*/
 @media screen and (max-width:960px) {
     :root {
