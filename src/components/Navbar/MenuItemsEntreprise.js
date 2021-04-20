@@ -28,10 +28,5 @@ export const MenuItemsMain = [
         title:'Paramètres',
         url:'/entreprise/parametre',
         cName:'nav-links'
-    },
-    {
-        title:'Connexion',
-        url:'/entreprise/connexion',
-        cName:'nav-links'
     }
 ]

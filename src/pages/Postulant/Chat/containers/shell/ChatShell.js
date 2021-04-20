@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { conversationChanged, newMessageAdded, conversationDeleted, conversationsRequested } from '../../store/actions';
+import { conversationChanged, newMessageAdded, conversationDeleted, conversationsRequested } from '../../../../../Store/actions';
 import ConversationSearch from '../../components/conversation/conversation-search/ConversationSearch';
 import NoConversations from '../../components/conversation/no-conversations/NoConversations';
 import ConversationList from '../../components/conversation/conversation-list/ConversationList';
@@ -36,6 +36,7 @@ const ChatShell = ({
             </>
         );
     }
+    console.log(conversations)
 
     return (
         <div id="chat-container">
@@ -55,7 +56,7 @@ const ChatShell = ({
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         conversations: state.conversationState.conversations,
         selectedConversation: state.conversationState.selectedConversation
@@ -69,7 +70,4 @@ const mapDispatchToProps = dispatch => ({
     loadConversations: () => { dispatch(conversationsRequested())}
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ChatShell);
+export default connect(mapStateToProps,mapDispatchToProps)(ChatShell);

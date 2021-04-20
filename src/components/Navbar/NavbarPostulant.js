@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {MenuItems} from './MenuItemsPostulant'
 import '../../styles/header.scss'
 import '../../styles/button.scss'
+import {logout} from "../../Store/User/UsersActions";
+import {connect} from "react-redux";
 import logo from '../../image/logo.png';
 
 class Navbar extends Component {
@@ -10,6 +12,11 @@ class Navbar extends Component {
 
     handleClick = ()=> {
         this.setState({clicked: !this.state.clicked})
+    }
+    logout() {
+        localStorage.removeItem('user');
+        this.props.reduxLogOut();
+        console.log('deconnexion')
     }
 
     render(){
@@ -31,7 +38,7 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <button className="btn-reject">
+                <button className="btn-reject" onClick={() => this.logout()}>
                    Déconnexion
                 </button>
             </nav>
@@ -40,4 +47,11 @@ class Navbar extends Component {
 
 }
 
-export default Navbar
+// Mise à jour des variables de rédux
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        reduxLogOut:()=>dispatch(logout()),
+    }}
+
+
+export default connect(null,mapDispatchToProps)(Navbar)
