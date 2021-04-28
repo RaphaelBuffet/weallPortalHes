@@ -3,8 +3,12 @@ import axios from "axios";
 import config from '../../config'
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
-
-
+var test=1;
+const options = {
+    headers : {'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYxOTUyNDE4NywiZXhwIjoxNjIwMTI4OTg3fQ.hSXARB-y7rClswYZ380HV5RW77qjYNt5FzW2NfDd8Vw',
+          'Content-Type': 'application/json',
+      }
+  }
 class Connexion extends React.Component {
     constructor(props) {
         super(props);
@@ -16,14 +20,14 @@ class Connexion extends React.Component {
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
     }
-
-
-
     handleEmail(event) {
         this.setState({ email: event.target.value });
     }
     handlePassword(event) {
         this.setState({ password: event.target.value });
+    }
+    loginFake() {
+        this.createPostulant(5, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYxOTUyNDE4NywiZXhwIjoxNjIwMTI4OTg3fQ.hSXARB-y7rClswYZ380HV5RW77qjYNt5FzW2NfDd8Vw')
     }
     login() {
         console.log(config.backEndURL + config.backEndApiURL + 'user/login')
@@ -46,6 +50,7 @@ class Connexion extends React.Component {
                         isEnterprise: res.data.isEnterprise,
                         isLogged: true
                     }));
+
                 }
                 else {
                     this.props.reduxUpdateUser({
@@ -60,6 +65,7 @@ class Connexion extends React.Component {
                         isEnterprise: res.data.isEnterprise,
                         isLogged: true
                     }));
+                    this.createPostulant(res.data.userId, res.data.token)
                     console.log("postulant")
                 }
             })
@@ -97,8 +103,11 @@ class Connexion extends React.Component {
                         </button>
                             </div>
                             <div className='column'>
-                                <button className='btn'>
-                                    Connexion
+                                <button className='btn' onClick={() => {
+                                    this.createPostulant()
+                                }
+                                }>
+                                    Connexion test
                         </button>
                             </div>
                         </div>
@@ -106,10 +115,46 @@ class Connexion extends React.Component {
 
                 </div>
             </div>
-        </div>
+        </div >
         );
     }
+    createPostulant(userid, token) {
+        console.log(userid)
+        console.log(token)
+        axios({method:'get',url:"http://localhost:8080/api/v1/entreprise",headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYxOTUyNDE4NywiZXhwIjoxNjIwMTI4OTg3fQ.hSXARB-y7rClswYZ380HV5RW77qjYNt5FzW2NfDd8Vw'}})
+            .then((response) => {
+                response=response.data
+                console.log(response.status)
+                console.log(response)
+                if (response[0] === null) {
+                    console.log("error in createProfil get")
+                }
+                else {
+                    console.log(response[0])
+                    localStorage.setItem('postulant', JSON.stringify({
+                        id: response[0].id_postulant,
+                        nom: response[0].nom,
+                        prenom: response[0].prenom,
+                        naissance: response[0].date_de_naissance,
+                        sexe: response[0].sexe,
+                        salaire_min: response[0].salaire_min,
+                        salaire_max: response[0].salaire_max,
+                        filtre: response[0].filtre,
+                        disponibilite: response[0].disponibilite,
+                        is_searchable: response[0].is_searchable,
+                        description: response[0].description,
+                        adresse: response[0].adresse,
+                        adresse_suplement: response[0].adresse_suplement,
+                        npa: response[0].npa,
+                        localite: response[0].localite,
+                        telephone: response[0].telephone,
+                        url_photo: response[0].url_photo
+                    }));
+                }
+            })
+    }
 }
+
 
 
 // Récupération des variables de Redux
