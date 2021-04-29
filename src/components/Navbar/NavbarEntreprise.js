@@ -13,6 +13,7 @@ class Navbar extends Component {
     }
     logout() {
         localStorage.removeItem('user');
+        localStorage.removeItem('entreprise');
         this.props.reduxLogOut();
         console.log('deconnexion')
     }

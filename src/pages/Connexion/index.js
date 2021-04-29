@@ -3,8 +3,6 @@ import axios from "axios";
 import config from '../../config'
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
-
-
 class Connexion extends React.Component {
     constructor(props) {
         super(props);
@@ -16,9 +14,6 @@ class Connexion extends React.Component {
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
     }
-
-
-
     handleEmail(event) {
         this.setState({ email: event.target.value });
     }
@@ -46,6 +41,7 @@ class Connexion extends React.Component {
                         isEnterprise: res.data.isEnterprise,
                         isLogged: true
                     }));
+
                 }
                 else {
                     this.props.reduxUpdateUser({
@@ -60,6 +56,7 @@ class Connexion extends React.Component {
                         isEnterprise: res.data.isEnterprise,
                         isLogged: true
                     }));
+                    this.createPostulant(res.data.userId, res.data.token)
                     console.log("postulant")
                 }
             })
@@ -96,20 +93,129 @@ class Connexion extends React.Component {
                                     Connexion
                         </button>
                             </div>
-                            <div className='column'>
-                                <button className='btn'>
-                                    Connexion
-                        </button>
-                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
+        </div >
         );
     }
+    createPostulant(userid, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                response = response.data
+                console.log(response.status)
+                console.log(response)
+                if (response[0] === null) {
+                    console.log("error in createProfil get")
+                }
+                else {
+                    console.log(response[0])
+                    localStorage.setItem('postulant', JSON.stringify({
+                        id: response[0].id_postulant,
+                        nom: response[0].nom,
+                        prenom: response[0].prenom,
+                        naissance: response[0].date_de_naissance,
+                        sexe: response[0].sexe,
+                        salaire_min: response[0].salaire_min,
+                        salaire_max: response[0].salaire_max,
+                        filtre: response[0].filtre,
+                        disponibilite: response[0].disponibilite,
+                        is_searchable: response[0].is_searchable,
+                        description: response[0].description,
+                        adresse: response[0].adresse,
+                        adresse_suplement: response[0].adresse_suplement,
+                        npa: response[0].npa,
+                        localite: response[0].localite,
+                        telephone: response[0].telephone,
+                        url_photo: response[0].url_photo
+                    }));
+                    this.createFormation(response[0].id_postulant, token)
+                    this.createExperience(response[0].id_postulant, token)
+                    this.createCompetence(response[0].id_postulant, token)
+                }
+            })
+    }
+    createFormation(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "formation/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+
+                if (response[0] === null) {
+                    console.log("pas de formation repertorié")
+                }
+                else {
+                    response = response.data
+                    let formations = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        formations.push({
+                            id: response[i].id_formation,
+                            debut: response[i].date_debut,
+                            fin: response[i].date_fin,
+                            cursus: response[i].cursus,
+                            institut: response[i].institut,
+                            degree: response[i].degree,
+                            diplome: response[i].diplome
+                        })
+                    }
+                    localStorage.setItem('formation', JSON.stringify({
+                        formations
+                    }));
+                }
+            })
+    }
+    createExperience(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "experience/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                if (response[0] === null) {
+                    console.log("pas d'experience repertorié")
+                }
+                else {
+                    response = response.data
+                    let experiences = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        experiences.push({
+                            id: response[i].id_experience,
+                            entreprise: response[i].entreprise,
+                            poste: response[i].poste,
+                            debut: response[i].date_debut,
+                            fin: response[i].date_fin,
+                            secteur: response[i].id_secteur,
+                            pays: response[i].pays,
+                            localite: response[i].localite,
+                            npa: response[i].npa,
+                            description: response[i].description
+                        })
+                    }
+                    localStorage.setItem('experience', JSON.stringify({
+                        experiences
+                    }));
+                }
+            })
+    }
+    createCompetence(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "competence/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                if (response[0] === null) {
+                    console.log("pas de competence repertorié")
+                }
+                else {
+                    response = response.data
+                    let competence = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        competence.push(response[i].competence)
+                    }
+                    localStorage.setItem('competence', JSON.stringify({
+                        competence
+                    }));
+                }
+            })
+    }
 }
+
 
 
 // Récupération des variables de Redux
