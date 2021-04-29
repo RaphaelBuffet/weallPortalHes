@@ -3,12 +3,6 @@ import axios from "axios";
 import config from '../../config'
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
-var test=1;
-const options = {
-    headers : {'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYxOTUyNDE4NywiZXhwIjoxNjIwMTI4OTg3fQ.hSXARB-y7rClswYZ380HV5RW77qjYNt5FzW2NfDd8Vw',
-          'Content-Type': 'application/json',
-      }
-  }
 class Connexion extends React.Component {
     constructor(props) {
         super(props);
@@ -25,9 +19,6 @@ class Connexion extends React.Component {
     }
     handlePassword(event) {
         this.setState({ password: event.target.value });
-    }
-    loginFake() {
-        this.createPostulant(5, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYxOTUyNDE4NywiZXhwIjoxNjIwMTI4OTg3fQ.hSXARB-y7rClswYZ380HV5RW77qjYNt5FzW2NfDd8Vw')
     }
     login() {
         console.log(config.backEndURL + config.backEndApiURL + 'user/login')
@@ -102,14 +93,6 @@ class Connexion extends React.Component {
                                     Connexion
                         </button>
                             </div>
-                            <div className='column'>
-                                <button className='btn' onClick={() => {
-                                    this.createPostulant()
-                                }
-                                }>
-                                    Connexion test
-                        </button>
-                            </div>
                         </div>
                     </div>
 
@@ -119,11 +102,9 @@ class Connexion extends React.Component {
         );
     }
     createPostulant(userid, token) {
-        console.log(userid)
-        console.log(token)
-        axios({method:'get',url:"http://localhost:8080/api/v1/entreprise",headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYxOTUyNDE4NywiZXhwIjoxNjIwMTI4OTg3fQ.hSXARB-y7rClswYZ380HV5RW77qjYNt5FzW2NfDd8Vw'}})
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
             .then((response) => {
-                response=response.data
+                response = response.data
                 console.log(response.status)
                 console.log(response)
                 if (response[0] === null) {
@@ -149,6 +130,86 @@ class Connexion extends React.Component {
                         localite: response[0].localite,
                         telephone: response[0].telephone,
                         url_photo: response[0].url_photo
+                    }));
+                    this.createFormation(response[0].id_postulant, token)
+                    this.createExperience(response[0].id_postulant, token)
+                    this.createCompetence(response[0].id_postulant, token)
+                }
+            })
+    }
+    createFormation(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "formation/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+
+                if (response[0] === null) {
+                    console.log("pas de formation repertorié")
+                }
+                else {
+                    response = response.data
+                    let formations = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        formations.push({
+                            id: response[i].id_formation,
+                            debut: response[i].date_debut,
+                            fin: response[i].date_fin,
+                            cursus: response[i].cursus,
+                            institut: response[i].institut,
+                            degree: response[i].degree,
+                            diplome: response[i].diplome
+                        })
+                    }
+                    localStorage.setItem('formation', JSON.stringify({
+                        formations
+                    }));
+                }
+            })
+    }
+    createExperience(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "experience/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                if (response[0] === null) {
+                    console.log("pas d'experience repertorié")
+                }
+                else {
+                    response = response.data
+                    let experiences = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        experiences.push({
+                            id: response[i].id_experience,
+                            entreprise: response[i].entreprise,
+                            poste: response[i].poste,
+                            debut: response[i].date_debut,
+                            fin: response[i].date_fin,
+                            secteur: response[i].id_secteur,
+                            pays: response[i].pays,
+                            localite: response[i].localite,
+                            npa: response[i].npa,
+                            description: response[i].description
+                        })
+                    }
+                    localStorage.setItem('experience', JSON.stringify({
+                        experiences
+                    }));
+                }
+            })
+    }
+    createCompetence(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "competence/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                if (response[0] === null) {
+                    console.log("pas de competence repertorié")
+                }
+                else {
+                    response = response.data
+                    let competence = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        competence.push(response[i].competence)
+                    }
+                    localStorage.setItem('competence', JSON.stringify({
+                        competence
                     }));
                 }
             })
