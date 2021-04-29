@@ -15,6 +15,7 @@ class Navbar extends Component {
     }
     logout() {
         localStorage.removeItem('user');
+        localStorage.removeItem('postulant');
         this.props.reduxLogOut();
         console.log('deconnexion')
     }
