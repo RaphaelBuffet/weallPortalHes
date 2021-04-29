@@ -9,16 +9,40 @@ export default class competences extends React.Component {
     }
     render() {
         return (
-            <div className='line-3'>
-                    <div className='columnLeft'>
-                        <label>{this.displaySoftskill(this.state.softskillData[0])}</label>
-                    </div>
-                    <div className='columnCenter'>
-                        <label>{this.displaySoftskill(this.state.softskillData[1])}</label>
-                    </div>
-                    <div className='columnRight'>
-                        <label>{this.displaySoftskill(this.state.softskillData[2])}</label>
-                    </div>
+            <div className='swipeCompetencesSuperDiv'>
+                <div className='swipeCompetencesDiv'>
+                    <table className="swipeCompetencesTable">
+                            <tbody>
+                                <tr>
+                                    <th >                                    
+                                    <label className="swipeSubSubtitle">{this.displaySoftskill(this.state.softskillData[0])}</label>
+                                    </th>
+                                    </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div className='swipeCompetencesDiv'>
+                        <table className="swipeCompetencesTable">
+                            <tbody>
+                                <tr>
+                                    <th >        
+                                    <label className="swipeSubSubtitle">{this.displaySoftskill(this.state.softskillData[1])}</label>
+                                    </th>
+                                    </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div className='swipeCompetencesDiv'>
+                        <table className="swipeCompetencesTable">
+                            <tbody>
+                                <tr>
+                                    <th >        
+                                    <label className="swipeSubSubtitle">{this.displaySoftskill(this.state.softskillData[2])}</label>
+                                    </th>
+                                </tr>
+                                </tbody>
+                            </table>  
+                        </div>
                 </div>
         )
     }
@@ -27,11 +51,11 @@ export default class competences extends React.Component {
             case 0:
                 return 'softskill 1';
             case 1:
-                return 'softskill 2';
+                return 'Caresser des chats';
             case 2:
-                return 'softskill 3';
+                return 'Rangement de forêt';
             case 3:
-                return 'softskill 4';
+                return 'Faire des fajitas';
         }
     }
 }

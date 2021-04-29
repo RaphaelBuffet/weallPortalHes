@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../styles/footer.scss'
+import '../../styles/colors.scss'
 import SocialMediaButtons from 'react-social-media-buttons';
+import { colors } from '@material-ui/core';
 const Footer = () => {
     return (
         <div className="main-footer">
@@ -11,8 +13,8 @@ const Footer = () => {
                         <div className='social-button'>
                             <SocialMediaButtons
                                 links={['https://www.facebook.com/weallstartup', 'https://www.instagram.com/weall_startup/', 'https://www.linkedin.com/company/weall-bex/']}
-                                buttonStyle={{ width: '50px', height: '50px', margin: '0px 10px', backgroundColor: '#0065b3', borderRadius: '50%' }}
-                                iconStyle={{ color: '#e8e8e8' }}
+                                buttonStyle={{ width: '50px', height: '50px', margin: '0px 10px', backgroundColor: '#2B2E42', borderRadius: '50%' }}
+                                iconStyle={{ color: '#B6CDE8' }}
                                 openNewTab={true}
                             />
                         </div>

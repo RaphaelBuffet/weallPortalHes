@@ -1,47 +1,67 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
 import '../../../styles/parametre.scss';
+import '../../../styles/profil.scss';
 import Accordion from '../../../components/Accordion/Accordion'
 import Contact from './div/contact'
 import Abonnement from './div/abonnement'
+import { FaExclamation } from 'react-icons/fa';
 
 function App() {
   return (<div>
     <div className="App">
-      <Navbar/>
+      <Navbar />
     </div>
     <div className="main-page">
-    <div className="section">
-    <h1>Parametre</h1>
-    </div>
-    <div className="section">
-      <Accordion title="Abonnement">
-          <Abonnement/>
-        </Accordion>
+      <div className="section">
+        <h1>Parametre</h1>
       </div>
-    <div className="section">
-      <Accordion title="Aide et contact">
-          <Contact/>
+      <div className="section">
+        <Accordion title="Abonnement">
+          <Abonnement />
         </Accordion>
       </div>
       <div className="section">
-      <Accordion title="Condition d'utilisation">
+        <Accordion title="Aide et contact">
+          <Contact />
+        </Accordion>
+      </div>
+      <div className="section">
+        <Accordion title="Condition d'utilisation">
           <p>ici mettre Condition d'utilisation</p>
         </Accordion>
       </div>
       <div className="section">
-      <Accordion title="Politique de confidentialité">
+        <Accordion title="Politique de confidentialité">
           <p>ici mettre politique de confidentialité</p>
         </Accordion>
       </div>
       <div className="section">
-      <Accordion title="Supprimer mon compte">
-          <p className='text-bold'>En cliquant sur le bouton ci-dessous vous supprimerez votre compte définitivement (cette action est irréversible) si votre but et de ne plus être visible modifier simplement votre visibilité sur votre profil</p>
-          <button className='btn-enregistrer'>Supprimez mon compte</button>
+        <Accordion title="Supprimer mon compte">
+          <table>
+            <tbody>
+              <tr>
+                <td rowspan="2">
+                  <FaExclamation />
+                </td>
+                <td>
+                  <p className='intituleFiltre'>En cliquant sur le bouton ci-dessous vous supprimerez votre compte définitivement (Action irréversible)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p className='intituleFiltre'>Si vous souhaitez uniquement ne plus être visible, modifiez simplement votre visibilité sur votre profil</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div className='btn-div'>
+              <button className='btn-reject'>Supprimez mon compte</button>
+          </div>
         </Accordion>
       </div>
     </div>
-    </div>
+  </div>
   );
 }
 

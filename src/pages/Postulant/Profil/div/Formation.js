@@ -2,6 +2,10 @@ import React from 'react'
 import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
 import '../../../../styles/profil.scss';
 import { data } from './data'
+import { FaSave } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
+
 var formation = [];
 export default class Formation extends React.Component {
     constructor(props) {
@@ -58,20 +62,20 @@ export default class Formation extends React.Component {
             cursus: 0,
             institut: 0,
             degre: 0,
-            diplome: ''
+            diplome: 'Nouvelle formation'
         })
         this.setState({ formation: newformation });
     }
     removeFormation(index) {
-        if(this.state.formation.length>1){
+        if (this.state.formation.length > 1) {
             let newformation = this.state.formation
             newformation.splice(index, 1)
             this.setState({ formation: newformation });
         }
-        else{
+        else {
             alert("Vous ne pouvez pas supprimer cette formation car vous devez renseigner au minimum votre dernière formation suivis")
         }
-        
+
     }
     handleEnregistrer() {
         alert('La formation est soumis');
@@ -83,21 +87,8 @@ export default class Formation extends React.Component {
                 <div key={i}>
                     <AccordionSecondary title={this.state.formation[i].diplome} className='accordion-secondary'>
                         <div className='form'>
-                                <div>
-                                    <p className='intituleProfil'>Durée</p>
-                                    <table class="dateZone" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                            <input type="date" value={this.state.formation[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='input' />
-                                            </th>
-                                            <th>à</th>
-                                            <th>
-                                            <input type="date" value={this.state.formation[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' />
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                    </table>
+                            <div>
+
                             </div>
                             <div className='line'>
                                 <div className='column'>
@@ -109,12 +100,34 @@ export default class Formation extends React.Component {
                                     </select>
                                 </div>
                                 <div className='column'>
+                                    <p className='intituleProfil'>Durée</p>
+                                    <table class="dateZone" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <input type="date" value={this.state.formation[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='inputDate' />
+                                                </td>
+                                                <td>à</td>
+                                                <td>
+                                                    <input type="date" value={this.state.formation[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='inputDate' />
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                            <div className='line'>
+                                <div className='column'>
                                     <p className='intituleProfil'>Institut</p>
                                     <select value={this.state.formation[i].institut} onChange={(value) => this.handleInstitut(i, value)} className='input'>
                                         <option value="0">Informatique de gestion</option>
                                         <option value="1">Tourisme</option>
                                         <option value="2">Economie et Service</option>
                                     </select>
+                                </div>
+                                <div className='column'>
+                                    <p className='intituleProfil'>Nom du diplôme</p>
+                                    <input type="text" value={this.state.formation[i].diplome} onChange={(value) => this.handleDiplome(i, value)} className='input' />
                                 </div>
                             </div>
                             <div className='line'>
@@ -123,16 +136,19 @@ export default class Formation extends React.Component {
                                     <select value={this.state.formation[i].degre} onChange={(value) => this.handleDegreEtude(i, value)} className='input'>
                                         <option value="0">Bachelor</option>
                                         <option value="1">Master</option>
+                                        <option value="1">Doctorat</option>
                                     </select>
                                 </div>
                                 <div className='column'>
-                                    <p className='intituleProfil'>Nom du diplôme</p>
-                                    <input type="text" value={this.state.formation[i].diplome} onChange={(value) => this.handleDiplome(i, value)} className='input' />
+                                    <div className="btn-divLeft">
+                                    <button className='btn-formAdd' onClick={this.handleEnregistrer}>
+                                        <FaSave />
+                                    </button>
+                                    <button className='btn-formRemove' onClick={() => this.removeFormation(i)}>
+                                        <FaTrash />
+                                    </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='flex-div'>
-                                <button className='btn-supprimer' onClick={()=>this.removeFormation(i)}> Supprimer cette formation</button>
-                                <button className='btn-enregistrer' onClick={this.handleEnregistrer}> Enregistrer cette formation</button>
                             </div>
                         </div>
                     </AccordionSecondary>
@@ -142,8 +158,24 @@ export default class Formation extends React.Component {
         return (
             <div className='accordion'>
                 {formation}
-                <div>
-                    <button className='btn-full' onClick={this.addFormation}>ajouter une formation</button>
+                <div className="accordionBottom">
+                <div className="btn-divRight">
+                    <table className="finalButtonZone-extern">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Ajouter une formation
+                                </th>
+                                <th>
+                                    <button className='btn-formAdd' onClick={this.addFormation}>
+                                        <FaPlus />
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                
                 </div>
             </div>
         );

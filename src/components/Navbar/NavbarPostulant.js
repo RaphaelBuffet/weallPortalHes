@@ -38,10 +38,12 @@ class Navbar extends Component {
                         </li>
                         )
                     })}
+                     <li onClick={() => this.logout()}>
+                        <div className='nav-linksDeco'>
+                            Déconnexion
+                        </div>
+                    </li>
                 </ul>
-                <button className="btn-reject" onClick={() => this.logout()}>
-                   Déconnexion
-                </button>
             </nav>
         )
     }
