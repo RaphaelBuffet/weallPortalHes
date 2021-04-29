@@ -55,30 +55,33 @@
 @media screen and (max-width:960px) {
     .main-footer{
         color: white;
-        background-color: #128124;
-        padding-top: 1em;
+        background-color: $Footer;
+        padding-top: 1%;
+        padding-bottom: 1%;
         bottom: 0;
         width: 100%;
         flex-direction: row;
+        display: inline-table;
     }
     .Row {
-        flex-direction: row;
-        display: flex;
+        display: inline-table;
         padding-left: 2em;
         padding-right: 2em;
     }
     .Col-left {
-        flex-direction: column;
-        flex:1;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
     }
     .Col-right {
-        position: relative;
+        display: inline-block;
         bottom: 0;
-        padding-top: 1.5em;
+        padding-top: 4em;
+        text-align: center;
     }
     .social-button {
-        margin: 0;
-        position: absolute;
+        text-align: center;
         }
     .Col-center {
         flex-direction: column;
@@ -89,6 +92,7 @@
         flex-direction: column;
         display: flex;
         height: 3.5em;
+        padding-top: 1vh;
     }
     .list-unstyled {
         list-style-type: none;

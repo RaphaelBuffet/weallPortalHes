@@ -44,6 +44,15 @@
     font-family: 'Tahoma';
     font-weight: normal;
   }
+
+  .info {
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Verdana';
+    font-size: 13px;
+  }
   @media screen and (max-width:960px) {
     * {
       margin: 0;

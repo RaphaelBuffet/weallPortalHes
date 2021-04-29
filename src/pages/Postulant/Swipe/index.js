@@ -1,30 +1,40 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar/NavbarEntreprise'
+import Navbar from '../../../components/Navbar/NavbarPostulant'
 import '../../../styles/swipe.scss'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import logo from '../../../image/logo.png'
 import { data } from './data'
 import Offre from './div/offre'
+import { FaThumbsUp } from 'react-icons/fa';
+import { FaThumbsDown } from 'react-icons/fa';
 var beneficeView = []
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: data,
-      loading:true
+      loading: true
     }
   }
   componentDidMount() {
     for (let i = 0; i < this.state.data.benefice.length; i++) {
       beneficeView.push(
-        <div className='column'>
-          <label>{this.state.data.benefice[i]}</label>
+        <div className='swipeCompetencesDiv'>
+          <table className="swipeCompetencesTable">
+            <tbody>
+              <tr>
+                <th >
+                  <label className="swipeSubSubtitle">{this.state.data.benefice[i]}</label>
+                </th>
+              </tr>
+            </tbody>
+          </table>
         </div>
       )
       console.log(this.state.data.benefice[i])
     }
-    this.setState({loading:false})
+    this.setState({ loading: false })
   }
   render() {
     return (<div>
@@ -32,55 +42,91 @@ class App extends React.Component {
         <Navbar />
       </div>
       <div className='main-page'>
-        <div className='titre'>
+        <div className='section'>
           <h1>Swipe</h1>
-          <label>&gt; Swipez pour découvrir les offres adaptées</label>
+          <p>Swipez pour découvrir les offres adaptées</p>
         </div>
-        <div className='test'>
-          <button className='btn-accepter' onClick={() => alert("gauche")}>
-            <ArrowBackIosIcon />
-          </button>
-          <div className='profil'>
-            <div className='infoGenerale'>
-              <div className='imagediv'>
-                <img src={logo} alt="Logo" />
-              </div>
-              <div className='info'>
-                <div className='section-bordered'>
-                  <label>{this.state.data.entreprise}</label>
+        <div className='swipeSection'>
+          <div className='backgroundSwipe'>
+            <button className='btn-refus' onClick={() => alert("gauche")}>
+              <FaThumbsDown size="70" />
+            </button>
+            <div className='profil'>
+              <div className='block'>
+                <p className="intituleProfil">{this.state.data.entreprise}</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th rowspan="6">
+                            <div className='imagediv'>
+                              <img src={logo} alt="Logo" />
+                            </div>
+                          </th>
+                        </tr>
+                        <tr>
+                          <td>
+                          <label className="swipeSubtitle">Description:</label>
+                            <label>{this.state.data.description}</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label className="swipeSubtitle">Secteur:</label>
+                            <label>{this.displaySecteurs(this.state.data.secteur)}</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <label className="swipeSubtitle">Type:</label>
+                            <label>{this.displayType(this.state.data.type)} </label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label className="swipeSubtitle">Ethique:</label>
+                            <label>{this.displayEthique(this.state.data.ethique)}</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <label className="swipeSubtitle">Label:</label>
+                            <label>{this.displayLabel(this.state.data.label)}</label>
+                          </td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
-                <div className='section-bordered'>
-                  <label>{this.state.data.description}</label>
-                </div>
-                <div className='section-bordered'>
-                  <label>{this.displayType(this.state.data.type)} {this.displaySecteurs(this.state.data.secteur)}</label>
+              </div>
+              <div className='block'>
+                <p className="intituleProfil">Autre bénéfices</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <div className='swipeCompetencesSuperDiv'>
+                      {beneficeView}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='section-bordered'>
-              <label>{this.displayEthique(this.state.data.ethique)}</label>
-            </div>
-            <div className='section-bordered'>
-              <label>{this.displayLabel(this.state.data.label)}</label>
-            </div>
-            <div className='section-bordered'>
-              <h3>autre bénéfices</h3>
-              <div className='line'>
-              {beneficeView}
+              <div className='block'>
+                <p className="intituleProfil">Offre proposée</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <Offre />
+                  </div>
+                </div>
+                  <button className='btn-Center'>
+                      Revoir plus tard
+                  </button>
               </div>
-              
             </div>
-            <div className='offre'>
-              <Offre />
-            </div>
+            <button className='btn-accepter' onClick={() => alert("droite")}>
+              <FaThumbsUp size="70" />
+            </button>
           </div>
-          <button className='btn-refus' onClick={() => alert("droite")}>
-            <ArrowForwardIosIcon />
-          </button>
         </div>
-        <button className='btn-full'>
-          Revoir plus tard
-        </button>
       </div>
     </div>
     );

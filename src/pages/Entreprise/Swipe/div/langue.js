@@ -26,25 +26,33 @@ export default class langue extends React.Component {
             this.createSejours(i)
             langueView.push(
                 <div key={i}>
-                    <div className='line-3'>
-                        <div className='column'>
-                            <label>{this.displayLangue(this.state.langueData[i].nom)}</label>
-                        </div>
-                        <div className='column'>
-                            <label> Niveau : {this.displayNiveau(this.state.langueData[i].niveau)}</label>
-                        </div>
-                        <div className='column'>
-                            <label> Certificat : {this.state.langueData[i].certificat === '' ? 'Pas de certificat' : this.state.langueData[i].certificat}</label>
-                        </div>
-                    </div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>
+                                <p className='swipeSubtitle'>{this.displayLangue(this.state.langueData[i].nom)}</p>
+                            </th>
+                            <th>
+                                <p className='swipeSubtitle'> 
+                                    ({this.displayNiveau(this.state.langueData[i].niveau)},
+                                </p>
+                            </th>
+                            <th>
+                                <p className='swipeSubtitle'> 
+                                    {this.state.langueData[i].certificat === '' ? ' Pas de certificat' : ' Certificat : ' + this.state.langueData[i].certificat})
+                                </p>
+                            </th>
+                        </tr>
+                        </thead>
+                        </table>
                     {this.state.langueData[i].sejours.length !== 0 ?
-                        <div>
-                            <p className='line-simple'>Expérience/Séjours Linguistique</p>
+                        <div className='swipeTextBlock'>
+                            <p className='swipeSubSubtitle'>Expériences/Séjours Linguistique</p>
                             <div>
                                 {allSejoursView[i]}
                             </div>
-                        </div>:null
-                }
+                        </div> : null
+                    }
 
                 </div>
             )
@@ -54,19 +62,28 @@ export default class langue extends React.Component {
         sejoursView = []
         for (let i = 0; i < this.state.langueData[index].sejours.length; i++) {
             sejoursView.push(
-                <div className='line-3'>
-                    <div className='columnLeft'>
-                    <label>{this.state.langueData[index].sejours[i].debut.slice(8, 10)}.{this.state.langueData[index].sejours[i].debut.slice(5, 7)}.{this.state.langueData[index].sejours[i].debut.slice(0, 4)}   - {this.state.langueData[index].sejours[i].fin.slice(8, 10)}.{this.state.langueData[index].sejours[i].fin.slice(5, 7)}.{this.state.langueData[index].sejours[i].fin.slice(0, 4)}</label>
-                    </div>
-                    <div className='columnCenter'>
-                        <label> Pays : {this.state.langueData[index].sejours[i].pays}</label>
-                    </div>
-                    <div className='columnRight'>
-                        <label> Type : {this.displayTypeSejours(this.state.langueData[index].sejours[i].type)}</label>
-                    </div>
+                <div> 
+                    <table className="swipeDateTable">
+                        <tbody>
+                        <tr>
+                            <td>•
+                                <label className='labelSwipe'>{this.displayTypeSejours(this.state.langueData[index].sejours[i].type)}</label>
+                            </td>
+                            <td> en
+                                <label className='labelSwipe'>{this.state.langueData[index].sejours[i].pays}</label>
+                            </td>
+                            <td>du
+                                <label className='labelSwipe'>{this.state.langueData[index].sejours[i].debut.slice(8, 10)}.{this.state.langueData[index].sejours[i].debut.slice(5, 7)}.{this.state.langueData[index].sejours[i].debut.slice(0, 4)}</label>
+                            </td>
+                            <td>au
+                                <label className='labelSwipe'>{this.state.langueData[index].sejours[i].fin.slice(8, 10)}.{this.state.langueData[index].sejours[i].fin.slice(5, 7)}.{this.state.langueData[index].sejours[i].fin.slice(0, 4)}</label>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
                 </div>
             )
-            allSejoursView[index]=sejoursView
+            allSejoursView[index] = sejoursView
         }
     }
     displayLangue(value) {
@@ -94,7 +111,7 @@ export default class langue extends React.Component {
             case 0:
                 return 'Experience professionelle';
             case 1:
-                return 'Séjours linguistiques';
+                return 'Séjour linguistique';
         }
     }
 }

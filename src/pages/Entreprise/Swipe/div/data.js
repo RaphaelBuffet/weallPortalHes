@@ -16,7 +16,7 @@ export const data = {
             cursus: 1,
             institut: 1,
             degre: 1,
-            diplome: 'Informatique de gestion'
+            diplome: 'Bachelor en Informatique de Gestion'
         },
         {
             debut:'2012-08-01',
@@ -24,7 +24,7 @@ export const data = {
             cursus: 1,
             institut: 1,
             degre: 1,
-            diplome: 'Maturité commerciale'
+            diplome: 'Maturité Professionnelle Commerciale'
         }
     ],
     experience :[

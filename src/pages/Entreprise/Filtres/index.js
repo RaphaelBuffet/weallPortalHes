@@ -59,7 +59,7 @@ export default class Filtres extends React.Component {
                     <h2 className='intituleFiltre'>Langue</h2>
                   </th>
                   <th class="tg-nrix">
-                    <select value={this.state.langue[i].nom} onChange={(value) => this.handleLangueName(i, value)} className='input'>
+                    <select value={this.state.langue[i].nom} onChange={(value) => this.handleLangueName(i, value)} className='inputLanguage'>
                       <option value='0'>Français</option>
                       <option value='1'>Allemand</option>
                       <option value='2'>Anglais</option>
@@ -76,7 +76,7 @@ export default class Filtres extends React.Component {
                     <h2 className='intituleFiltre'>Niveau</h2>
                   </td>
                   <td class="tg-nrix">
-                    <select value={this.state.langue[i].niveau} onChange={(value) => this.handleLangueNiveau(i, value)} className='input'>
+                    <select value={this.state.langue[i].niveau} onChange={(value) => this.handleLangueNiveau(i, value)} className='inputLanguage'>
                       <option value="0">A1</option>
                       <option value="1">A2</option>
                       <option value="2">B1</option>
@@ -171,7 +171,7 @@ export default class Filtres extends React.Component {
                   theme={theme => ({
                     ...theme,
                     borderRadius: 0,
-                    marginTop:0,
+                    marginTop: 0,
                   })}
                   closeMenuOnSelect={false}
                   defaultValue={[this.state.etude[2], this.state.etude[1]]}
@@ -184,22 +184,43 @@ export default class Filtres extends React.Component {
                 />
               </div>
             </div>
-            <div>
-              <p className='subtitle'>Langues</p>
-              <button className='btn-formAdd' onClick={() => this.addLangue()}>
-                <FaPlus />
-              </button>
+            <div className='block'>
+              <p className='intituleProfil'>Langues</p>
+              <div className="accordion">
+                <div className="subForm">
+                  {langues}
+                  <div className="btn-divRight">
+                    <table className="finalButtonZone-extern">
+                      <thead>
+                        <tr>
+                          <th>
+                            Ajouter une langue
+                          </th>
+                          <th>
+                            <button className='btn-formAdd' onClick={() => this.addLangue()}>
+                              <FaPlus />
+                            </button>
+                          </th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-            {langues}
           </div>
-          <button className='btn-neutral'>
-            enregistrer les filtres
-        </button>
-          <div className='info'>
+          <div className="bottomDiv">
+          <div className='btn-divRight'>
+          <div className='info'> 
             <p>
               <FaInfoCircle className='icon' />
               Vos filtres de recherche sont enregistrés même après votre déconnexion.
+              <button className='btn-neutral'>
+                Enregistrer les filtres
+              </button>
             </p>
+          </div>
+          </div>
           </div>
         </div>
       </div>

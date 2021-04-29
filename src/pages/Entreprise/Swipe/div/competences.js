@@ -11,9 +11,9 @@ export default class competences extends React.Component {
     render() {
         this.createcompetences()
         return (
-            <div>
+            <div className="swipeCompetencesSuperDiv">
                 {competencesView}
-                <br/>
+                <br />
             </div>
         );
     }
@@ -22,50 +22,41 @@ export default class competences extends React.Component {
         competencesView = [];
         for (let i = 0; i < this.state.competencesData.length; i++) {
             competencesView.push(
-                <div key={i}>
-                    <div className='line-4'>
-                        <div className='column'>
-                            <label>{this.displayCompetence(this.state.competencesData[i].nom)}</label>
-                        </div>
-                        <div className='column'>
-                            <label>{this.displayNiveau(this.state.competencesData[i].niveau)}</label>
-                        </div>
-                        {this.state.competencesData[i + 1] !== undefined
-                            ?
-                            <div>
-                                <div className='column'>
-                                    <label>{this.displayCompetence(this.state.competencesData[i + 1].nom)}</label>
-                                </div>
-                                <div className='column'>
-                                    <label>{this.displayNiveau(this.state.competencesData[i + 1].niveau)}</label>
-                                </div>
-                            </div>
-                            : null}
-
-                    </div>
+                <div key={i} className="swipeCompetencesDiv">
+                        <table className="swipeCompetencesTable">
+                            <tbody>
+                                <tr>
+                                    <th >                                    
+                        <label className="labelSwipe">{this.displayCompetence(this.state.competencesData[i].nom)+':'}</label>
+                                    </th>
+                                    <th >        
+                        <label>{this.displayNiveau(this.state.competencesData[i].niveau)}</label>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
                 </div>
             )
-            i++
         }
     }
     displayCompetence(value) {
         switch (value) {
             case 0:
-                return 'manger';
+                return 'Biztalk';
             case 1:
-                return 'dormir';
+                return 'BPM';
             case 2:
-                return 'boire';
+                return 'SAP';
         }
     }
     displayNiveau(value) {
         switch (value) {
             case 0:
-                return 'débutant';
+                return 'Débutant';
             case 1:
-                return 'intermédiaire';
+                return 'Intermédiaire';
             case 2:
-                return 'avancés';
+                return 'Avancés';
         }
     }
 }

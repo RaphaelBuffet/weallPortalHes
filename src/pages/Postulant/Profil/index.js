@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
 import '../../../styles/profil.scss';
+import '../../../styles/button.scss';
 import Accordion from '../../../components/Accordion/Accordion'
 import InfoPersonelle from './div/InfoPersonelle'
 import Formation from './div/Formation'
@@ -9,6 +10,8 @@ import Competence from './div/Competence'
 import Langue from './div/Langue'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import { blue } from '@material-ui/core/colors';
+import { FaInfoCircle } from 'react-icons/fa';
 
 class Profil extends React.Component {
   constructor(props) {
@@ -29,12 +32,12 @@ class Profil extends React.Component {
           <Navbar />
         </div>
         <div className="main-page">
-        <div className="section">
-          <h1>Votre Profil</h1>
-          <p>Créez votre profil pour commencer vos recherches !</p>
+          <div className="section">
+            <h1>Votre Profil</h1>
+            <p>Créez votre profil pour commencer vos recherches !</p>
           </div>
           <div className="section">
-            <Accordion title="Infomations Personelle">
+            <Accordion  title="Infomations Personelle">
               <InfoPersonelle />
             </Accordion>
           </div>
@@ -58,21 +61,43 @@ class Profil extends React.Component {
               <Competence />
             </Accordion>
           </div>
-          <div className='section'>
-            <button className='btn-enregistrer-less-margin'>Aperçus profil</button>
-            <button className='btn-enregistrer-less-margin'>Commencer la recherche</button>
-          </div>
-          <div className='section'>
-            <div className='recherche'>
-              <div>
-                <FormControlLabel
-                  control={<Switch checked={this.state.publish} onChange={() => this.handleToogle()} name="checkedA" />}
-                  label={this.state.publish ? 'Profil actif et disponible à la recherche' : 'Profil indipsonible à la recheche'}
-                />
-              </div>
-              <p>Si cette option est désactivée, vous ne figurez pas dans la pile de candidature. Vous avez toujours accès au chat et pouvez discuter avec les entreprises matchées.</p>
-            </div>
 
+          <div className='section'>
+            <div className="line">
+              <div className="column">
+                <div>
+                  <FormControlLabel
+                    control={<Switch checked={this.state.publish} onChange={() => this.handleToogle()} color="primary" name="checkedA" />}
+                    label={this.state.publish ? 'Profil actif et disponible à la recherche' : 'Profil indisponible à la recherche'}
+                  />
+                  <table class="tg">
+                    <thead>
+                      <tr>
+                        <th rowspan="2">
+                          <FaInfoCircle className='icon' />
+                        </th>
+                        <th>
+                          <p className="info">Désactiver cette option empêche les recruteurs de voir le profil</p>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td>
+                        <p className="info">Le chat reste néanmoins accessible avec les entreprises matchées.</p>
+                          </td>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+
+              </div>
+              <div className="column">
+                <div className="btn-divRight">
+                  <button className='btn-neutral'>Aperçus profil</button>
+                  <button className='btn-neutral'>Commencer la recherche</button>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>

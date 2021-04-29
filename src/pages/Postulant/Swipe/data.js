@@ -4,12 +4,12 @@ export const data =
     localite: 1,
     type: 1,
     secteur: 1,
-    description: 'start up issus de l option d ecole Business Experience actuellement incuber chez The Ark',
+    description: 'Start up issue de l option d ecole Business Experience actuellement incubée chez The Ark',
     ethique: 1,
     label: 1,
     benefice: [
-        'non-discriminante',
-        'jeunes'
+        'Non-discriminante',
+        'Jeune'
     ],
     offre:{
         poste: 'Responsable RH',
@@ -18,7 +18,7 @@ export const data =
         duree: 1,
         dispo: '2021-03-19',
         salaire: 2,
-        url: 'je suis url de redirection numéro 2',
+        url: 'http://wwww.thisisatest.com',
         publish: false,
         localite: 1
     }

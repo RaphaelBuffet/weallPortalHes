@@ -9,9 +9,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
 import { FaSave } from 'react-icons/fa';
-import { FaTrash} from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
-import { FaHandPointer} from 'react-icons/fa';
+import { FaHandPointer } from 'react-icons/fa';
 
 
 var offres = []
@@ -67,7 +67,7 @@ class App extends React.Component {
     newoffre[index].publish = !newoffre[index].publish
     this.setState({ offre: newoffre })
     console.log("test")
-    
+
   }
   addOffre() {
     let newoffre = this.state.offre
@@ -90,7 +90,7 @@ class App extends React.Component {
     newoffre.splice(index, 1)
     this.setState({ offre: newoffre })
   }
-  handleEnregistrer(){
+  handleEnregistrer() {
     alert("offre enregistrer")
   }
   DisplayOffre() {
@@ -169,25 +169,53 @@ class App extends React.Component {
               <div className='toogle'>
               </div>
               <div className='btn-div'>
-              <FormControlLabel
-                      control={
-                        <Switch 
-                          checked={this.state.offre[i].publish} 
-                          onChange={() => this.handleToogle(i)} name="checkedA" 
-                          color="primary"
-                          />
-                              }
-                      label={this.state.offre[i].publish ? 'Offre active' : 'Offre inactive'}
-                    />
-                <button title="Sélectionner l'offre" className='btn-formAdd' onClick={()=> this.changeCurrentOffre(i)}>
-                    <FaHandPointer/>
-                </button>
-                <button title="Enregistrer les modifications faites à l'offre" className='btn-formAdd' onClick={this.handleEnregistrer}>
-                    <FaSave/>
-                </button>
-                <button title="Supprimer l'offre" className='btn-formRemove' onClick={() => this.removeOffre(i)}>
-                    <FaTrash/>
-                </button>
+                <table>
+                  <thead>
+                    <tr>
+                      <th className="btn-divRight">
+                        <FormControlLabel
+                          control={
+                            <Switch
+                              checked={this.state.offre[i].publish}
+                              onChange={() => this.handleToogle(i)} name="checkedA"
+                              color="primary"
+                              
+                            />
+                          }
+                          label={this.state.offre[i].publish ? 'Offre active' : 'Offre inactive'}
+                          labelPlacement="start"
+                        />
+                      </th>
+                      <th>
+                        <button title="Enregistrer les modifications faites à l'offre" className='btn-formAdd' onClick={this.handleEnregistrer}>
+                          <FaSave />
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="btn-divRight">
+                        <FormControlLabel
+                          control={
+                            <Switch
+                              checked={this.state.offre[i].publish}
+                              onChange={() => this.changeCurrentOffre(i)} name="checkedA"
+                              color="primary"
+                            />
+                          }
+                          label={this.state.offre[i].publish ? 'Offre sélectionnée' : 'Offre désélectionnée'}
+                          labelPlacement="start"
+                        />
+                      </td>
+                      <td>
+                        <button title="Supprimer l'offre" className='btn-formRemove' onClick={() => this.removeOffre(i)}>
+                          <FaTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </Accordion>
@@ -203,30 +231,30 @@ class App extends React.Component {
           <Navbar />
         </div>
         <div className="main-page">
-        <div className="section">
-        <table class="tg">
-          <thead>
-            <tr>
-              <th class="tg-cly1">
-                  <h1>Vos Offres</h1>
-              </th>
-              <th class="tg-nrix" rowspan="2">
-                <button className='btn-formAdd' title="Nouvelle offre"onClick={() => this.addOffre()}>
-                  <FaPlus/>
-                </button>
-              </th>
-            </tr>
-            <tr>
-              <td class="tg-cly1"><p>Créez vos offres d'emplois</p>
-          </td>
-            </tr>
-          </thead>
-          </table>
+          <div className="section">
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th class="tg-cly1">
+                    <h1>Vos Offres</h1>
+                  </th>
+                  <th class="tg-nrix" rowspan="2">
+                    <button className='btn-formAdd' title="Nouvelle offre" onClick={() => this.addOffre()}>
+                      <FaPlus />
+                    </button>
+                  </th>
+                </tr>
+                <tr>
+                  <td class="tg-cly1"><p>Créez vos offres d'emplois</p>
+                  </td>
+                </tr>
+              </thead>
+            </table>
           </div>
           <div className="section">
-            {this.state.offre.length===0
-            ?<p className='text-bold'>Vous n'avez aucune offre répertoriée</p>
-            :offres}
+            {this.state.offre.length === 0
+              ? <p className='text-bold'>Vous n'avez aucune offre répertoriée</p>
+              : offres}
           </div>
         </div>
       </div>
