@@ -96,11 +96,11 @@ class Connexion extends React.Component {
                                     Connexion
                         </button>
                             </div>
-                            <div className='column'>
+                            {/* <div className='column'>
                                 <button className='btn'>
                                     Connexion
                         </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

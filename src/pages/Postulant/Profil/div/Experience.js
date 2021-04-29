@@ -1,7 +1,11 @@
 import React from 'react'
 import { AccordionSecondary } from '../../../../components/Accordion/Accordion'
 import '../../../../styles/profil.scss';
+import '../../../../styles/filtre.scss';
 import { data } from './data'
+import { FaSave } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 var experience = [];
 export default class Experience extends React.Component {
     constructor(props) {
@@ -96,37 +100,60 @@ export default class Experience extends React.Component {
                 <div key={i}>
                     <AccordionSecondary title={this.state.experience[i].poste + " chez " + this.state.experience[i].entreprise} className='accordion-secondary'>
                         <div className='form'>
-                            <div clasname="inputmonoline">
-                                <input type="checkbox" checked={this.state.experience[i].actuelle} onChange={() => this.handleActuelle(i)} className='intitulé' />
-                                <label className='intitulé'> Poste actuelle</label>
-                            </div>
-
-                            <div className='line-half'>
-                                <div className='column'>
-                                    <p className='intitulé'>Date de début</p>
-                                    <input type="date" value={this.state.experience[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='input' />
+                            <div className='line'>
+                                <div className="column">
+                                    <p className='intituleProfil'>Poste occupé</p>
+                                    <input type="text" value={this.state.experience[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
                                 </div>
-                                {
-                                    this.state.experience[i].actuelle ?
-                                        <div className='column'>
-                                            <p className='intitulé'>Date de fin</p>
-                                            <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' disabled='true' />
-                                        </div>
-                                        : <div className='column'>
-                                            <p className='intitulé'>Date de fin</p>
-                                            <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='input' />
-                                        </div>
-                                }
+                                <div className='column'>
+                                    <p className='intituleProfil'>Durée</p>
+                                    <table class="dateZone" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                            <td className="dateZoneA">
+                                                    <input type="date" value={this.state.experience[i].debut} onChange={(value) => this.handleDateDebut(i, value)} className='inputDate' />
+                                                </td>
+                                                <td className="dateZoneA">à</td>
+                                                <td className="dateZoneA">
+                                                    {
+                                                        this.state.experience[i].actuelle ?
+                                                            <div className='column'>
+                                                                <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='inputDate' disabled='true' />
+                                                            </div>
+                                                            : <div className='column'>
+                                                                <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='inputDate' />
+                                                            </div>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <div className="checkboxZone">
 
+                                        <table class="dateZone" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <td>
+                                                        <label className='intitulé'> Poste actuel</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" checked={this.state.experience[i].actuelle} onChange={() => this.handleActuelle(i)} className='intitulé' />
 
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
+
                             <div className='line'>
                                 <div className='column'>
-                                    <p className='intitulé'>Entreprise</p>
+                                    <p className='intituleProfil'>Entreprise</p>
                                     <input type="text" value={this.state.experience[i].entreprise} onChange={(value) => this.handleEntreprise(i, value)} className='input' />
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>Secteur d'activité</p>
+                                    <p className='intituleProfil'>Secteur d'activité</p>
                                     <select value={this.state.experience[i].secteurs} onChange={(value) => this.handleSecteurs(i, value)} className='input'>
                                         <option value="0">Informatique de gestion</option>
                                         <option value="1">Tourisme</option>
@@ -136,11 +163,10 @@ export default class Experience extends React.Component {
                             </div>
                             <div className='line'>
                                 <div className='column'>
-                                    <p className='intitulé'>Poste occupé</p>
-                                    <input type="text" value={this.state.experience[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
+
                                 </div>
                                 <div className='column'>
-                                    <p className='intitulé'>Pays</p>
+                                    <p className='intituleProfil'>Pays</p>
                                     <select value={this.state.experience[i].pays} onChange={(value) => this.handlePays(i, value)} className='input'>
                                         <option value="0">Suisse</option>
                                         <option value="1">France</option>
@@ -151,7 +177,7 @@ export default class Experience extends React.Component {
                             {this.state.experience[i].pays === "0" ?
                                 <div className='line-alone'>
                                     <div className='column'>
-                                        <p className='intitulé'>Localité</p>
+                                        <p className='intituleProfil'>Localité</p>
                                         <select value={this.state.experience[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
                                             <option value="0">Sion</option>
                                             <option value="1">Sierre</option>
@@ -163,13 +189,20 @@ export default class Experience extends React.Component {
 
                             <div className='line-simple'>
                                 <div className='column'>
-                                    <p className='intitulé'>Tâches principales</p>
-                                    <textarea value={this.state.experience[i].description} onChange={(value) => this.handleDescription(i, value)} className='inputlong' />
+                                    <p className='intituleProfil'>Tâches principales</p>
+                                    <textarea value={this.state.experience[i].description} onChange={(value) => this.handleDescription(i, value)} className='inputlongmonoline' />
                                 </div>
                             </div>
                             <div className='flex-div'>
-                                <button className='btn-supprimer' onClick={() => this.removeExperience(i)}> Supprimer cette experience</button>
-                                <button className='btn-enregistrer' onClick={this.handleEnregistrer}> Enregistrer cette experience</button>
+
+                                <div className="btn-div">
+                                    <button className='btn-formAdd' onClick={this.handleEnregistrer}>
+                                        <FaSave />
+                                    </button>
+                                    <button className='btn-formRemove' onClick={() => this.removeExperience(i)}>
+                                        <FaTrash />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </AccordionSecondary>
@@ -179,11 +212,27 @@ export default class Experience extends React.Component {
         return (
             <div className='accordion'>
                 {this.state.experience.length === 0
-                    ? <p className='text-bold'>Vous n'avez pas renseigner d'expérience professionelle</p>
+                    ? <p className='text-bold'>Vous n'avez pas renseigné d'expérience professionelle</p>
                     : experience}
-                <div>
-                    <button className='btn-full' onClick={this.addExperience}>ajouter une experience</button>
+                <div className="accordionBottom">
+                    <div className="btn-divRight">
+                        <table className="finalButtonZone-extern">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Ajouter une experience
+                                </th>
+                                    <th>
+                                        <button className='btn-formAdd' onClick={this.addExperience}>
+                                            <FaPlus />
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
+
             </div>
         );
     }

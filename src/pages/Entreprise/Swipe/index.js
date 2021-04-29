@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarEntreprise'
 import '../../../styles/swipe.scss'
+import '../../../styles/profil.scss';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Formation from './div/formations';
@@ -8,6 +9,9 @@ import Experience from './div/experience';
 import Competences from './div/competences';
 import Langue from './div/langue';
 import Softskill from './div/softskill'
+import { FaThumbsUp } from 'react-icons/fa';
+import { FaThumbsDown } from 'react-icons/fa';
+import { FaInfoCircle } from 'react-icons/fa';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,58 +29,81 @@ class App extends React.Component {
         <Navbar />
       </div>
       <div className='main-page'>
-        <div className='titre'>
+        <div className='section'>
           <h1>{this.state.offre.nom} - Swipe</h1>
-          <label>&gt; Swipez pour découvrir les profils des candidats</label>
+          <p>Swipez pour découvrir les profils des candidats</p>
         </div>
-        <div className='test'>
-          <button className='btn-accepter' onClick={() => alert("gauche")}>
-            <ArrowBackIosIcon />
-          </button>
-          <div className='profil'>
-            <div className='explication'>
-              <div className='paragraphe'>
-                <p>Matchez pour discutez avec le candidat ! Attention, vous ne pourrez découvrir son profil complet que lors d'un entretien !</p>
-                <p></p>
+        <div className='swipeSection'>
+          <div className='backgroundSwipe'>
+            <button className='btn-refus' onClick={() => alert("gauche")}>
+              <FaThumbsDown size="70" />
+            </button>
+            <div className='profil'>
+              <div className='explication'>
+              <table class="tg">
+                    <thead>
+                      <tr>
+                        <th rowspan="2">
+                          <FaInfoCircle className='icon' />
+                        </th>
+                        <th>
+                          <p className="info">Matchez pour discutez avec le candidat ! Attention, vous ne pourrez découvrir son profil complet que lors d'un entretien !</p>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td>
+                        <p className="info">Informations confidentiel jusqu'à l'entretien: Nom, prénom, âge, sexe</p>
+                          </td>
+                      </tr>
+                    </thead>
+                  </table>
               </div>
-              <div className='paragraphe'>
-                <p>Informations confidentiel jusqu'à l'entretien: Nom, prénom, âge, sexe</p>
-                <p></p>
+              <div className='block'>
+                <p className="intituleProfil">Formations</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <Formation />
+                  </div>
+                </div>
+              </div>
+              <div className='block'>
+                <p className="intituleProfil">Expérience professionnelles</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <Experience />
+                  </div>
+                </div>
+              </div>
+              <div className='block'>
+                <p className="intituleProfil">Langues</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <Langue />
+                  </div>
+                </div>
+              </div>
+              <div className='block'>
+                <p className="intituleProfil">Compétences</p>
+                <div className="accordion">
+                  <div className="subForm">
+                    <p className="swipeSubtitle">Compétences techniques</p>
+                    <Competences />
+                    <p className="swipeSubtitle">Softskills</p>
+                    <Softskill />
+                  </div>
+                </div>
+                <button className='btn-Center'>
+                    Revoir plus tard
+                </button>
               </div>
             </div>
-            <div className='section-bordered'>
-              <h3>Formations</h3>
-              <Formation/>
-            </div>
-            <div className='section-bordered'>
-              <h3>Expérience professionnelles</h3>
-              <Experience/>
-            </div>
-            <div className='section-bordered'>
-              <h3>Langues</h3>
-              <Langue/>
-            </div>
-            <div className='section-bordered'>
-              <h3>Compétences</h3>
-              <Competences/>
-              <h3>Softskills</h3>
-              <Softskill/>
-            </div>
+            <button className='btn-accepter' onClick={() => alert("droite")}>
+              <FaThumbsUp size="70" />
+            </button>
           </div>
-          <button className='btn-refus' onClick={() => alert("droite")}>
-            <ArrowForwardIosIcon />
-          </button>
         </div>
-        <div>
-        <button className='btn-full'>
-          Revoir plus tard
-        </button>
-        </div>
-        
-
       </div>
     </div>
-
     );
   }
 }

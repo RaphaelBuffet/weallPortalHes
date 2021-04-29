@@ -1,11 +1,13 @@
 @import 'src/styles/colors.scss';
 
+$softSkillSize: 90%;
+$softSkillMobileSize: 20vh;
 
 :root {
     --primary: transparent;
 }
 
-.btn-neutral, .btn-validate, .btn-reject{
+.btn-neutral, .btn-validate, .btn-reject, .btn-click, .btn-unclick, .btn-Center{
     padding: 8px 20px;
     border-radius: 4px;
     outline: none;
@@ -23,12 +25,12 @@
     transition: 250ms;
 }
 
-.btn-neutral { 
+.btn-neutral, .btn-Center { 
     color: white;
     border: 2px solid ;
 }
 
-.btn-neutral:hover{
+.btn-neutral:hover, .btn-Center:hover{
     background: $TrypanBlue;
     color: white;
 }
@@ -48,12 +50,70 @@
 .btn-reject:hover{
     background: $RejectColor;
 }
+
+//-----------------------------------------------------------------------------
+// SoftSkills buttons
+//-----------------------------------------------------------------------------
+.btn-click {
+    border: none;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: $softSkillSize;
+    text-align: center;
+    background-color: $Police;
+    color: white;
+}
+
+.btn-click:hover {
+    border: none;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: $softSkillSize;
+    text-align: center;
+    background-color: $RejectColor;
+}
+
+.btn-unclick {
+    border: none;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: $softSkillSize;
+    text-align: center;
+    background-color: $SecondBackground;
+}
+
+.btn-unclick:hover {
+    border: none;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: $softSkillSize;
+    text-align: center;
+    background-color: $ValidateColor;
+}
+
 //-----------------------------------------------------------------------------
 // Form buttons
 //-----------------------------------------------------------------------------
 
 .btn-form, .btn-formAdd, .btn-formRemove{
-    padding: 3px 6px;
+    padding: 12px 18px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: $SecondBackground;
+    text-align: center;
+    vertical-align: baseline;
+    margin: 0.05em;
+}
+
+.btn-formMini, .btn-formMiniAdd, .btn-formMiniRemove
+{
+    padding: 4px 8px;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
@@ -74,15 +134,53 @@
 }
 
 .btn-div{
-    // text-align: right;
-    // width: 92%;
-    // margin-top: 5em;
     display: flex;
     float:right;
     justify-content: space-between;
     margin-right: 9%;
     margin-top: 2em;
     padding: 10px 0;
+}
+
+.btn-divLeft{
+    display: flex;
+    float:right;
+    justify-content: space-between;
+    margin-right: 17%;
+    margin-top: 1em;
+}
+
+.btn-divRight{
+    display: flex;
+    float:right;
+    justify-content: space-between;
+    margin-right: 2em;
+    padding: 10px 0;
+}
+
+.btn-Center{
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.checkboxZone{
+    display: flex;
+    float:left;
+    justify-content: space-between;
+    margin-left: 1em;
+    padding: 10px 0;
+    height: 2em;
+    width: 15%;
+    vertical-align: middle;
+}
+
+.checkbox{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    vertical-align: middle;
 }
 
 .btn--primary {
@@ -114,21 +212,167 @@
 /*style mobile*/
 @media screen and (max-width:960px) {
     :root {
-        --primary: #0a8045;
+        --primary: transparent;
     }
-    .btn {
-        padding: 8px 20px;
+    
+    .btn-neutral, .btn-validate, .btn-reject, .btn-click, .btn-unclick, .btn-Center{
+        padding: 6px 15px;
         border-radius: 4px;
         outline: none;
-        border: none;
         cursor: pointer;
+        background-color: $Police;
     }
-    .btn:hover{
-        padding: 8px 20px;
+    
+    .btn-validate, .btn-reject{
+        background-color: transparent;
+        color: white;
+    }
+    
+    .btn-neutral:hover, .btn-validate:hover, .btn-reject:hover{
         transition: all 0.3s ease-out;
-        background: #FFF;
-        color: #5668F4;
         transition: 250ms;
+    }
+    
+    .btn-neutral, .btn-Center { 
+        color: white;
+        border: 2px solid ;
+    }
+    
+    .btn-neutral:hover, .btn-Center:hover{
+        background: $TrypanBlue;
+        color: white;
+    }
+    
+    .btn-validate{
+        border: 2px solid $ValidateColor;
+        background: $Header;
+    }
+    .btn-validate:hover{
+        background: $ValidateColor;
+    }
+    
+    .btn-reject{
+        border: 2px solid $RejectColor;
+        background: $Header;
+    }
+    .btn-reject:hover{
+        background: $RejectColor;
+    }
+    
+    //-----------------------------------------------------------------------------
+    // SoftSkills buttons
+    //-----------------------------------------------------------------------------
+    .btn-click, .btn-click:hover, .btn-unclick, .btn-unclick:hover{
+        border: none;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: 1em;
+        width: $softSkillMobileSize;
+        text-align: center;
+    }
+    
+    
+    .btn-click {
+
+        background-color: $Police;
+        color: white;
+    }
+    
+    .btn-click:hover {
+        background-color: $RejectColor;
+    }
+    
+    .btn-unclick {
+        background-color: $SecondBackground;
+    }
+    
+    .btn-unclick:hover {
+        background-color: $ValidateColor;
+    }
+    
+    //-----------------------------------------------------------------------------
+    // Form buttons
+    //-----------------------------------------------------------------------------
+    
+    .btn-form, .btn-formAdd, .btn-formRemove{
+        padding: 12px 18px;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        background-color: $SecondBackground;
+        text-align: center;
+        vertical-align: baseline;
+        margin: 0.05em;
+    }
+    
+    .btn-formMini, .btn-formMiniAdd, .btn-formMiniRemove{
+        padding: 4px 8px;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        background-color: $SecondBackground;
+        text-align: center;
+        vertical-align: baseline;
+        margin: 0.05em;
+    }
+    
+    
+    .btn-formAdd:hover{
+        background: $ValidateColor;
+    }
+    
+    .btn-formRemove:hover{
+        background: $RejectColor;
+    }
+    
+    .btn-div{
+        display: flex;
+        float:right;
+        justify-content: space-between;
+        margin-right: 9%;
+    }
+    
+    .btn-divLeft{
+        display: flex;
+        float:right;
+        justify-content: space-between;
+        padding-left: 30vh;
+        margin-top: 1em;
+    }
+    
+    .btn-divRight{
+        display: inline;
+        float: none;
+        justify-content: center;
+        margin-right: 2em;
+        padding-top: 3em;
+    }
+    
+    .btn-Center{
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+    }
+    
+    .checkboxZone{
+        display: flex;
+        float:left;
+        justify-content: space-between;
+        margin-left: 1em;
+        padding: 10px 0;
+        height: 2em;
+        width: 15%;
+        vertical-align: middle;
+    }
+    
+    .checkbox{
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        background-color: #eee;
+        vertical-align: middle;
     }
     
     .btn--primary {

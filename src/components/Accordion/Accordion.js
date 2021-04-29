@@ -64,8 +64,6 @@ export const AccordionSecondary = (props) => {
                             {children}
                         </div>
                     ) : null}
-
-
                 </div>
             
         </IconContext.Provider>

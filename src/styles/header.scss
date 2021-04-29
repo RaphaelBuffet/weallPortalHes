@@ -14,6 +14,8 @@
     margin-left: 20px;
     margin-right: 40px;
     cursor: pointer;
+    
+    padding-top: 0.7vh;
 }
 
 .fa-react {
@@ -22,7 +24,7 @@
 }
 .nav-menu {
     display: grid;
-    grid-template-columns: repeat(6,auto);
+    grid-template-columns: repeat(7,auto);
     grid-gap: 20px;
     list-style: none;
     text-align: center;
@@ -36,15 +38,28 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem;
+    display: inline;
+    vertical-align: middle;
 }
+
+.nav-linksDeco {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: inline;
+    vertical-align: middle;
+}
+
 .nav-links:hover {
     background-color: #6d76f7;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
 
-.fa-bars {
-    color: #FFF;
+.nav-linksDeco:hover {
+    background-color: $RejectColor;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
 }
 
 .nav-links-mobile {
@@ -66,15 +81,16 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 500px;
+        height: 680px;
         position: absolute;
         top: 80px;
         left: -100%;
         opacity: 1;
         transition: all 0.5s ease;
+        
     }
     .nav-menu.active {
-        background: #2a2abd;
+        background: $Header;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -82,7 +98,7 @@
     }
     .nav-links {
         text-align: center;
-        padding: 2rem;
+        padding: 1.8rem;
         width: 100%;
         display: table;
     }
@@ -93,7 +109,8 @@
     .navbar-logo {
         position:absolute;
         top:0;
-        left: 10px;;
+        left: 10px;
+        padding: 0.5vh;
     }
 
     .menu-icon {
@@ -109,6 +126,12 @@
         color: #FFF;
         font-size: 2rem;
     }
+
+    .fa-bars {
+        color: #FFF;
+        font-size: 1.5rem;
+    }
+
     .nav-links-mobile {
         display:block;
         text-align: center;
@@ -126,6 +149,20 @@
         color: #6568f4;
         transition: 250ms;
     }
+
+    .nav-linksDeco {
+        text-align: center;
+        padding: 1.5rem;
+        width: 100%;
+        display: table;
+    }
+    
+    .nav-links:hover {
+        background-color: #6d76f7;
+        border-radius: 4px;
+        transition: all 0.2s ease-out;
+    }
+
     .logo {
         height: 70px;
         width: 70px;

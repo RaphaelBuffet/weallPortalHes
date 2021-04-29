@@ -1,5 +1,6 @@
 import React from 'react'
 import { data } from './data'
+import '../../../../styles/swipe.scss';
 var formationsView = []
 export default class formations extends React.Component {
   constructor(props) {
@@ -23,17 +24,29 @@ export default class formations extends React.Component {
     for (let i = 0; i < this.state.formationsData.length; i++) {
       formationsView.push(
         <div key={i}>
-          <div className='line-3'>
-            <div className='column'>
-              <label>{this.state.formationsData[i].debut.slice(8, 10)}.{this.state.formationsData[i].debut.slice(5, 7)}.{this.state.formationsData[i].debut.slice(0, 4)}   - {this.state.formationsData[i].fin.slice(8, 10)}.{this.state.formationsData[i].fin.slice(5, 7)}.{this.state.formationsData[i].fin.slice(0, 4)}</label>
-            </div>
-            <div className='column'>
-              <label> Cursus : {this.displayCursus(this.state.formationsData[i].cursus)}</label>
-            </div>
-            <div className='column'>
-              <label> Diplôme : {this.state.formationsData[i].diplome}</label>
-            </div>
-          </div>
+          <table className="swipeDateTable">
+            <tbody>
+              <tr>
+                {/* <td>
+                  <label className="labelDateSwipe">
+                    {this.state.formationsData[i].debut.slice(8, 10)}.{this.state.formationsData[i].debut.slice(5, 7)}.{this.state.formationsData[i].debut.slice(0, 4)}
+                  </label>  
+                </td> */}
+                 <td >A obtenu
+                  <label className="labelSwipe">  {this.state.formationsData[i].diplome}</label>
+                </td>
+                <td >via
+                  <label className="labelSwipe"> {this.displayCursus(this.state.formationsData[i].cursus)}</label>
+                </td>
+                <td >le
+                  <label className="labelSwipe">
+                    {this.state.formationsData[i].fin.slice(8, 10)}.{this.state.formationsData[i].fin.slice(5, 7)}.{this.state.formationsData[i].fin.slice(0, 4)}
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            <hr className="hrWhite"/>
         </div>
       )
     }

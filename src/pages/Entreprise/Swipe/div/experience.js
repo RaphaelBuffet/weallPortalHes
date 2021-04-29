@@ -23,23 +23,33 @@ export default class experience extends React.Component {
     for (let i = 0; i < this.state.experienceData.length; i++) {
       experienceView.push(
         <div key={i}>
-          <div className='line-3'>
-            <div className='column'>
-              <label>{this.state.experienceData[i].debut.slice(8, 10)}.{this.state.experienceData[i].debut.slice(5, 7)}.{this.state.experienceData[i].debut.slice(0, 4)}   - {this.state.experienceData[i].fin.slice(8, 10)}.{this.state.experienceData[i].fin.slice(5, 7)}.{this.state.experienceData[i].fin.slice(0, 4)}</label>
-            </div>
-            <div className='column'>
-              <label> Poste : {this.state.experienceData[i].poste}</label>
-            </div>
-            <div className='column'>
-              <label> Secteur d'activité : {this.displaySecteurs(this.state.experienceData[i].secteurs)}</label>
-            </div>
-          </div>
-          <div>
-          <p className='line-simple'>Tâche principales</p>
-          <p className='line-simple'>
+        <table className="swipeDateTable">
+            <tbody>
+              <tr>
+                <td > A occupé le poste de 
+                  <label className="labelSwipe">  {this.state.experienceData[i].poste}</label>
+                </td>
+                <td > dans le secteur
+                  <label className="labelSwipe"> {this.displaySecteurs(this.state.experienceData[i].secteurs)}</label>
+                </td>
+                <td > du
+                  <label className="labelSwipe">
+                      {this.state.experienceData[i].debut.slice(8, 10)}.{this.state.experienceData[i].debut.slice(5, 7)}.{this.state.experienceData[i].debut.slice(0, 4)}
+                  </label>  
+                </td>
+                <td> au
+                <label className="labelSwipe">
+                      {this.state.experienceData[i].fin.slice(8, 10)}.{this.state.experienceData[i].fin.slice(5, 7)}.{this.state.experienceData[i].fin.slice(0, 4)}
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          <p className='swipeSubtitle'>Tâche principales</p>
+          <p className='swipeTextBlock'>
               {this.state.experienceData[i].description}
-          </p>
-          </div>
+          </p>     
+          <hr className="hrWhite"/>
 
         </div>
       )

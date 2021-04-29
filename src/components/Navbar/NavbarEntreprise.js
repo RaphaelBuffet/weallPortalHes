@@ -27,17 +27,19 @@ class Navbar extends Component {
                 <ul className={this.state.clicked?'nav-menu active':'nav-menu'}>
                     {MenuItemsMain.map((item,index)=>{
                         return (
-                            <li key={index}>
+                        <li key={index}>
                             <a className={item.cName} href={item.url}>
                                 {item.title}
                             </a>
                         </li>
                         )
                     })}
+                    <li onClick={() => this.logout()}>
+                        <div className='nav-linksDeco'>
+                            Déconnexion
+                        </div>
+                    </li>
                 </ul>
-                <button className="btn-reject"onClick={() => this.logout()}>
-                   Déconnexion
-                </button>
             </nav>
         )
     }
