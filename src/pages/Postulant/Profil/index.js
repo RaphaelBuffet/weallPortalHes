@@ -10,7 +10,6 @@ import Competence from './div/Competence'
 import Langue from './div/Langue'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import { blue } from '@material-ui/core/colors';
 import { FaInfoCircle } from 'react-icons/fa';
 
 class Profil extends React.Component {
@@ -19,6 +18,30 @@ class Profil extends React.Component {
     this.state = {
       publish: true
     };
+  }
+  handlePublish(){
+    let status = JSON.parse(localStorage.getItem("postulant"))
+    if(status!=null){
+      console.log(status)
+      console.log(status.is_searchable)
+    if(status.is_searchable===1){
+      this.setState({publish:true})
+    }
+    else{
+      this.setState({publish:false})
+    }
+    }
+    else{
+      setTimeout(function(){
+        console.log(status)
+        window.location.reload(false);
+      },600
+      )
+    }
+      
+  }
+  componentDidMount(){
+    this.handlePublish()
   }
   handleToogle() {
     let publish = !this.state.publish
