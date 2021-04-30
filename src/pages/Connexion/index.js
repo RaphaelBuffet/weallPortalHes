@@ -136,6 +136,7 @@ class Connexion extends React.Component {
                     this.createCompetence(response[0].id_postulant, token)
                     this.createSoftskill(response[0].id_postulant, token)
                     this.createLangue(response[0].id_postulant, token)
+                    this.createSejours(response[0].id_postulant, token)
                 }
             })
     }
@@ -245,36 +246,39 @@ class Connexion extends React.Component {
                     response = response.data
                     let langue = []
                     for (let i = 0; i < response.length; i++) {
-                        console.log(i)
-                        let sejours= this.createSejours(id,response[i].id_langue,token)
-                        langue.push({
-                            langue:response[i].langue,
-                            niveau:response[i].niveau,
-                            certificat:response[i].certificat,
-                            obtention:response[i].obtention,
-                            sejours: sejours
-                        })
+                            console.log(i)
+                            langue.push({
+                                langue:response[i].langue,
+                                niveau:response[i].niveau,
+                                certificat:response[i].certificat,
+                                obtention:response[i].obtention,
+                                id_langue:response[i].id_langue
+                            })
                     }
-                    localStorage.setItem('softskill', JSON.stringify({
+                    localStorage.setItem('langue', JSON.stringify({
                         langue
                     }));
                 }
             })
     }
-    createSejours(idPostulant,idLangue, token) {
-        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/sejours/" + idPostulant+"/"+idLangue, headers: { 'Authorization': 'Bearer ' + token } })
+    createSejours(idPostulant, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/sejours/" + idPostulant+"/", headers: { 'Authorization': 'Bearer ' + token } })
         .then((response)=> {
             response=response.data
             let sejour= []
             for(let i=0;i<response.length;i++){
-                sejour.add({
+                sejour.push({
                     pays:response[i].pays,
                     type:response[i].type,
-                    debut: response[i].date_debut,
-                    fin: response[i].date_fin
+                    debut: response[i].debut,
+                    fin: response[i].fin,
+                    id_langue: response[i].id_langue
                 })
             }
-            return sejour
+            console.log(sejour)
+            localStorage.setItem('sejours', JSON.stringify({
+                sejour
+            }));
         })
     }
 }

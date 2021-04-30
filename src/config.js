@@ -7,8 +7,8 @@ export default {
     messagingSenderId: "419987512536",
     appId: "1:419987512536:web:f305e344d729c87ae78bad",
     measurementId: "G-52QBGVRMV1",
-    //backEndURL : 'https://weallbackend.herokuapp.com',
-    backEndURL : 'http://localhost:8080',
+    backEndURL : 'https://weallbackend.herokuapp.com',
+    //backEndURL : 'http://localhost:8080',
     backEndApiURL : '/api/v1/',
     linkedinSecretkey : 'sTIuAUm9yR1ElSmP',
     linkedinName : '773b8hapxm0hg9'
