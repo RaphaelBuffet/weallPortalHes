@@ -13,6 +13,7 @@ import OffreEntreprise from '../pages/Entreprise/Offres';
 import ParametreEntreprise from '../pages/Entreprise/Parametre';
 import SwipeEntreprise from '../pages/Entreprise/Swipe';
 import Connexion from '../pages/Connexion/index';
+import Inscription from '../pages/Inscription/index';
 
 export function RoutesPostulant() {
   return (
@@ -47,7 +48,7 @@ export function RoutesEntreprises() {
 export function RoutesConnexion() {
   return (
   <Switch>
-    <Route path="/" exact component={Connexion} />
+    <Route path="/" exact component={Inscription} />
     {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
     <Route component={Connexion} />
   </Switch>

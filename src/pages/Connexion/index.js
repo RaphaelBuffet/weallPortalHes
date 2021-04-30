@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from "axios";
-import config from '../../config'
+import config from '../../config';
+import logo from '../../image/logo.png';
+import '../../styles/connexion.scss';
+import '../../styles/button.scss';
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
 class Connexion extends React.Component {
@@ -68,35 +71,37 @@ class Connexion extends React.Component {
     }
 
     render() {
-        return (<div>
+        return (<div className="page-container">
             <div className="main-page">
-                <div className="section">
+                <div className="connexionTitleSection">
                     <h1>Connexion</h1>
-                    <p>&gt; Veuillez remplir vos informations de connexion</p>
+                    <p>Connectez-vous afin de trouver le collaboratuer ou l'entreprise de vos rêves</p>
                 </div>
                 <div className="section">
-                    <div className='form'>
+                    <div className='form-connection'>
                         <div className='line'>
                             <div className='column'>
-                                <p className='intitulé'>E-mail</p>
-                                <input type="text" value={this.state.email} onChange={this.handleEmail} className='input' />
+                                <p className='intituleProfil'>E-mail</p>
+                                <input type="text" value={this.state.email} onChange={this.handleEmail} className='inputConnexion' />
                             </div>
                         </div>
                         <div className='line'>
                             <div className='column'>
-                                <p className='intitulé'>Mot de passe</p>
-                                <input type="password" value={this.state.password} onChange={this.handlePassword} className='input' />
+                                <p className='intituleProfil'>Mot de passe</p>
+                                <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
                             </div>
                         </div>
-                        <div className='line'>
-                            <div className='column'>
-                                <button className='btn' onClick={() => this.login()}>
-                                    Connexion
-                        </button>
-                            </div>
+                        
+                    <a href="test">Je n'ai pas de compte</a>
+                        <div className="connexionBtnDiv">
+                            <button className='btn-neutral' onClick={() => this.login()}>
+                                Connexion
+                            </button>
                         </div>
                     </div>
-
+                    <div className="connexionImgSection">
+                        <img src={logo} alt="Logo" />
+                    </div>
                 </div>
             </div>
         </div >
