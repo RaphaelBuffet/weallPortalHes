@@ -40,7 +40,7 @@ export default class Contact extends React.Component {
     render() {
         return (
             <div className='form'>
-                <p className='intitulé'>Vous rencontrez un problème ou avez des questions ? Remplissez le formulaire suivant :</p>
+                <p className='subtitle'>Vous rencontrez un problème ou avez des questions? En remplissant le formulaire suivant, l'un de nos collaborateurs pourra vous aiguiller. </p>
                 <div className='line'>
                     <div className='column'>
                         <input type="text" value={this.state.nom} onChange={this.handleNom} className='input' placeholder='Nom' />
@@ -62,8 +62,11 @@ export default class Contact extends React.Component {
                         </select>
                     </div>
                 </div>
-                <textarea value={this.state.message} onChange={this.handleMessage} className='inputlong-mono' placeholder='Message' />
-                <button className='btn-enregistrer'onClick={this.handleEnregistrer}>envoyer</button>
+                <textarea value={this.state.message} onChange={this.handleMessage} className='inputlongmonoline' placeholder='Message' />
+                <div className="finalButtonZone">
+
+                <button className='btn-neutral'onClick={this.handleEnregistrer}>Envoyer</button>
+                </div>
             </div>
         );
     }

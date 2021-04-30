@@ -39,8 +39,12 @@ export default class Filtres extends React.Component {
         <div className='form'>
           <div className='display'>
             <div className='select'>
-              <h2>Secteur d'activité</h2>
+            <p className="intituleProfil">Secteur d'activité</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
                 defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
@@ -52,10 +56,14 @@ export default class Filtres extends React.Component {
               />
             </div>
             <div className='select'>
-              <h2>Canton</h2>
+            <p className="intituleProfil">Canton</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.canton[2], this.state.canton[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.canton}
@@ -67,10 +75,14 @@ export default class Filtres extends React.Component {
           </div>
           <div className='display'>
             <div className='select'>
-              <h2>Taux d'activité</h2>
+            <p className="intituleProfil">Taux d'activité</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.taux[2], this.state.taux[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.taux}
@@ -80,10 +92,14 @@ export default class Filtres extends React.Component {
               />
             </div>
             <div className='select'>
-              <h2>Contrat</h2>
+            <p className="intituleProfil">Contrat</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.contrat[2], this.state.contrat[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.contrat}
@@ -95,10 +111,14 @@ export default class Filtres extends React.Component {
           </div>
           <div className='display'>
             <div className='select'>
-              <h2>Disponibilité</h2>
+            <p className="intituleProfil">Disponibilité</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.disponibilite[2], this.state.disponibilite[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.disponibilite}
@@ -108,10 +128,14 @@ export default class Filtres extends React.Component {
               />
             </div>
             <div className='select'>
-              <h2>Fourchette de salaire</h2>
+            <p className="intituleProfil">Fourchette de salaire</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.salaire[2], this.state.salaire[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.salaire}
@@ -123,10 +147,14 @@ export default class Filtres extends React.Component {
           </div>
           <div className='display'>
             <div className='select'>
-              <h2>Type d'entreprise</h2>
+            <p className="intituleProfil">Type d'entreprise</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.type[2], this.state.type[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.type}
@@ -136,10 +164,14 @@ export default class Filtres extends React.Component {
               />
             </div>
             <div className='select'>
-              <h2>Ethique</h2>
+            <p className="intituleProfil">Ethique</p>
               <Select
+                theme={theme => ({
+                  ...theme,
+                  borderRadius: 0
+                })}
                 closeMenuOnSelect={false}
-                defaultValue={[this.state.ethique[2], this.state.ethique[1]]}
+                defaultValue={[this.state.secteurs[2], this.state.secteurs[1]]}
                 isMulti
                 name="colors"
                 options={this.state.ethique}
@@ -150,15 +182,19 @@ export default class Filtres extends React.Component {
             </div>
           </div>
         </div>
-        <button className='btn-neutral'>
-          Enregistrer les filtres
-        </button>
-        <div className='info'>      
+        <div className="bottomDiv">
+        <div className='btn-divRight'>
+          <div className='info'>      
             <p>
               <FaInfoCircle className='icon'/>
               Vos filtres de recherche sont enregistrés même après votre déconnexion.
+              <button className='btn-neutral'>
+                Enregistrer les filtres
+              </button>
             </p>
           </div>
+          </div>
+        </div>
       </div>
       </div>
     </div>

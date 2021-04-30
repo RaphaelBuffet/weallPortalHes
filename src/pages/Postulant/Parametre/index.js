@@ -1,8 +1,11 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
 import '../../../styles/parametre.scss';
+import '../../../styles/profil.scss';
 import Accordion from '../../../components/Accordion/Accordion'
 import Contact from './div/contact'
+
+import { FaExclamation } from 'react-icons/fa';
 
 function App() {
   return (<div>
@@ -29,9 +32,27 @@ function App() {
         </Accordion>
       </div>
       <div className="section">
-      <Accordion title="Supprimer mon compte">
-          <p className='text-bold'>En cliquant sur le bouton ci-dessous vous supprimerez votre compte définitivement (cette action est irréversible) si votre but et de ne plus être visible modifier simplement votre visibilité sur votre profil</p>
-          <button className='btn-enregistrer'>Supprimez mon compte</button>
+        <Accordion title="Supprimer mon compte">
+          <table>
+            <tbody>
+              <tr>
+                <td rowspan="2">
+                  <FaExclamation />
+                </td>
+                <td>
+                  <p className='intituleFiltre'>En cliquant sur le bouton ci-dessous vous supprimerez votre compte définitivement (Action irréversible)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p className='intituleFiltre'>Si vous souhaitez uniquement ne plus être visible, modifiez simplement votre visibilité sur votre profil</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div className='btn-div'>
+              <button className='btn-reject'>Supprimez mon compte</button>
+          </div>
         </Accordion>
       </div>
     </div>

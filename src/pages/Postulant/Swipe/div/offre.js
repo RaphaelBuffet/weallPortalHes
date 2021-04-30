@@ -9,36 +9,36 @@ export default class offre extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h3>L'offre proposée</h3>
+            <div className="subForm">
                 <div className='line'>
                     <div className='column'>
-                        <label>{this.state.offre.poste}</label>
+                        <label className="swipeSubtitle">Poste: </label>
+                        <label>{this.displayContrat(this.state.offre.contrat) + ' de '} {this.state.offre.poste+ ' à '}  {this.displayTaux(this.state.offre.taux)}</label>
                     </div>
                     <div className='column'>
-                        <label>{this.displayTaux(this.state.offre.taux)}</label>
+                        <label className="swipeSubtitle">Fourchette salariale :  </label>
+                        <label>{this.displaySalaire(this.state.offre.salaire)}</label>
                     </div>
                 </div>
-                <div className='line'>
-                    <label>{this.displayLocalite(this.state.offre.localite)}</label>
-                </div>
+
                 <div className='line'>
                     <div className='column'>
-                        <label>{this.displayContrat(this.state.offre.contrat)}</label>
-                    </div>
-                    <div className='column'>
+                        <label className="swipeSubtitle">Durant: </label>
                         <label>{this.displayDuree(this.state.offre.duree)}</label>
                     </div>
-                </div>
-                <div className='line'>
-                    <label>{this.state.offre.url}</label>
+                    <div className='column'>
+                    <label className="swipeSubtitle">Cahier des charges: </label>
+                        <label>{this.state.offre.url}</label>
+                    </div>
                 </div>
                 <div className='line'>
                     <div className='column'>
-                        <label>fourchette salariale : {this.displaySalaire(this.state.offre.salaire)}</label>
+                    <label className="swipeSubtitle">À: </label>
+                    <label>{this.displayLocalite(this.state.offre.localite)}</label>
                     </div>
                     <div className='column'>
-                        <label>entrée en poste : dès le {this.state.offre.dispo.slice(8, 10)}.{this.state.offre.dispo.slice(5, 7)}.{this.state.offre.dispo.slice(0, 4)}</label>
+                        <label className="swipeSubtitle">Entrée en poste : </label>
+                        <label>dès le {this.state.offre.dispo.slice(8, 10)}.{this.state.offre.dispo.slice(5, 7)}.{this.state.offre.dispo.slice(0, 4)}</label>
                     </div>
                 </div>
             </div>

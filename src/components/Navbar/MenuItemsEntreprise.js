@@ -29,4 +29,5 @@ export const MenuItemsMain = [
         url:'/entreprise/parametre',
         cName:'nav-links'
     }
+    
 ]

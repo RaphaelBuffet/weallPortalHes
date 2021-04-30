@@ -1,5 +1,8 @@
 import React from 'react'
 import '../../../../styles/profil.scss';
+import '../../../../styles/button.scss';
+import { FaTrash } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import { data } from './data'
 var competence = [];
 var softskillbtn = [];
@@ -11,43 +14,43 @@ export default class Competence extends React.Component {
             softskillsize: data.softskill,
             softskill: [
                 {
-                    nom: '1',
+                    nom: 'Travaille en équipe',
                     clicked: false
                 },
                 {
-                    nom: '2',
+                    nom: 'Autonomie',
                     clicked: true
                 },
                 {
-                    nom: '3',
+                    nom: 'Esprit d initiative',
                     clicked: true
                 },
                 {
-                    nom: '4',
+                    nom: 'Scrum Management',
                     clicked: false
                 },
                 {
-                    nom: '5',
+                    nom: 'Marcher',
                     clicked: false
                 },
                 {
-                    nom: '6',
+                    nom: 'Cuire des pates',
                     clicked: true
                 },
                 {
-                    nom: '7',
+                    nom: 'Préparation de fajitas',
                     clicked: false
                 },
                 {
-                    nom: '8',
+                    nom: 'Caressage de chat',
                     clicked: false
                 },
                 {
-                    nom: '9',
+                    nom: 'Accuponcture',
                     clicked: false
                 },
                 {
-                    nom: '10',
+                    nom: 'Brossage des dents',
                     clicked: false
                 },
             ]
@@ -73,16 +76,16 @@ export default class Competence extends React.Component {
     }
     removeCompetence(index) {
         let newcompetence = this.state.competence
-        newcompetence.splice(index,1)
+        newcompetence.splice(index, 1)
         this.setState({ competence: newcompetence });
     }
     handleNom(index, value) {
-        let newvalue=this.state.competence
+        let newvalue = this.state.competence
         newvalue[index].nom = value.target.value
         this.setState({ competence: newvalue })
     }
     handleNiveau(index, value) {
-        let newvalue=this.state.competence
+        let newvalue = this.state.competence
         newvalue[index].niveau = value.target.value
         this.setState({ competence: newvalue })
     }
@@ -92,21 +95,21 @@ export default class Competence extends React.Component {
                 alert("3 softskill deja choisi")
                 return
             }
-            let newState=this.state.softskill;
-            newState[index].clicked=state
+            let newState = this.state.softskill;
+            newState[index].clicked = state
             this.setState({ softskill: newState })
-            newState=this.state.softskillsize
+            newState = this.state.softskillsize
             newState.push(index)
             this.setState({ softskillsize: newState })
             return
         }
         else {
-            let newState=this.state.softskillsize;
+            let newState = this.state.softskillsize;
             newState.splice(0, 1)
-            this.setState ({ softskillsize: newState })
-            newState=this.state.softskill
-            newState[index].clicked=state
-            this.setState ({softskill: newState})
+            this.setState({ softskillsize: newState })
+            newState = this.state.softskill
+            newState[index].clicked = state
+            this.setState({ softskill: newState })
             return
         }
     }
@@ -114,31 +117,43 @@ export default class Competence extends React.Component {
         competence = []
         for (let i = 0; i < this.state.competence.length; i++) {
             competence.push(
-                <div key={i}>
-                    <div className='line'>
-                        <div className='column'>
-                            <p className='intitulé'>Compétences</p>
-                            <select value={this.state.competence[i].nom} onChange={(value) => this.handleNom(i, value)} className='input'>
-                                <option value="0">Dormir</option>
-                                <option value="1">Manger</option>
-                            </select>
-                        </div>
-                        <div className='column'>
-                            <p className='intitulé'>Niveau de maîtrise</p>
-                            <select value={this.state.competence[i].niveau} onChange={(value) => this.handleNiveau(i, value)} className='input'>
-                                <option value="0">A1</option>
-                                <option value="1">A2</option>
-                                <option value="2">B1</option>
-                                <option value="3">B2</option>
-                                <option value="4">C1</option>
-                                <option value="5">C2</option>
-                            </select>
-                        </div>
-                        
+                <div key={i} className="select">
+                    <div className="table-small">
+                        <table class="tg">
+                            <thead>
+                                <tr>
+                                    <th class="tg-nrix">
+                                        <h2 className='intituleFiltre'>Compétence</h2>
+                                    </th>
+                                    <th class="tg-nrix">
+                                        <select value={this.state.competence[i].nom} onChange={(value) => this.handleNom(i, value)} className='inputCompetence'>
+                                            <option value="0">Développement Biztalk</option>
+                                            <option value="1">Socket Management</option>
+                                        </select>
+                                    </th>
+                                    <th class="tg-button" rowspan="2">
+                                        <button className='btn-formRemove' onClick={() => this.removeCompetence(i)}>
+                                            <FaTrash />
+                                        </button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="tg-nrix">
+                                        <h2 className='intituleFiltre'>Niveau</h2>
+                                    </td>
+                                    <td class="tg-nrix">
+                                        <select value={this.state.competence[i].niveau} onChange={(value) => this.handleNiveau(i, value)} className='inputCompetence'>
+                                            <option value="0">Débutant</option>
+                                            <option value="1">Intermédiaire</option>
+                                            <option value="2">Avancé</option>
+                                            <option value="3">Expert</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
-                    <div className='flex-div'>
-                        <button className='btn-supprimer' onClick={()=>this.removeCompetence(i)}> Supprimer cette compétence</button>
-                        </div>
+
                 </div>
             )
         }
@@ -159,27 +174,52 @@ export default class Competence extends React.Component {
         this.createCompetence()
         this.createSoftkill()
         return (
-                <div className='form'>
-                    <div className='block'>
-                        <h1>Compétence technique</h1>
-                        {this.state.competence.length===0
-                        ?<p className='text-bold'>Vous n'avez pas renseigner de compétence technique</p>
-                        :competence   
-                    }
-                    </div>
-
-                    <div>
-                        <button className='btn-full' onClick={this.addcompetence}>ajouter une competence technique</button>
-                    </div>
-                    <div className='block'>
-                        <h1>Softskill (Compétence non technique) maximum 3</h1>
-                        <div className='line5'>
-                            {softskillbtn}
+            <div className='form'>
+                <div className='block'>
+                    <p className="intituleProfil">Compétences techniques</p>
+                    <div className="accordion">
+                        <div className="subForm">
+                            {this.state.competence.length === 0
+                                ? <p className='text-bold'>Vous n'avez pas renseigner de compétence technique</p>
+                                : competence
+                            }
+                            <div className="btn-divRight">
+                                <table className="finalButtonZone-extern">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Ajouter une compétence technique
+                                            </th>
+                                            <th>
+                                                <button className='btn-formAdd' onClick={this.addcompetence}>
+                                                    <FaPlus />
+                                                </button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
-                    <button className='btn-enregistrer-less-margin' onClick={this.handleEnregistrer}>enregistrer les informations</button>
                 </div>
+                <div className='block'>
+                    <p className="intituleProfil">Softskills (max 3)</p>
+                    <div className="accordion">
+                        <div className="subForm">
+                            <p className="subtitleNotBold"></p>
+                            <div className='softSkillsBlock'>
+                                {softskillbtn}
+                            </div>
+                        </div>
+                        <p className="info">
+                            *Les softskills correspondent aux compétences non techniques.</p>
+                        <div className="finalButtonZone">
+                            <button className='btn-neutral' onClick={this.handleEnregistrer}>Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
