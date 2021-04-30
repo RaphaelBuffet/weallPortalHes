@@ -134,6 +134,8 @@ class Connexion extends React.Component {
                     this.createFormation(response[0].id_postulant, token)
                     this.createExperience(response[0].id_postulant, token)
                     this.createCompetence(response[0].id_postulant, token)
+                    this.createSoftskill(response[0].id_postulant, token)
+                    this.createLangue(response[0].id_postulant, token)
                 }
             })
     }
@@ -213,6 +215,67 @@ class Connexion extends React.Component {
                     }));
                 }
             })
+    }
+    createSoftskill(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "softskill/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                if (response[0] === null) {
+                    console.log("pas de softskill repertorié")
+                }
+                else {
+                    response = response.data
+                    let softskill = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        softskill.push(response[i].softskill)
+                    }
+                    localStorage.setItem('softskill', JSON.stringify({
+                        softskill
+                    }));
+                }
+            })
+    }
+    createLangue(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                if (response[0] === null) {
+                    console.log("pas de langue repertorié")
+                }
+                else {
+                    response = response.data
+                    let langue = []
+                    for (let i = 0; i < response.length; i++) {
+                        console.log(i)
+                        let sejours= this.createSejours(id,response[i].id_langue,token)
+                        langue.push({
+                            langue:response[i].langue,
+                            niveau:response[i].niveau,
+                            certificat:response[i].certificat,
+                            obtention:response[i].obtention,
+                            sejours: sejours
+                        })
+                    }
+                    localStorage.setItem('softskill', JSON.stringify({
+                        langue
+                    }));
+                }
+            })
+    }
+    createSejours(idPostulant,idLangue, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/sejours/" + idPostulant+"/"+idLangue, headers: { 'Authorization': 'Bearer ' + token } })
+        .then((response)=> {
+            response=response.data
+            let sejour= []
+            for(let i=0;i<response.length;i++){
+                sejour.add({
+                    pays:response[i].pays,
+                    type:response[i].type,
+                    debut: response[i].date_debut,
+                    fin: response[i].date_fin
+                })
+            }
+            return sejour
+        })
     }
 }
 
