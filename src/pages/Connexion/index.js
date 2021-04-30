@@ -9,7 +9,7 @@ class Connexion extends React.Component {
         this.state = {
             email: 'entreprise1@fake.ch',
             password: 'passwordTest',
-            checked: false
+            checked: false,
         }
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
@@ -44,6 +44,7 @@ class Connexion extends React.Component {
 
                 }
                 else {
+                    this.createPostulant(res.data.userId, res.data.token)
                     this.props.reduxUpdateUser({
                         token: res.data.token,
                         userId: res.data.userId,
@@ -56,7 +57,7 @@ class Connexion extends React.Component {
                         isEnterprise: res.data.isEnterprise,
                         isLogged: true
                     }));
-                    this.createPostulant(res.data.userId, res.data.token)
+                    
                     console.log("postulant")
                 }
             })
@@ -105,8 +106,6 @@ class Connexion extends React.Component {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
             .then((response) => {
                 response = response.data
-                console.log(response.status)
-                console.log(response)
                 if (response[0] === null) {
                     console.log("error in createProfil get")
                 }
@@ -151,7 +150,6 @@ class Connexion extends React.Component {
                     response = response.data
                     let formations = []
                     for (let i = 0; i < response.length; i++) {
-                        console.log(i)
                         formations.push({
                             id: response[i].id_formation,
                             debut: response[i].date_debut,
@@ -178,7 +176,6 @@ class Connexion extends React.Component {
                     response = response.data
                     let experiences = []
                     for (let i = 0; i < response.length; i++) {
-                        console.log(i)
                         experiences.push({
                             id: response[i].id_experience,
                             entreprise: response[i].entreprise,
@@ -208,7 +205,6 @@ class Connexion extends React.Component {
                     response = response.data
                     let competence = []
                     for (let i = 0; i < response.length; i++) {
-                        console.log(i)
                         competence.push(response[i].competence)
                     }
                     localStorage.setItem('competence', JSON.stringify({
@@ -227,7 +223,6 @@ class Connexion extends React.Component {
                     response = response.data
                     let softskill = []
                     for (let i = 0; i < response.length; i++) {
-                        console.log(i)
                         softskill.push(response[i].softskill)
                     }
                     localStorage.setItem('softskill', JSON.stringify({
@@ -246,7 +241,6 @@ class Connexion extends React.Component {
                     response = response.data
                     let langue = []
                     for (let i = 0; i < response.length; i++) {
-                            console.log(i)
                             langue.push({
                                 langue:response[i].langue,
                                 niveau:response[i].niveau,
@@ -275,7 +269,6 @@ class Connexion extends React.Component {
                     id_langue: response[i].id_langue
                 })
             }
-            console.log(sejour)
             localStorage.setItem('sejours', JSON.stringify({
                 sejour
             }));
