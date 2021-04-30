@@ -6,6 +6,7 @@ import '../../styles/connexion.scss';
 import '../../styles/button.scss';
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
+
 class Connexion extends React.Component {
     constructor(props) {
         super(props);
@@ -47,21 +48,24 @@ class Connexion extends React.Component {
 
                 }
                 else {
-                    this.createPostulant(res.data.userId, res.data.token)
-                    this.props.reduxUpdateUser({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
+                    new Promise((resolve, reject) => {
+                        resolve(this.createPostulant(res.data.userId, res.data.token))
+                      }).then(()=>{
+                        this.props.reduxUpdateUser({
+                            token: res.data.token,
+                            userId: res.data.userId,
+                            isEnterprise: res.data.isEnterprise,
+                            isLogged: true
+                        })
+                        localStorage.setItem('user', JSON.stringify({
+                            token: res.data.token,
+                            userId: res.data.userId,
+                            isEnterprise: res.data.isEnterprise,
+                            isLogged: true
+                        }));
+                        
+                        console.log("postulant")
                     })
-                    localStorage.setItem('user', JSON.stringify({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    }));
-                    
-                    console.log("postulant")
                 }
             })
             .catch((err) => {

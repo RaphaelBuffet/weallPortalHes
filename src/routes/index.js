@@ -48,7 +48,7 @@ export function RoutesEntreprises() {
 export function RoutesConnexion() {
   return (
   <Switch>
-    <Route path="/" exact component={Inscription} />
+    <Route path="/" exact component={Connexion} />
     {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
     <Route component={Connexion} />
   </Switch>
