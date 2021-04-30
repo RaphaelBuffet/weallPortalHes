@@ -138,7 +138,6 @@ export default class Experience extends React.Component {
                                                     </td>
                                                     <td>
                                                         <input type="checkbox" checked={this.state.experience[i].actuelle} onChange={() => this.handleActuelle(i)} className='intitulé' />
-
                                                     </td>
                                                 </tr>
                                             </thead>
