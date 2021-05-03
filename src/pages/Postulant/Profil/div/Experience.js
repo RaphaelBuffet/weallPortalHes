@@ -27,6 +27,13 @@ export default class Experience extends React.Component {
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
         this.addExperience = this.addExperience.bind(this);
     }
+    componentDidMount(){
+        let experiences = JSON.parse(localStorage.getItem("experience"))
+        console.log(experiences.experiences)
+        this.setState({
+            experience:experiences.experiences
+          })
+    }
     handleActuelle(index) {
         let newValue = this.state.experience
         newValue[index].actuelle = !this.state.experience[index].actuelle

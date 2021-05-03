@@ -31,13 +31,13 @@ class Profil extends React.Component {
       this.setState({publish:false})
     }
     }
-    else{
+    /*else{
       setTimeout(function(){
         console.log(status)
         window.location.reload(false);
       },600
       )
-    }
+    }*/
       
   }
   componentDidMount(){

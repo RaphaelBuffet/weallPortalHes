@@ -5,6 +5,7 @@ import { data } from './data'
 import { FaSave } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
+import Moment from 'moment';
 
 var formation = [];
 export default class Formation extends React.Component {
@@ -23,6 +24,13 @@ export default class Formation extends React.Component {
         // gestion des actions des bouttons
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
         this.addFormation = this.addFormation.bind(this);
+    }
+    componentDidMount(){
+        let formations = JSON.parse(localStorage.getItem("formation"))
+        console.log(formations.formations)
+        this.setState({
+            formation:formations.formations
+          })
     }
     handleDateDebut(index, value) {
         let newValue = this.state.formation
