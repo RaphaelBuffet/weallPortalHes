@@ -5,7 +5,8 @@ import '../../../../styles/profil.scss';
 import { FaSave } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
-import { data } from './data'
+import { data } from './data';
+import Moment from 'moment';
 var langue = [];
 var xpLangue = [];
 var allXp = [];
@@ -46,11 +47,6 @@ export default class Langue extends React.Component {
         console.log(langue.langue)
         this.setState({
             langue: langue.langue
-        })
-        let sejours = JSON.parse(localStorage.getItem("sejours"))
-        console.log(sejours.sejour)
-        this.setState({
-            sejours: sejours.sejour
         })
     }
     handleNom(index, value) {
@@ -138,8 +134,7 @@ export default class Langue extends React.Component {
     }
     createLanguageExperience(langueid) {
         xpLangue = [];
-        for (let i = 0; i < this.state.sejours.length; i++) {
-            if(this.state.sejours[i].id_langue===langueid){
+        for (let i = 0; i < this.state.langue[langueid].sejours.length; i++) {
             xpLangue.push(
                 <div className='accordion'>
                     <div className='form'>
@@ -147,7 +142,7 @@ export default class Langue extends React.Component {
                             <div className='line'>
                                 <div className='column'>
                                     <p className='intituleProfil'>Pays</p>
-                                    <input type="text" value={this.state.sejours[i].pays} onChange={(value) => this.handleNomExperience(i, value, langueid)} className='input' />
+                                    <input type="text" value={this.state.langue[langueid].sejours[i].pays} onChange={(value) => this.handleNomExperience(i, value, langueid)} className='input' />
                                 </div>
                                 <div className='column'>
                                     <p className='intituleProfil'>Durée</p>
@@ -155,11 +150,11 @@ export default class Langue extends React.Component {
                                         <thead>
                                             <tr>
                                                 <td>
-                                                    <input type="date" value={this.state.sejours[i].debut} onChange={(value) => this.handleDebutExperience(i, value, langueid)} className='inputDate' />
+                                                    <input type="date" value={Moment(this.state.langue[langueid].sejours[i].debut).format('YYYY-MM-DD')} onChange={(value) => this.handleDebutExperience(i, value, langueid)} className='inputDate' />
                                                 </td>
                                                 <td>à</td>
                                                 <td>
-                                                    <input type="date" value={this.state.sejours[i].fin} onChange={(value) => this.handleFinExperience(i, value, langueid)} className='inputDate' />
+                                                    <input type="date" value={Moment(this.state.langue[langueid].sejours[i].fin).format('YYYY-MM-DD')} onChange={(value) => this.handleFinExperience(i, value, langueid)} className='inputDate' />
                                                 </td>
                                             </tr>
                                         </thead>
@@ -169,7 +164,7 @@ export default class Langue extends React.Component {
                             <div className='line'>
                                 <div className='column'>
                                     <p className='intituleProfil'>Type d'expérience lingusitique</p>
-                                    <select value={this.state.sejours[i].type} onChange={(value) => this.handleTypeExperience(i, value, langueid)} className='input'>
+                                    <select value={this.state.langue[langueid].sejours[i].type} onChange={(value) => this.handleTypeExperience(i, value, langueid)} className='input'>
                                         <option value="Séjours lingusitique">Séjours linguisitique</option>
                                         <option value="Experience professionelle">Expérience professionelle</option>
                                     </select>
@@ -189,7 +184,6 @@ export default class Langue extends React.Component {
             )
             allXp[langueid] = xpLangue
         }
-    }
     }
     createLangueDisplay() {
         langue = []

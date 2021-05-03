@@ -30,15 +30,7 @@ class Profil extends React.Component {
     else{
       this.setState({publish:false})
     }
-    }
-    /*else{
-      setTimeout(function(){
-        console.log(status)
-        window.location.reload(false);
-      },600
-      )
-    }*/
-      
+    }      
   }
   componentDidMount(){
     this.handlePublish()

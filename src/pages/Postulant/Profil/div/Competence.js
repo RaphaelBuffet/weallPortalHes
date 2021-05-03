@@ -12,6 +12,7 @@ export default class Competence extends React.Component {
         this.state = {
             competence: data.competence,
             softskillsize: data.softskill,
+            softksillpostulant: '',
             softskill: [
                 {
                     nom: 'Travaille en équipe',
@@ -62,6 +63,18 @@ export default class Competence extends React.Component {
         // gestion des actions des bouttons
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
         this.addcompetence = this.addcompetence.bind(this);
+    }
+    componentDidMount() {
+        let competence = JSON.parse(localStorage.getItem("competence"))
+        console.log(competence.competence)
+        this.setState({
+            competence: competence.competence
+        })
+        let softskill = JSON.parse(localStorage.getItem("softskill"))
+        console.log(competence.competence)
+        this.setState({
+            softksillpostulant: softskill.softskill
+        })
     }
     handleEnregistrer() {
         alert('coucou')
@@ -126,9 +139,9 @@ export default class Competence extends React.Component {
                                         <h2 className='intituleFiltre'>Compétence</h2>
                                     </th>
                                     <th class="tg-nrix">
-                                        <select value={this.state.competence[i].nom} onChange={(value) => this.handleNom(i, value)} className='inputCompetence'>
-                                            <option value="0">Développement Biztalk</option>
-                                            <option value="1">Socket Management</option>
+                                        <select value={this.state.competence[i]} onChange={(value) => this.handleNom(i, value)} className='inputCompetence'>
+                                            <option value="competence1">Développement Biztalk</option>
+                                            <option value="competence 2">Socket Management</option>
                                         </select>
                                     </th>
                                     <th class="tg-button" rowspan="2">
