@@ -6,6 +6,7 @@ import '../../styles/connexion.scss';
 import '../../styles/button.scss';
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
+import Moment from 'moment';
 
 class Connexion extends React.Component {
     constructor(props) {
@@ -48,24 +49,8 @@ class Connexion extends React.Component {
 
                 }
                 else {
-                    new Promise((resolve, reject) => {
-                        resolve(this.createPostulant(res.data.userId, res.data.token))
-                      }).then(()=>{
-                        this.props.reduxUpdateUser({
-                            token: res.data.token,
-                            userId: res.data.userId,
-                            isEnterprise: res.data.isEnterprise,
-                            isLogged: true
-                        })
-                        localStorage.setItem('user', JSON.stringify({
-                            token: res.data.token,
-                            userId: res.data.userId,
-                            isEnterprise: res.data.isEnterprise,
-                            isLogged: true
-                        }));
-                        
-                        console.log("postulant")
-                    })
+                    this.createPostulant(res.data.userId, res.data.token, res.data.isEnterprise)
+                    console.log("postulant")
                 }
             })
             .catch((err) => {
@@ -95,8 +80,8 @@ class Connexion extends React.Component {
                                 <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
                             </div>
                         </div>
-                        
-                    <a href="test">Je n'ai pas de compte</a>
+
+                        <a href="test">Je n'ai pas de compte</a>
                         <div className="connexionBtnDiv">
                             <button className='btn-neutral' onClick={() => this.login()}>
                                 Connexion
@@ -111,7 +96,7 @@ class Connexion extends React.Component {
         </div >
         );
     }
-    createPostulant(userid, token) {
+    createPostulant(userid, token, isentreprise) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
             .then((response) => {
                 response = response.data
@@ -124,7 +109,7 @@ class Connexion extends React.Component {
                         id: response[0].id_postulant,
                         nom: response[0].nom,
                         prenom: response[0].prenom,
-                        naissance: response[0].date_de_naissance,
+                        naissance: Moment(response[0].date_de_naissance).format('YYYY-MM-DD'),
                         sexe: response[0].sexe,
                         salaire_min: response[0].salaire_min,
                         salaire_max: response[0].salaire_max,
@@ -139,6 +124,18 @@ class Connexion extends React.Component {
                         telephone: response[0].telephone,
                         url_photo: response[0].url_photo
                     }));
+                    localStorage.setItem('user', JSON.stringify({
+                        token: token,
+                        userId: userid,
+                        isEnterprise: isentreprise,
+                        isLogged: true
+                    }));
+                    this.props.reduxUpdateUser({
+                        token: token,
+                        userId: userid,
+                        isEnterprise: isentreprise,
+                        isLogged: true
+                    })
                     this.createFormation(response[0].id_postulant, token)
                     this.createExperience(response[0].id_postulant, token)
                     this.createCompetence(response[0].id_postulant, token)
@@ -161,8 +158,8 @@ class Connexion extends React.Component {
                     for (let i = 0; i < response.length; i++) {
                         formations.push({
                             id: response[i].id_formation,
-                            debut: response[i].date_debut,
-                            fin: response[i].date_fin,
+                            debut:  Moment(response[i].date_debut).format('YYYY-MM-DD'),
+                            fin: Moment(response[i].date_fin).format('YYYY-MM-DD'),
                             cursus: response[i].cursus,
                             institut: response[i].institut,
                             degree: response[i].degree,
@@ -189,13 +186,14 @@ class Connexion extends React.Component {
                             id: response[i].id_experience,
                             entreprise: response[i].entreprise,
                             poste: response[i].poste,
-                            debut: response[i].date_debut,
-                            fin: response[i].date_fin,
+                            debut:  Moment(response[i].date_debut).format('YYYY-MM-DD'),
+                            fin:  Moment(response[i].date_fin).format('YYYY-MM-DD'),
                             secteur: response[i].id_secteur,
                             pays: response[i].pays,
                             localite: response[i].localite,
                             npa: response[i].npa,
-                            description: response[i].description
+                            description: response[i].description,
+                            actuelle: response[i].actuelle,
                         })
                     }
                     localStorage.setItem('experience', JSON.stringify({
@@ -250,13 +248,14 @@ class Connexion extends React.Component {
                     response = response.data
                     let langue = []
                     for (let i = 0; i < response.length; i++) {
-                            langue.push({
-                                langue:response[i].langue,
-                                niveau:response[i].niveau,
-                                certificat:response[i].certificat,
-                                obtention:response[i].obtention,
-                                id_langue:response[i].id_langue
-                            })
+                        let sejours=this.createSejours(id,token)
+                        langue.push({
+                            langue: response[i].langue,
+                            niveau: response[i].niveau,
+                            certificat: response[i].certificat,
+                            obtention: Moment(response[i].obtention).format('YYYY-MM-DD'),
+                            id_langue: response[i].id_langue
+                        })
                     }
                     localStorage.setItem('langue', JSON.stringify({
                         langue
@@ -265,23 +264,23 @@ class Connexion extends React.Component {
             })
     }
     createSejours(idPostulant, token) {
-        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/sejours/" + idPostulant+"/", headers: { 'Authorization': 'Bearer ' + token } })
-        .then((response)=> {
-            response=response.data
-            let sejour= []
-            for(let i=0;i<response.length;i++){
-                sejour.push({
-                    pays:response[i].pays,
-                    type:response[i].type,
-                    debut: response[i].debut,
-                    fin: response[i].fin,
-                    id_langue: response[i].id_langue
-                })
-            }
-            localStorage.setItem('sejours', JSON.stringify({
-                sejour
-            }));
-        })
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/sejours/" + idPostulant + "/", headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                response = response.data
+                let sejour = []
+                for (let i = 0; i < response.length; i++) {
+                    sejour.push({
+                        pays: response[i].pays,
+                        type: response[i].type,
+                        debut: Moment(response[i].debut).format('YYYY-MM-DD'),
+                        fin: Moment(response[i].fin).format('YYYY-MM-DD'),
+                        id_langue: response[i].id_langue
+                    })
+                }
+                localStorage.setItem('sejours', JSON.stringify({
+                    sejour
+                }));
+            })
     }
 }
 
