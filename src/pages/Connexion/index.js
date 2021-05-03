@@ -248,13 +248,14 @@ class Connexion extends React.Component {
                     response = response.data
                     let langue = []
                     for (let i = 0; i < response.length; i++) {
-                        let sejours=this.createSejours(id,token)
+                        console.log(response)
                         langue.push({
                             langue: response[i].langue,
                             niveau: response[i].niveau,
                             certificat: response[i].certificat,
                             obtention: Moment(response[i].obtention).format('YYYY-MM-DD'),
-                            id_langue: response[i].id_langue
+                            id_langue: response[i].id_langue,
+                            sejours:response[i].sejours,
                         })
                     }
                     localStorage.setItem('langue', JSON.stringify({
