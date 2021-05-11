@@ -141,7 +141,6 @@ class Connexion extends React.Component {
                     this.createCompetence(response[0].id_postulant, token)
                     this.createSoftskill(response[0].id_postulant, token)
                     this.createLangue(response[0].id_postulant, token)
-                    this.createSejours(response[0].id_postulant, token)
                 }
             })
     }
@@ -262,25 +261,6 @@ class Connexion extends React.Component {
                         langue
                     }));
                 }
-            })
-    }
-    createSejours(idPostulant, token) {
-        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "langue/sejours/" + idPostulant + "/", headers: { 'Authorization': 'Bearer ' + token } })
-            .then((response) => {
-                response = response.data
-                let sejour = []
-                for (let i = 0; i < response.length; i++) {
-                    sejour.push({
-                        pays: response[i].pays,
-                        type: response[i].type,
-                        debut: Moment(response[i].debut).format('YYYY-MM-DD'),
-                        fin: Moment(response[i].fin).format('YYYY-MM-DD'),
-                        id_langue: response[i].id_langue
-                    })
-                }
-                localStorage.setItem('sejours', JSON.stringify({
-                    sejour
-                }));
             })
     }
 }
