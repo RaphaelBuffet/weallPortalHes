@@ -159,7 +159,14 @@ export default class InfoEntreprise extends React.Component {
 
         <div className='line-simple'>
           <div className='column'>
-            <p className='intituleProfil'>Description</p>
+            <p className='intituleProfil'>Mission de votre entreprise</p>
+            <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlongmonoline' />
+          </div>
+        </div>
+
+        <div className='line-simple'>
+          <div className='column'>
+            <p className='intituleProfil'>Engagement environementaux</p>
             <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlongmonoline' />
           </div>
         </div>
@@ -185,14 +192,6 @@ export default class InfoEntreprise extends React.Component {
         </div>
 
         <div className='line'>
-          <div className='column'>
-            <p className='intituleProfil'>Ethique</p>
-            <select value={this.state.ethique} onChange={this.handleEthique} className='input'>
-              <option value="0">Ethique sociale</option>
-              <option value="1">Eco-responsable</option>
-              <option value="2">Autre</option>
-            </select>
-          </div>
           <div className='column'>
             <p className='intituleProfil'>Label</p>
             <select value={this.state.label} onChange={this.handleLabel} className='input'>

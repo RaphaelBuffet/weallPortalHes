@@ -7,6 +7,7 @@ import '../../styles/button.scss';
 import { login } from "../../Store/User/UsersActions";
 import { connect } from "react-redux";
 import Moment from 'moment';
+import { getConfig } from '@testing-library/dom';
 
 class Connexion extends React.Component {
     constructor(props) {
@@ -69,7 +70,7 @@ class Connexion extends React.Component {
                             </div>
                         </div>
 
-                        <a href="inscription">Je n'ai pas de compte</a>
+                        <a href="http://app.weallbackend.ch/inscription">Je n'ai pas de compte</a>
                         <div className="connexionBtnDiv">
                             <button className='btn-neutral' onClick={() => this.login()}>
                                 Connexion
@@ -128,7 +129,7 @@ class Connexion extends React.Component {
                     }));
                 }
             })
-
+            this.props.history.push('/entreprise/profil');
     }
     createPostulant(userid, token, isentreprise) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
@@ -177,6 +178,7 @@ class Connexion extends React.Component {
                     this.createLangue(response[0].id_postulant, token)
                 }
             })
+            this.props.history.push('/postulant/profil');
     }
     createOffre(id, token) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "offre/entreprise/" + id, headers: { 'Authorization': 'Bearer ' + token } })
