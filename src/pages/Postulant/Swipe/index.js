@@ -47,88 +47,97 @@ class App extends React.Component {
           <p>Swipez pour découvrir les offres adaptées</p>
         </div>
         <div className='swipeSection'>
-          <div className='backgroundSwipe'>
-            <button className='btn-refus' onClick={() => alert("gauche")}>
-              <FaThumbsDown size="70" />
-            </button>
-            <div className='profil'>
-              <div className='block'>
-                <p className="intituleProfil">{this.state.data.entreprise}</p>
-                <div className="accordion">
-                  <div className="subForm">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th rowspan="6">
-                            <div className='imagediv'>
-                              <img src={logo} alt="Logo" />
-                            </div>
-                          </th>
-                        </tr>
-                        <tr>
-                          <td>
+          <div className='profil'>
+            <div className='block'>
+              <p className="intituleProfil">{this.state.data.entreprise}</p>
+              <div className="accordion">
+                <div className="subForm">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th rowspan="6">
+                          <div className='imagediv'>
+                            <img src={logo} alt="Logo" className="logo-entreprise"/>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td>
                           <label className="swipeSubtitle">Description:</label>
-                            <label>{this.state.data.description}</label>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label className="swipeSubtitle">Secteur:</label>
-                            <label>{this.displaySecteurs(this.state.data.secteur)}</label>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
+                          <label>{this.state.data.description}</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label className="swipeSubtitle">Secteur:</label>
+                          <label>{this.displaySecteurs(this.state.data.secteur)}</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
                           <label className="swipeSubtitle">Type:</label>
-                            <label>{this.displayType(this.state.data.type)} </label>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label className="swipeSubtitle">Ethique:</label>
-                            <label>{this.displayEthique(this.state.data.ethique)}</label>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
+                          <label>{this.displayType(this.state.data.type)} </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label className="swipeSubtitle">Ethique:</label>
+                          <label>{this.displayEthique(this.state.data.ethique)}</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
                           <label className="swipeSubtitle">Label:</label>
-                            <label>{this.displayLabel(this.state.data.label)}</label>
-                          </td>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
+                          <label>{this.displayLabel(this.state.data.label)}</label>
+                        </td>
+                      </tr>
+                    </thead>
+                  </table>
                 </div>
-              </div>
-              <div className='block'>
-                <p className="intituleProfil">Autre bénéfices</p>
-                <div className="accordion">
-                  <div className="subForm">
-                    <div className='swipeCompetencesSuperDiv'>
-                      {beneficeView}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='block'>
-                <p className="intituleProfil">Offre proposée</p>
-                <div className="accordion">
-                  <div className="subForm">
-                    <Offre />
-                  </div>
-                </div>
-                  <button className='btn-Center'>
-                      Revoir plus tard
-                  </button>
               </div>
             </div>
-            <button className='btn-accepter' onClick={() => alert("droite")}>
-              <FaThumbsUp size="70" />
-            </button>
+            <div className='block'>
+              <p className="intituleProfil">Autre bénéfices</p>
+              <div className="accordion">
+                <div className="subForm">
+                  <div className='swipeCompetencesSuperDiv'>
+                    {beneficeView}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='block'>
+              <p className="intituleProfil">Offre proposée</p>
+              <div className="accordion">
+                <div className="subForm">
+                  <Offre />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div className='block'>
+            <div className='btn-container-3'>
+              <div className='btn-column-left'>
+              <button className='btn-accepter' onClick={() => alert("droite")}>
+                  <FaThumbsUp size="50" />
+                </button>
+              </div>
+              <div className='btn-column-center'>
+                <button className='btn-later'>
+                  Revoir plus tard
+                  </button>
+                  </div>
+                  <div className='btn-column-right'>
+                <button className='btn-refus' onClick={() => alert("gauche")}>
+                  <FaThumbsDown size="50" />
+                </button>
+                </div>
+              </div>
+          </div>
     </div>
+    
     );
   }
   displayEthique(value) {

@@ -58,6 +58,8 @@ $buttonSideWidth: 8%;
       margin-left: auto;
       margin-right: auto;
       width: 93%;
+      overflow-y: scroll;
+      height:60vh;
   }
 
   .backgroundSwipe {
@@ -173,7 +175,40 @@ $buttonSideWidth: 8%;
     background-color: $ValidateColor;
     color: $Background;
   }
-  
+  .btn-later{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-weight: 700;
+    background-color: $TrypanBlue;
+    color: $Background;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    justify-items: center;
+    width: auto;
+    right: 50%;
+  }
+  .btn-later:hover{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: $TrypanBlue;
+    font-weight: 700;
+    background-color: $TrypanBlue;
+    color: $Background;
+  }
+  .btn-column-center{
+    align-self: center;
+    width: auto;
+    flex: 1;
+  }
+  .btn-column-right{
+    width: auto;
+  align-items: flex-end;
+  }
+  .btn-column-left{
+    width: auto;
+    align-items: flex-start;
+  }
 
   .btn-full {
     background-color: grey;
@@ -230,6 +265,16 @@ $buttonSideWidth: 8%;
     margin-top: 1em;
     padding-bottom: 1em;
     background-color: rgb(209, 209, 209);
+  }
+  .btn-container-3 {
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    align-content: space-between;
+  }
+  .logo-entreprise {
+    height: 100px;
+    width: 100px;
   }
   /*style mobile*/
   @media screen and (max-width:960px) {

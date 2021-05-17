@@ -35,6 +35,9 @@ class App extends React.Component {
         </div>
         <div className='swipeSection'>
           <div className='backgroundSwipe'>
+            <button className='btn-refus' onClick={() => alert("gauche")}>
+              <FaThumbsDown size="70" />
+            </button>
             <div className='profil'>
               <div className='explication'>
               <table class="tg">
