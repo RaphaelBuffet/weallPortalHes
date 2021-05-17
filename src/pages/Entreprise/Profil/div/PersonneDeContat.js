@@ -20,6 +20,16 @@ export default class InfoPersonelle extends React.Component {
         this.handleImage = this.handleImage.bind(this);
         this.handleEnregistrer = this.handleEnregistrer.bind(this);
       }
+      componentDidMount() {
+        let profil = JSON.parse(localStorage.getItem("responsable"))
+        console.log(profil)
+        this.setState({ 
+          nom: profil.nom,
+          prenom: profil.prenom,
+          poste: profil.poste,
+          telephone: profil.telephone
+         });
+      }
     
       handleNom(event) {
         this.setState({ nom: event.target.value });
