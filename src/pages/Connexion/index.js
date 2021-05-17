@@ -34,19 +34,7 @@ class Connexion extends React.Component {
             .then((res) => {
                 console.log(res.data.token)
                 if (res.data.isEnterprise) {
-                    this.props.reduxUpdateUser({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    })
-                    localStorage.setItem('user', JSON.stringify({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    }));
-
+                    this.createEntreprise(res.data.userId, res.data.token, res.data.isEnterprise)
                 }
                 else {
                     this.createPostulant(res.data.userId, res.data.token, res.data.isEnterprise)
@@ -81,7 +69,7 @@ class Connexion extends React.Component {
                             </div>
                         </div>
 
-                        <a href="test">Je n'ai pas de compte</a>
+                        <a href="inscription">Je n'ai pas de compte</a>
                         <div className="connexionBtnDiv">
                             <button className='btn-neutral' onClick={() => this.login()}>
                                 Connexion
@@ -95,6 +83,52 @@ class Connexion extends React.Component {
             </div>
         </div >
         );
+    }
+    createEntreprise(userid, token, isentreprise) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "entreprise/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                response = response.data
+                if (response[0] === null) {
+                    console.log("error in createEntreprise get")
+                }
+                else {
+                    let benefice=[response[0].benefice_externe_1,response[0].benefice_externe_2,response[0].benefice_externe_3]
+                    localStorage.setItem('entreprise', JSON.stringify({
+                        nom: response[0].nom,
+                        localite: response[0].localite,
+                        type: response[0].type_entreprise,
+                        secteur: response[0].secteur,
+                        description: response[0].description,
+                        adresse: response[0].adresse,
+                        adresse_suplémentaire: response[0].adresse_suplémentaire,
+                        NPA: response[0].NPA,
+                        ethique: response[0].ethique,
+                        label: response[0].label,
+                        benefice: benefice,
+                        logo: response[0].image_url
+                    }));
+                    localStorage.setItem('responsable', JSON.stringify({
+                        nom: response[0].nom_responsable_RH,
+                        prenom: response[0].prenom_responsable_RH,
+                        poste: response[0].poste_responsable_RH,
+                        telephone: response[0].telephone_responsable_RH,
+                    }));
+                    this.createOffre(response[0].id_entreprise, token)
+                    this.props.reduxUpdateUser({
+                        token: token,
+                        userId: userid,
+                        isEnterprise: isentreprise,
+                        isLogged: true
+                    })
+                    localStorage.setItem('user', JSON.stringify({
+                        token: token,
+                        userId: userid,
+                        isEnterprise: isentreprise,
+                        isLogged: true
+                    }));
+                }
+            })
+
     }
     createPostulant(userid, token, isentreprise) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
@@ -144,6 +178,34 @@ class Connexion extends React.Component {
                 }
             })
     }
+    createOffre(id, token) {
+        axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "offre/entreprise/" + id, headers: { 'Authorization': 'Bearer ' + token } })
+            .then((response) => {
+                response = response.data
+                if (response[0] === null) {
+                    console.log("error in createEntreprise get")
+                }
+                else {
+                    let offres=[]
+                    for(let i=0;i<response.length;i++){
+                        offres.push({
+                            poste:response[i].nom,
+                            taux:response[i].taux,
+                            contrat:response[i].contrat,
+                            duree:response[i].duree,
+                            dispo:Moment(response[i].dispo).format('YYYY-MM-DD'),
+                            salaire:response[i].salaire_min+" - "+response[i].salaire_max,
+                            url:response[i].url,
+                            localite:response[i].NPA,
+                            publish:response[i].is_searchable
+                        })
+                    }
+                    localStorage.setItem('offre', JSON.stringify({
+                        offre: offres
+                    }));
+                }
+            })
+    }
     createFormation(id, token) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "formation/postulant/" + id, headers: { 'Authorization': 'Bearer ' + token } })
             .then((response) => {
@@ -157,7 +219,7 @@ class Connexion extends React.Component {
                     for (let i = 0; i < response.length; i++) {
                         formations.push({
                             id: response[i].id_formation,
-                            debut:  Moment(response[i].date_debut).format('YYYY-MM-DD'),
+                            debut: Moment(response[i].date_debut).format('YYYY-MM-DD'),
                             fin: Moment(response[i].date_fin).format('YYYY-MM-DD'),
                             cursus: response[i].cursus,
                             institut: response[i].institut,
@@ -185,8 +247,8 @@ class Connexion extends React.Component {
                             id: response[i].id_experience,
                             entreprise: response[i].entreprise,
                             poste: response[i].poste,
-                            debut:  Moment(response[i].date_debut).format('YYYY-MM-DD'),
-                            fin:  Moment(response[i].date_fin).format('YYYY-MM-DD'),
+                            debut: Moment(response[i].date_debut).format('YYYY-MM-DD'),
+                            fin: Moment(response[i].date_fin).format('YYYY-MM-DD'),
                             secteur: response[i].id_secteur,
                             pays: response[i].pays,
                             localite: response[i].localite,
@@ -254,7 +316,7 @@ class Connexion extends React.Component {
                             certificat: response[i].certificat,
                             obtention: Moment(response[i].obtention).format('YYYY-MM-DD'),
                             id_langue: response[i].id_langue,
-                            sejours:response[i].sejours,
+                            sejours: response[i].sejours,
                         })
                     }
                     localStorage.setItem('langue', JSON.stringify({

@@ -22,6 +22,13 @@ class App extends React.Component {
       offre: data
     }
   }
+  componentDidMount() {
+    let profil = JSON.parse(localStorage.getItem("offre"))
+    console.log(profil.offre[0])
+    this.setState({ 
+     offre: profil.offre
+     });
+  }
   handlePoste(index, value) {
     let newvalue = this.state.offre
     newvalue[index].poste = value.target.value
@@ -95,7 +102,11 @@ class App extends React.Component {
   }
   DisplayOffre() {
     offres = []
-    for (let i = 0; i < data.length; i++) {
+    if(this.state.offre.length===0){
+      return
+    }
+    console.log(this.state.offre[0].poste)
+    for (let i = 0; i < this.state.offre.length; i++) {
       offres.push(
         <div id={i}>
           <Accordion title={this.state.offre[i].poste}>
@@ -224,6 +235,7 @@ class App extends React.Component {
     }
   }
   render() {
+    console.log(this.state.offre)
     this.DisplayOffre()
     return (
       <div>

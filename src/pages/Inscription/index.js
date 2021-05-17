@@ -12,10 +12,12 @@ export default class Inscription extends React.Component {
         this.state = {
             email: '',
             password: '',
-            passwordConfirm:''
+            passwordConfirm:'',
+            condition:false
         }
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
+        this.handleConfirmPassword = this.handleConfirmPassword.bind(this);
     }
     handleEmail(event) {
         this.setState({ email: event.target.value });
@@ -26,52 +28,31 @@ export default class Inscription extends React.Component {
     handleConfirmPassword(event) {
         this.setState({ passwordConfirm: event.target.value });
     }
-    login() {
-        console.log(config.backEndURL + config.backEndApiURL + 'user/login')
-        axios.post(config.backEndURL + config.backEndApiURL + 'user/login', {
-            email: this.state.email,
-            password: this.state.password
-        })
+    inscription(){
+        console.log(this.state.password)
+        console.log(this.state.passwordConfirm)
+        if(!this.state.email.includes('@')){
+            alert("format de l'e-mail non conforme")
+            return
+        }
+        if(this.state.password!=this.state.passwordConfirm){
+            alert('mot de passe et confirmation différent')
+            return
+        }
+        if(!this.state.condition){
+            alert("vous devez accepter les dondition d'utilisation")
+            return
+        }
+            axios.post(config.backEndURL + config.backEndApiURL + 'user', {
+                email: this.state.email,
+                password: this.state.password,
+                entreprise:'1'
+            })
             .then((res) => {
-                console.log(res.data.token)
-                if (res.data.isEnterprise) {
-                    this.props.reduxUpdateUser({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    })
-                    localStorage.setItem('user', JSON.stringify({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    }));
-
-                }
-                else {
-                    this.props.reduxUpdateUser({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    })
-                    localStorage.setItem('user', JSON.stringify({
-                        token: res.data.token,
-                        userId: res.data.userId,
-                        isEnterprise: res.data.isEnterprise,
-                        isLogged: true
-                    }));
-                    this.createPostulant(res.data.userId, res.data.token)
-                    console.log("postulant")
-                }
+                this.props.history.push('/connexion');
             })
-            .catch((err) => {
-                console.log(err)
-                alert("Email ou mot de passe incorrect")
-            })
+        
     }
-
     render() {
         return (<div className="page-container">
             <div className="main-page">
@@ -103,7 +84,7 @@ export default class Inscription extends React.Component {
                             <thead>
                                 <tr>
                                     <td>
-                                        <input type="checkbox"  className='intitulé' />
+                                        <input type="checkbox"  className='intitulé' checked={this.state.condition} onClick={()=> this.setState({condition:!this.state.condition})}/>
                                     </td>
                                     <td>
                                         <label className='intitulé'> J'ai lu et j'accepte les conditions d'utilisation.</label>
@@ -111,8 +92,9 @@ export default class Inscription extends React.Component {
                                 </tr>
                             </thead>
                         </table>
+                        <a href="connexion">J'ai déjà un compte</a>
                         <div className="connexionBtnDiv">
-                            <button className='btn-neutral' onClick={() => this.login()}>
+                            <button className='btn-neutral' onClick={() => this.inscription()}>
                                 Créer mon compte
                             </button>
                         </div>

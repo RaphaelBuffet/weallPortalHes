@@ -42,9 +42,21 @@ export default class InfoEntreprise extends React.Component {
     this.handleEnregistrer = this.handleEnregistrer.bind(this);
   }
   componentDidMount() {
-    this.setState({ nom: localStorage.getItem('entreprise') });
-    console.log('---------------------------ici---------------------------------')
-    console.log(localStorage.getItem('entreprise'))
+    let profil = JSON.parse(localStorage.getItem("entreprise"))
+    console.log(profil)
+    this.setState({ 
+      nom: profil.nom,
+      adresse: profil.adresse,
+      adresseSuplement: profil.adresseSuplement,
+      descritpion: profil.description,
+      npa: profil.npa,
+      localite: profil.localite,
+      type: profil.type,
+      secteur: profil.secteur,
+      ethique: profil.ethique,
+      label: profil.label,
+      benefice: profil.benefice
+     });
   }
 
   handleEntreprise(event) {
