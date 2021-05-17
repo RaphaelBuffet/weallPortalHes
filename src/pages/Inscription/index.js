@@ -4,8 +4,6 @@ import config from '../../config';
 import logo from '../../image/logo.png';
 import '../../styles/connexion.scss';
 import '../../styles/button.scss';
-import { login } from "../../Store/User/UsersActions";
-import { connect } from "react-redux";
 export default class Inscription extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +11,7 @@ export default class Inscription extends React.Component {
             email: '',
             password: '',
             passwordConfirm: '',
-            type: '',
+            type: '0',
             condition: false
         }
         this.handleEmail = this.handleEmail.bind(this);
@@ -54,7 +52,15 @@ export default class Inscription extends React.Component {
             entreprise: this.state.type
         })
             .then((res) => {
-                this.props.history.push('/connexion');
+                if(res.data.message==='email already use'){
+                    alert("email déja liée à un compte")
+                }
+                else{
+                    console.log(res.data.message)
+                    alert("compte créer avec succès")
+                    this.props.history.push('/connexion');
+                }
+               
             })
 
     }
