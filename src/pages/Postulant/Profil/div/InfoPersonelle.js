@@ -3,6 +3,7 @@ import '../../../../styles/profil.scss';
 import download from '../../../../image/profil.jpg'
 import { data } from './data'
 import { FaFileExport } from 'react-icons/fa';
+import { FaInfoCircle } from 'react-icons/fa';
 import Moment from 'moment';
 
 export default class InfoPersonelle extends React.Component {
@@ -177,11 +178,37 @@ export default class InfoPersonelle extends React.Component {
           </div>
         </div>
 
-        <div className="finalButtonZone">
-          <button type="submit" value="
-          enregistrer les informations" className='btn-neutral'>
+
+        <div className="line">
+          <div className="column">
+            <table class="table-medium">
+              <thead>
+                <tr>
+                  <th rowspan="2">
+                    <FaInfoCircle className='icon' />
+                  </th>
+                  <th>
+                    <p className="info-bold">Vos informations personnelles restent anonymes pour garantir un engagement éthique.</p>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <p className="info">
+                    Les informations personnelles fournies sont confidentielles. Elle ne peuvent être transmises que selon la bonne volonté du postulant.
+                    </p>
+                  </td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div className="column">
+            <div className="btn-divLeft">
+            <button type="submit" value="enregistrer les informations" className='btn-neutral'>
             Enregistrer les informations
           </button>
+            </div>
+          </div>
+
         </div>
 
       </form>

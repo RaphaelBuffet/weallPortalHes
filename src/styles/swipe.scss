@@ -1,4 +1,5 @@
 @import 'src/styles/colors.scss';
+@import 'src/styles/app.scss';
 
 $buttonSideWidth: 8%;
 
@@ -277,7 +278,7 @@ $buttonSideWidth: 8%;
     width: 100px;
   }
   /*style mobile*/
-  @media screen and (max-width:960px) {
+  @media screen and (max-width:$MobileScreenSize) {
     .main-page {
       padding-left: 0em;
       padding-right: 0em;
@@ -291,7 +292,7 @@ $buttonSideWidth: 8%;
     }
     .column {
       text-align: left;
-      width: 53vh;
+      width: 50vh;
     }
   .line {
       columns: 2;
@@ -354,7 +355,7 @@ $buttonSideWidth: 8%;
       width: 20%;
   }
   .accordion{
-      margin-left: 1em;
+      margin-left: 0.5em;
   }
   .btn-full {
       margin-top: 1em;

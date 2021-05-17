@@ -233,8 +233,11 @@ export default class InfoEntreprise extends React.Component {
                     </button>
                   </th>
                   <th>
+                    <p >
+                      Format d'images:
+                    </p>
                     <p>
-                      Format d'images: JPG, JPEG et PNG.
+                      JPG, JPEG et PNG.
                     </p>
                   </th>
                 </tr>
@@ -242,13 +245,11 @@ export default class InfoEntreprise extends React.Component {
             </table>
           </div>
         </div>
-
-        <div className="finalButtonZone">
-          <button type="submit" value="enregistrer les informations" className='btn-neutral' >
-            Enregistrer les informations
-          </button>
+        <div className="btn-divLeft">
+            <button type="submit" value="enregistrer les informations" className='btn-neutral' >
+              Enregistrer les informations
+            </button>
         </div>
-
       </form>
     );
   }

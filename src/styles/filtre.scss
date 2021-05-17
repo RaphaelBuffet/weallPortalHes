@@ -1,4 +1,5 @@
 @import 'src/styles/colors.scss';
+@import 'src/styles/app.scss';
 
 // FILTRE POSTULANT
 .main-page {
@@ -228,6 +229,17 @@
     width: 50%;
   }
 
+  .table-medium{
+    float:left;
+    display:inline-table; 
+    text-align: justify;
+    width: 100vh;
+    height: 50vh;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+  }
+
   .tg {
     border-spacing:12;
   }
@@ -242,7 +254,19 @@
     vertical-align:middle}
 
   /*style mobile*/
-@media screen and (max-width:960px) {
+  @media screen and (max-width:$MobileScreenSize) {
+
+  .basic-multi-select{
+    margin-top: 0em;
+    padding-top: 0em;
+    width: 90%;
+    margin-top: 0em;
+    margin-right: 2em;
+    margin-left: 0.5em;
+    height: 2em;
+    vertical-align:middle
+    ;
+    }
   .section {
     padding-top: 10px;
     display: block;
@@ -265,6 +289,16 @@
     padding-left: 1em;
   }
 
+  .table-medium{
+    float:left;
+    display:inline-table; 
+    text-align: justify;
+    width: 41vh;
+    padding-bottom: 1em;
+    padding-top: 0.1em;
+    padding-left: 1em;
+  }
+
   .intituleFiltre {
     flex: 1;
     margin-left: 0em;
@@ -272,7 +306,7 @@
   }
 
   .inputDate {
-    width: 18.5vh;
+    width: 19.3vh;
     margin-right: 0em;
     margin-left: 0em;
     height: 2em;
@@ -316,7 +350,7 @@
   .input {
     width:  40vh;
     margin-right: 2em;
-    margin-left: 1em;
+    margin-left: 0.5em;
     height: 2em;
     vertical-align:middle
   }
@@ -440,7 +474,8 @@
   //   margin-right: 1em;
   // }
   .icon {
-    margin-right: 0em;
+    height: 20px;
+    width: 20px;
   }
   // .inputlong-mono {
   //   flex: 1;

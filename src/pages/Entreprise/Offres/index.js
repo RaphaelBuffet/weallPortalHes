@@ -183,7 +183,7 @@ class App extends React.Component {
                 <table>
                   <thead>
                     <tr>
-                      <th className="btn-divRight">
+                      <th className="btn-divRight" title="Activer l'offre permet de la rendre accessibleaux postulants">
                         <FormControlLabel
                           control={
                             <Switch
@@ -206,7 +206,7 @@ class App extends React.Component {
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="btn-divRight">
+                      <td className="btn-divRight" title="Sélectionner l'offre permet d'y faire correspondre la partie Filtre">
                         <FormControlLabel
                           control={
                             <Switch

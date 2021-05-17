@@ -1,4 +1,5 @@
 @import 'src/styles/colors.scss';
+@import 'src/styles/app.scss';
 
 $softSkillSize: 90%;
 $softSkillMobileSize: 20vh;
@@ -146,7 +147,7 @@ $softSkillMobileSize: 20vh;
     display: flex;
     float:right;
     justify-content: space-between;
-    margin-right: 17%;
+    margin-right: 2em;
     margin-top: 1em;
 }
 
@@ -210,7 +211,7 @@ $softSkillMobileSize: 20vh;
 }
 
 /*style mobile*/
-@media screen and (max-width:960px) {
+@media screen and (max-width:$MobileScreenSize) {
     :root {
         --primary: transparent;
     }
@@ -331,15 +332,19 @@ $softSkillMobileSize: 20vh;
         display: flex;
         float:right;
         justify-content: space-between;
-        margin-right: 9%;
+        margin-right: 2vh;
+        margin-top: 2em;
+        padding: 10px 0px,0px,0px;
     }
     
     .btn-divLeft{
         display: flex;
         float:right;
         justify-content: space-between;
-        padding-left: 30vh;
+        padding-right: 1vh;
         margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 2em;
     }
     
     .btn-divRight{
