@@ -5,7 +5,8 @@ import '../../../../styles/profil.scss';
 import { FaSave } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
-import { data } from './data'
+import { data } from './data';
+import Moment from 'moment';
 var langue = [];
 var xpLangue = [];
 var allXp = [];
@@ -32,13 +33,20 @@ export default class Langue extends React.Component {
     }
     SwitchCaseLangue(value) {
         switch (value) {
-            case 0:
+            case 'Français':
                 return 'Français';
-            case 1:
+            case 'Allemand':
                 return 'Allemand';
-            case 2:
+            case 'Autre':
                 return 'Autre';
         }
+    }
+    componentDidMount() {
+        let langue = JSON.parse(localStorage.getItem("langue"))
+        console.log(langue.langue)
+        this.setState({
+            langue: langue.langue
+        })
     }
     handleNom(index, value) {
         let newValue = this.state.langue
@@ -141,11 +149,11 @@ export default class Langue extends React.Component {
                                         <thead>
                                             <tr>
                                                 <td>
-                                                    <input type="date" value={this.state.langue[langueid].sejours[i].debut} onChange={(value) => this.handleDebutExperience(i, value, langueid)} className='inputDate' />
+                                                    <input type="date" value={Moment(this.state.langue[langueid].sejours[i].debut).format('YYYY-MM-DD')} onChange={(value) => this.handleDebutExperience(i, value, langueid)} className='inputDate' />
                                                 </td>
                                                 <td>à</td>
                                                 <td>
-                                                    <input type="date" value={this.state.langue[langueid].sejours[i].fin} onChange={(value) => this.handleFinExperience(i, value, langueid)} className='inputDate' />
+                                                    <input type="date" value={Moment(this.state.langue[langueid].sejours[i].fin).format('YYYY-MM-DD')} onChange={(value) => this.handleFinExperience(i, value, langueid)} className='inputDate' />
                                                 </td>
                                             </tr>
                                         </thead>
@@ -156,8 +164,8 @@ export default class Langue extends React.Component {
                                 <div className='column'>
                                     <p className='intituleProfil'>Type d'expérience lingusitique</p>
                                     <select value={this.state.langue[langueid].sejours[i].type} onChange={(value) => this.handleTypeExperience(i, value, langueid)} className='input'>
-                                        <option value="0">Séjours linguisitique</option>
-                                        <option value="1">Expérience professionelle</option>
+                                        <option value="Séjours lingusitique">Séjours linguisitique</option>
+                                        <option value="Experience professionelle">Expérience professionelle</option>
                                     </select>
                                 </div>
                                 <div className='column'>
@@ -182,25 +190,25 @@ export default class Langue extends React.Component {
             this.createLanguageExperience(i);
             langue.push(
                 <div key={i}>
-                    <AccordionSecondary title={this.SwitchCaseLangue(this.state.langue[i].nom)} className='accordion-secondary'>
+                    <AccordionSecondary title={this.SwitchCaseLangue(this.state.langue[i].langue)} className='accordion-secondary'>
                         <div className='form'>
                             <div className='line'>
                                 <div className='column'>
                                     <p className='intituleProfil'>Langue</p>
-                                    <select value={this.state.langue[i].nom} onChange={(value) => this.handleNom(i, value)} className='input'>
-                                        <option value="0">Français</option>
-                                        <option value="1">Allemand</option>
-                                        <option value="2">Autre</option>
+                                    <select value={this.state.langue[i].langue} onChange={(value) => this.handleNom(i, value)} className='input'>
+                                        <option value="Français">Français</option>
+                                        <option value="Allemand">Allemand</option>
+                                        <option value="Autre">Autre</option>
                                     </select>
                                 </div>
                                 <div className='column'>
                                     <p className='intituleProfil'>Niveau</p>
                                     <select value={this.state.langue[i].niveau} onChange={(value) => this.handleNiveau(i, value)} className='input'>
-                                        <option value="0">A1</option>
+                                        <option value="A1-A2">A1</option>
                                         <option value="1">A2</option>
-                                        <option value="2">B1</option>
+                                        <option value="B1-B2 (intermediaire)">B1</option>
                                         <option value="3">B2</option>
-                                        <option value="4">C1</option>
+                                        <option value="C1-C2(avancé)">C1</option>
                                         <option value="5">C2</option>
                                         <option value="6">maternelle</option>
                                     </select>
@@ -213,13 +221,13 @@ export default class Langue extends React.Component {
                                 </div>
                                 <div className='column'>
                                     <p className='intituleProfil'>date d'obtention</p>
-                                    <input type="date" value={this.state.langue[i].date} onChange={(value) => this.handleDate(i, value)} className='input' />
+                                    <input type="date" value={this.state.langue[i].obtention} onChange={(value) => this.handleDate(i, value)} className='input' />
                                 </div>
                             </div>
                             <div className='line-simple'>
                                 <p className="intituleProfil"> Experiences linguisitiques</p>
                             </div>
-                            {this.state.langue[i].sejours.length !== 0
+                            {allXp[i] !== null
                                 ? allXp[i]
                                 : null}
                             <div className="flex-div">

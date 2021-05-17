@@ -3,6 +3,7 @@ import '../../../../styles/profil.scss';
 import download from '../../../../image/profil.jpg'
 import { data } from './data'
 import { FaFileExport } from 'react-icons/fa';
+import Moment from 'moment';
 
 export default class InfoPersonelle extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export default class InfoPersonelle extends React.Component {
       sexe: data.sexe,
       adresse: data.adresse,
       adresseSuplement: data.adresseSuplement,
-      descritpion: data.descritpion,
+      description: data.descritpion,
       npa: data.npa,
       localité: data.localité,
       telephone: data.telephone
@@ -34,6 +35,23 @@ export default class InfoPersonelle extends React.Component {
     this.handleImage = this.handleImage.bind(this);
     this.handleEnregistrer = this.handleEnregistrer.bind(this);
   }
+  componentDidMount(){
+    let profil = JSON.parse(localStorage.getItem("postulant"))
+    this.setState({
+      nom:profil.nom,
+      prenom: profil.prenom,
+      naissance: profil.naissance,
+      sexe: profil.sexe,
+      adresse: profil.adresse,
+      adresseSuplement: profil.adresse_suplement,
+      descritpion: profil.description,
+      npa: profil.npa,
+      localité: profil.localité,
+      telephone: profil.telephone
+    })
+  console.log(profil.naissance)
+  }
+  
 
   handleNom(event) {
     this.setState({ nom: event.target.value });
@@ -54,7 +72,7 @@ export default class InfoPersonelle extends React.Component {
     this.setState({ adresseSuplement: event.target.value });
   }
   handleDescription(event) {
-    this.setState({ descritpion: event.target.value });
+    this.setState({ description: event.target.value });
   }
   handleNpa(event) {
     this.setState({ npa: event.target.value });
@@ -96,9 +114,9 @@ export default class InfoPersonelle extends React.Component {
           <div className='column'>
             <p className='intituleProfil'>Sexe</p>
             <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
-              <option value="0">Homme</option>
-              <option value="1">Femme</option>
-              <option value="2">Autre</option>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+              <option value="Autre">Autre</option>
             </select>
           </div>
         </div>

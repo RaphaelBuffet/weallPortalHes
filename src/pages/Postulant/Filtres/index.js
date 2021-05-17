@@ -24,7 +24,9 @@ export default class Filtres extends React.Component {
       ethique:data.ethique
     }
   }
-
+componentDidMount(){
+  console.log("j'aime les gens")
+}
   render() {
     return (<div>
       <div className="App">
