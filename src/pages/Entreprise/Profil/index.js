@@ -26,7 +26,7 @@ function App() {
           <Accordion title="Infomations De l'entreprise">
             <InfoEntreprise />
           </Accordion>
-          <Accordion title="Coordonées de la personne de contact">
+          <Accordion title="Personne de contact">
             <PersonneDeContact />
           </Accordion>
         </div>
