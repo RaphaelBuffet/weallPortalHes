@@ -14,8 +14,7 @@ export default class Langue extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            langue: data.langue,
-            sejours: []
+            langue: data.langue
         };
         // changement des input
         this.handleNom = this.handleNom.bind(this);
