@@ -106,7 +106,7 @@ class Connexion extends React.Component {
                         ethique: response[0].ethique,
                         label: response[0].label,
                         benefice: benefice,
-                        logo: response[0].image_url
+                        logo: response[0].image_url,
                     }));
                     localStorage.setItem('responsable', JSON.stringify({
                         nom: response[0].nom_responsable_RH,
@@ -199,7 +199,8 @@ class Connexion extends React.Component {
                             salaire:response[i].salaire_min+" - "+response[i].salaire_max,
                             url:response[i].url,
                             localite:response[i].NPA,
-                            publish:response[i].is_searchable
+                            publish:response[i].is_searchable,
+                            filtre: response[i].id_filtre_offre
                         })
                     }
                     localStorage.setItem('offre', JSON.stringify({
