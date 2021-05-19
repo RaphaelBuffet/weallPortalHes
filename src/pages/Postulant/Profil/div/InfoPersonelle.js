@@ -97,22 +97,22 @@ export default class InfoPersonelle extends React.Component {
     return (
       <form onSubmit={this.handleEnregistrer} className='form'>
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Nom</p>
             <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Prénom</p>
             <input type="text" value={this.state.nom} onChange={this.handleNom} className='input' />
           </div>
         </div>
 
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Date de naissance</p>
             <input type="date" value={this.state.naissance} onChange={this.handleNaissance} className='input' />
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Sexe</p>
             <select value={this.state.sexe} onChange={this.handleSexe} className='input'>
               <option value="Homme">Homme</option>
@@ -123,11 +123,11 @@ export default class InfoPersonelle extends React.Component {
         </div>
 
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Description</p>
             <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputthick' />
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Photo de profil</p>
             <table className="downloadZone">
               <thead>
@@ -154,9 +154,9 @@ export default class InfoPersonelle extends React.Component {
         <div>
           <p className='intituleProfil'>Adresse</p>
           <div className='line-double'>
-            <div className='column'>
+            <div className='columnProfil'>
               <input type="text" value={this.state.adresse} onChange={this.handleAdresse} className='input' placeholder='Rue et numéro' />
-              <div className='column'>
+              <div className='columnProfil'>
                 <input type="text" value={this.state.npa} onChange={this.handleNpa} className='inputmini' placeholder='Code postal' />
                 <select value={this.state.localité} onChange={this.handleLocalite} className='inputmini'>
                   <option value="0">Sion</option>
@@ -165,14 +165,14 @@ export default class InfoPersonelle extends React.Component {
                 </select>
               </div>
             </div>
-            <div className='column'>
+            <div className='columnProfil'>
               <textarea type="text" value={this.state.adresseSuplement} onChange={this.handleAdresseSuplement} className='inputthick' placeholder='Informations complémentaires (Exemple: étage)' />
             </div>
           </div>
         </div>
 
         <div className='line-double'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Numéro de téléphone</p>
             <input type="text" value={this.state.telephone} onChange={this.handleTelephone} className='input' />
           </div>
@@ -180,7 +180,7 @@ export default class InfoPersonelle extends React.Component {
 
 
         <div className="line">
-          <div className="column">
+          <div className="columnProfil">
             <table class="table-medium">
               <thead>
                 <tr>
@@ -201,7 +201,7 @@ export default class InfoPersonelle extends React.Component {
               </thead>
             </table>
           </div>
-          <div className="column">
+          <div className="columnProfil">
             <div className="btn-divLeft">
             <button type="submit" value="enregistrer les informations" className='btn-neutral'>
             Enregistrer les informations

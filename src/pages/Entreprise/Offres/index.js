@@ -112,11 +112,11 @@ class App extends React.Component {
           <Accordion title={this.state.offre[i].poste}>
             <div className='form'>
               <div className='line'>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Titre du poste</p>
                   <input type="text" value={this.state.offre[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
                 </div>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Taux d'activité</p>
                   <select value={this.state.offre[i].taux} onChange={(value) => this.handleTaux(i, value)} className='input'>
                     <option value="0">100%</option>
@@ -132,7 +132,7 @@ class App extends React.Component {
                 </div>
               </div>
               <div className='line'>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Contrat</p>
                   <select value={this.state.offre[i].contrat} onChange={(value) => this.handleContrat(i, value)} className='input'>
                     <option value="0">Sion</option>
@@ -140,7 +140,7 @@ class App extends React.Component {
                     <option value="2">Autre</option>
                   </select>
                 </div>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Durée</p>
                   <select value={this.state.offre[i].duree} onChange={(value) => this.handleDuree(i, value)} className='input'>
                     <option value="0">Sion</option>
@@ -150,11 +150,11 @@ class App extends React.Component {
                 </div>
               </div>
               <div className='line'>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Disponibilité</p>
                   <input type="date" value={this.state.offre[i].dispo} onChange={(value) => this.handleDisponibilite(i, value)} className='input' />
                 </div>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Fourchette de salaire</p>
                   <select value={this.state.offre[i].salaire} onChange={(value) => this.handleSalaire(i, value)} className='input'>
                     <option value="0">Sion</option>
@@ -164,11 +164,11 @@ class App extends React.Component {
                 </div>
               </div>
               <div className='line'>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Lien de votre cahier des charges</p>
                   <input type="text" value={this.state.offre[i].url} onChange={(value) => this.handleUrl(i, value)} className='input' />
                 </div>
-                <div className='column'>
+                <div className='columnProfil'>
                   <p className='intituleProfil'>Localite</p>
                   <select value={this.state.offre[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
                     <option value="0">Sion</option>

@@ -48,13 +48,42 @@
         padding-top: 0.5em;
     }
     .abonnementdescription {
-        flex: 4;
-        margin-left: 0.5em;
-        
+        display: inline;
+        float: left;
+        text-align: left;
+        width:20vh;
     }
+
+    .abonnementdescription > *{
+        text-align: left !important;
+    }
+
     .abonnementprix {
-        flex: 1;
-        margin-right: 0.5em;
-        align-self: flex-end;
+        display: inline;
+        float: left;
+        text-align: left;
+        width:20vh;
     }
+
+    .abonnementprix > *{
+        text-align: left !important;
+        vertical-align: top !important;
+        margin-left: 2em !important;
+    }
+
+
+    .tableAbonnement{
+        width:90%;
+        justify-content: left;
+    }
+
+    .tableAbonnement tr > *{
+        display: block;
+    }
+      
+    .tableAbonnement tr {
+        display: table-cell;
+    }
+    
+  
 }

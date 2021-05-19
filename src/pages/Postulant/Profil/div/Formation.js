@@ -99,7 +99,7 @@ export default class Formation extends React.Component {
 
                             </div>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Cursus</p>
                                     <select value={this.state.formation[i].cursus} onChange={(value) => this.handleCursus(i, value)} className='input'>
                                         <option value="0">Universiatire</option>
@@ -107,7 +107,7 @@ export default class Formation extends React.Component {
                                         <option value="2">Autre (Par exemple étude a l'étranger)</option>
                                     </select>
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Durée</p>
                                     <table class="dateZone" cellspacing="0">
                                         <thead>
@@ -125,7 +125,7 @@ export default class Formation extends React.Component {
                                 </div>
                             </div>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Institut</p>
                                     <select value={this.state.formation[i].institut} onChange={(value) => this.handleInstitut(i, value)} className='input'>
                                         <option value="0">Informatique de gestion</option>
@@ -133,13 +133,13 @@ export default class Formation extends React.Component {
                                         <option value="2">Economie et Service</option>
                                     </select>
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Nom du diplôme</p>
                                     <input type="text" value={this.state.formation[i].diplome} onChange={(value) => this.handleDiplome(i, value)} className='input' />
                                 </div>
                             </div>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Degré d'étude</p>
                                     <select value={this.state.formation[i].degre} onChange={(value) => this.handleDegreEtude(i, value)} className='input'>
                                         <option value="0">Bachelor</option>
@@ -147,7 +147,7 @@ export default class Formation extends React.Component {
                                         <option value="1">Doctorat</option>
                                     </select>
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <div className="btn-divLeft">
                                     <button className='btn-formAdd' onClick={this.handleEnregistrer}>
                                         <FaSave />

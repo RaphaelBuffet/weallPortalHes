@@ -130,11 +130,11 @@ export default class InfoEntreprise extends React.Component {
     return (
       <form onSubmit={this.handleEnregistrer} className='form'>
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Nom de l'entreprise</p>
             <input type="text" value={this.state.nom} onChange={this.handleEntreprise} className='input' />
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Localité</p>
             <select value={this.state.localite} onChange={this.handleLocalite} className='input'>
               <option value="0">Sion</option>
@@ -144,7 +144,7 @@ export default class InfoEntreprise extends React.Component {
           </div>
         </div>
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Type d'entreprise</p>
             <select value={this.state.type} onChange={this.handleType} className='input'>
               <option value="0">PME</option>
@@ -152,7 +152,7 @@ export default class InfoEntreprise extends React.Component {
               <option value="2">Multinational</option>
             </select>
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Secteur d'activité</p>
             <select value={this.state.secteur} onChange={this.handleSecteur} className='input'>
               <option value="0">Finance</option>
@@ -163,14 +163,14 @@ export default class InfoEntreprise extends React.Component {
         </div>
 
         <div className='line-simple'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Mission de votre entreprise</p>
             <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlongmonoline' />
           </div>
         </div>
 
         <div className='line-simple'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Engagement environementaux</p>
             <textarea value={this.state.engagement} onChange={this.handleEngagement} className='inputlongmonoline' />
           </div>
@@ -179,9 +179,9 @@ export default class InfoEntreprise extends React.Component {
         <div>
           <p className='intituleProfil'>Adresse</p>
           <div className='line-double'>
-            <div className='column'>
+            <div className='columnProfil'>
               <input type="text" value={this.state.adresse} onChange={this.handleAdresse} className='input' placeholder='Rue et numéro' />
-              <div className='column'>
+              <div className='columnProfil'>
                 <input type="text" value={this.state.npa} onChange={this.handleNpa} className='inputmini' placeholder='Code postal' />
                 <select value={this.state.localité} onChange={this.handleLocalite} className='inputmini'>
                   <option value="0">Sion</option>
@@ -190,14 +190,14 @@ export default class InfoEntreprise extends React.Component {
                 </select>
               </div>
             </div>
-            <div className='column'>
+            <div className='columnProfil'>
               <textarea type="text" value={this.state.adresseSuplement} onChange={this.handleAdresseSuplement} className='inputthick' placeholder='Informations complémentaires (Exemple: étage)' />
             </div>
           </div>
         </div>
 
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Label</p>
             <select value={this.state.label} onChange={this.handleLabel} className='input'>
               <option value="0">Iso 98000</option>
@@ -207,9 +207,9 @@ export default class InfoEntreprise extends React.Component {
           </div>
         </div>
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Benefice de votre entreprise</p>
-            <table className="inputColumnZone">
+            <table className="inputcolumnProfilZone">
               <thead>
                 <tr>
                   <th>
@@ -224,7 +224,7 @@ export default class InfoEntreprise extends React.Component {
               </thead>
             </table>
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Logo</p>
             <table className="downloadZone">
               <thead>

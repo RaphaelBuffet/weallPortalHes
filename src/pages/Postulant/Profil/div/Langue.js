@@ -139,11 +139,11 @@ export default class Langue extends React.Component {
                     <div className='form'>
                         <div className="subForm">
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Pays</p>
                                     <input type="text" value={this.state.langue[langueid].sejours[i].pays} onChange={(value) => this.handleNomExperience(i, value, langueid)} className='input' />
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Durée</p>
                                     <table class="dateZone" cellspacing="0">
                                         <thead>
@@ -161,14 +161,14 @@ export default class Langue extends React.Component {
                                 </div>
                             </div>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Type d'expérience lingusitique</p>
                                     <select value={this.state.langue[langueid].sejours[i].type} onChange={(value) => this.handleTypeExperience(i, value, langueid)} className='input'>
                                         <option value="Séjours lingusitique">Séjours linguisitique</option>
                                         <option value="Experience professionelle">Expérience professionelle</option>
                                     </select>
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <div className="btn-divLeft">
                                         <button className='btn-formRemove' onClick={() => this.removeExperience(langueid, i)} title="Supprimer cette expérience linguistique">
                                             <FaTrash />
@@ -193,7 +193,7 @@ export default class Langue extends React.Component {
                     <AccordionSecondary title={this.SwitchCaseLangue(this.state.langue[i].langue)} className='accordion-secondary'>
                         <div className='form'>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Langue</p>
                                     <select value={this.state.langue[i].langue} onChange={(value) => this.handleNom(i, value)} className='input'>
                                         <option value="Français">Français</option>
@@ -201,7 +201,7 @@ export default class Langue extends React.Component {
                                         <option value="Autre">Autre</option>
                                     </select>
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Niveau</p>
                                     <select value={this.state.langue[i].niveau} onChange={(value) => this.handleNiveau(i, value)} className='input'>
                                         <option value="A1-A2">A1</option>
@@ -215,11 +215,11 @@ export default class Langue extends React.Component {
                                 </div>
                             </div>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Certifiact</p>
                                     <input type="text" value={this.state.langue[i].certificat} onChange={(value) => this.handleCertificat(i, value)} className='input' />
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>date d'obtention</p>
                                     <input type="date" value={this.state.langue[i].obtention} onChange={(value) => this.handleDate(i, value)} className='input' />
                                 </div>

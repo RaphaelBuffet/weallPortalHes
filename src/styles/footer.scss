@@ -66,8 +66,8 @@
     }
     .Row {
         display: inline-table;
-        padding-left: 2em;
-        padding-right: 2em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
     .Col-left {
         display: block;
@@ -80,6 +80,7 @@
         bottom: 0;
         padding-top: 4em;
         text-align: center;
+        font-size: 13px;
     }
     .social-button {
         text-align: center;

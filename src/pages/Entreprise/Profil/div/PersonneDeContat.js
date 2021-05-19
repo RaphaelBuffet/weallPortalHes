@@ -58,21 +58,21 @@ export default class InfoPersonelle extends React.Component {
       <form onSubmit={this.handleEnregistrer} className='form'>
 
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Nom</p>
             <input type="text" value={this.state.prenom} onChange={this.handlePrenom} className='input' />
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Prénom</p>
             <input type="text" value={this.state.nom} onChange={this.handleNom} className='input' />
           </div>
         </div>
         <div className='line'>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Poste occupée</p>
             <input type="text" value={this.state.poste} onChange={this.handlePoste} className='input' />
           </div>
-          <div className='column'>
+          <div className='columnProfil'>
             <p className='intituleProfil'>Numéro de téléphone professionel</p>
             <input type="text" value={this.state.telephone} onChange={this.handleTelephone} className='input' />
           </div>

@@ -26,7 +26,7 @@ export default class langue extends React.Component {
             this.createSejours(i)
             langueView.push(
                 <div key={i}>
-                    <table>
+                    <table className="tableLanguagesTitle">
                         <thead>
                         <tr>
                             <th>
@@ -62,11 +62,11 @@ export default class langue extends React.Component {
         sejoursView = []
         for (let i = 0; i < this.state.langueData[index].sejours.length; i++) {
             sejoursView.push(
-                <div> 
-                    <table className="swipeDateTable">
+                <div className="languagesSwipeDiv"> •
+                    <table className="tableLanguages">
                         <tbody>
                         <tr>
-                            <td>•
+                            <td>
                                 <label className='labelSwipe'>{this.displayTypeSejours(this.state.langueData[index].sejours[i].type)}</label>
                             </td>
                             <td> en

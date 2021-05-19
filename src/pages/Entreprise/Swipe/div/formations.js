@@ -24,7 +24,7 @@ export default class formations extends React.Component {
     for (let i = 0; i < this.state.formationsData.length; i++) {
       formationsView.push(
         <div key={i}>
-          <table className="swipeDateTable">
+          <table  className="tableFormations">
             <tbody>
               <tr>
                 {/* <td>
@@ -32,13 +32,16 @@ export default class formations extends React.Component {
                     {this.state.formationsData[i].debut.slice(8, 10)}.{this.state.formationsData[i].debut.slice(5, 7)}.{this.state.formationsData[i].debut.slice(0, 4)}
                   </label>  
                 </td> */}
-                 <td >A obtenu
+                 <td >
+                   <p>A obtenu</p>
                   <label className="labelSwipe">  {this.state.formationsData[i].diplome}</label>
                 </td>
-                <td >via
+                <td >
+                  <p>via</p>
                   <label className="labelSwipe"> {this.displayCursus(this.state.formationsData[i].cursus)}</label>
                 </td>
-                <td >le
+                <td >
+                <p>le</p>
                   <label className="labelSwipe">
                     {this.state.formationsData[i].fin.slice(8, 10)}.{this.state.formationsData[i].fin.slice(5, 7)}.{this.state.formationsData[i].fin.slice(0, 4)}
                   </label>
