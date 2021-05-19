@@ -71,7 +71,7 @@ export default class Filtres extends React.Component {
     console.log(type)
     let result=[]
     for(let i=0;i<data.length;i++){
-      result.push(type[data[i].id])
+      result.push(type[data[i].id-1])
     }
     return result
   }
@@ -101,17 +101,16 @@ componentDidMount(){
     console.log(userEthique)
     this.setState({
       chooseSecteurs:userSecteur,
-      chooseCanton:response.canton,
+      chooseCanton:userCanton,
       chooseTaux:this.state.taux[response.taux],
-      chooseContrat:response.contrat,
+      chooseContrat:userContrat,
       chooseDisponibilite:this.state.disponibilite[response.dispo],
-      chooseSalaire:response.salaire,
-      chooseType:response.type,
-      chooseEthique:response.ethique
+      chooseSalaire:userSalaire,
+      chooseType:userType,
+      chooseEthique:userEthique
     })
     console.log(typeof(this.state.chooseSecteurs))
     console.log(this.state.chooseSecteurs)
-    this.forceUpdate();
   })
 }
   render() {

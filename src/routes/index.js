@@ -11,7 +11,7 @@ import ChatEntreprise from '../pages/Entreprise/Chat';
 import FiltreEntreprise from '../pages/Entreprise/Filtres';
 import OffreEntreprise from '../pages/Entreprise/Offres';
 import ParametreEntreprise from '../pages/Entreprise/Parametre';
-import SwipeEntreprise from '../pages/Entreprise/Swipe';
+import SwipeEntreprise from '../pages/Entreprise/Swipe/indexWeb';
 import Connexion from '../pages/Connexion/index';
 import Inscription from '../pages/Inscription/index';
 
@@ -19,11 +19,11 @@ export function RoutesPostulant() {
   return (
     <Switch>
       <Route path="/" exact component={ProfilPostulant} />
-      <Route path="/postulant/profil" component={ProfilPostulant} />
-      <Route path="/postulant/filtre" component={FiltrePostulant} />
-      <Route path="/postulant/swipe" component={SwipePostulant} />
-      <Route path="/postulant/chat" component={ChatPostulant} />
-      <Route path="/postulant/parametre" component={ParametrePostulant} />
+      <Route path="/postulant/profil" exact component={ProfilPostulant} />
+      <Route path="/postulant/filtre" exact component={FiltrePostulant} />
+      <Route path="/postulant/swipe" exact component={SwipePostulant} />
+      <Route path="/postulant/chat" exact component={ChatPostulant} />
+      <Route path="/postulant/parametre" exact component={ParametrePostulant} />
       {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
       <Route component={ParametrePostulant} />
     </Switch>
@@ -34,12 +34,12 @@ export function RoutesEntreprises() {
   return (
     <Switch>
       <Route path="/" exact component={ProfilEntreprise} />
-      <Route path="/entreprise/profil" component={ProfilEntreprise} />
-      <Route path="/entreprise/offre" component={OffreEntreprise} />
-      <Route path="/offre/Filtre" component={FiltreEntreprise} />
-      <Route path="/offre/Swipe" component={SwipeEntreprise} />
-      <Route path="/offre/Chat" component={ChatEntreprise} />
-      <Route path="/entreprise/Parametre" component={ParametreEntreprise} />
+      <Route path="/entreprise/profil" exact component={ProfilEntreprise} />
+      <Route path="/entreprise/offre" exact component={OffreEntreprise} />
+      <Route path="/offre/Filtre" exact component={FiltreEntreprise} />
+      <Route path="/offre/Swipe" exact component={SwipeEntreprise} />
+      <Route path="/offre/Chat" exact component={ChatEntreprise} />
+      <Route path="/entreprise/Parametre" exact component={ParametreEntreprise} />
       {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
       <Route component={ParametreEntreprise} />
     </Switch>
