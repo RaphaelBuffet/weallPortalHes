@@ -1,7 +1,7 @@
 @import 'src/styles/colors.scss';
 @import 'src/styles/app.scss';
 
-$buttonSideWidth: 8%;
+$buttonSideWidth: 33%;
 
 * {
     box-sizing: border-box;
@@ -58,7 +58,7 @@ $buttonSideWidth: 8%;
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 93%;
+      width: 100%;
       overflow-y: scroll;
       height:60vh;
   }
@@ -93,6 +93,7 @@ $buttonSideWidth: 8%;
     margin-bottom: 1em;
     margin-right: 1em;
     margin-left: 0.5em;
+    text-align: justify;
   }
   //------------------------------------------------------------------------------------------------
   // Competences block (used for diplomas)
@@ -112,6 +113,7 @@ $buttonSideWidth: 8%;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
+  
   //------------------------------------------------------------------------------------------------
   // Date block (used for diplomas)
   //------------------------------------------------------------------------------------------------
@@ -246,6 +248,18 @@ $buttonSideWidth: 8%;
   .infoGenerale {
     flex-direction: column;
   }
+
+  .tableImageEntreprise{
+    display: inline-block;
+  }
+
+  .tableEnteprise{
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    text-align: justify;
+    display: inline-block;
+  }
+
   .imagediv {
     display: inline-block;
     margin-left: 2em;
@@ -277,148 +291,413 @@ $buttonSideWidth: 8%;
     height: 100px;
     width: 100px;
   }
+
+  .tableSwipe{
+    display:inline; 
+  }
+
+  .languagesSwipeDiv{
+    display: block;
+  }
   /*style mobile*/
   @media screen and (max-width:$MobileScreenSize) {
     .main-page {
-      padding-left: 0em;
-      padding-right: 0em;
-      padding-bottom: 0em;
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-bottom: 1em;
+      width: 97%;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .section {
-      padding-top: 10px;
+    .form-swipe {
       display: block;
       margin-left: auto;
       margin-right: auto;
+      width: 95%;
+      border-style: ridge;
+      padding-bottom: 1em;
+      margin-top: 1em;
+    }
+    .explication {
+      justify-content: left;
+      background-color: none;
+      border-style: none;
+      width: 95%;
+      margin-left: 1em;
+      margin-right: auto;
+    }
+    .paragraphe {
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      text-align: left;
+      font-weight: bold;
+    }
+    .section-bordered {
+      border-style: ridge;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+      margin-top: 1em;
+      padding-bottom: 1em;
+    }
+  
+    .swipeSection{
+        padding-top: 10px;
+        display: block;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 93%;
+        overflow-y: scroll;
+        height:60vh;
+    }
+    
+    .backgroundSwipe {
+      width: 100%;
+      margin-top: 1em;
+      display: flex;
+      align-content: space-between;
+      background-color: white;
+      }
+    
+    .swipeSubtitle{
+      display: block;
+      font-weight: 700;
+      margin-top: 0.5em;
+      margin-right: 0em;
+      margin-left: 0em;
+      text-align: center;
+    }
+  
+    .swipeSubSubtitle{
+      display: inline-block;
+      font-weight: 700;
+      margin-top: 0.5em;
+      margin-right: 0em;
+      margin-left: 0.5em;
+      color: $TrypanBlue;
+      font-size: 16px;
+    }
+  
+    .swipeTextBlock{
+      margin-top: 1em; 
+      margin-bottom: 1em;
+      margin-right: 1em;
+      margin-left: 0.5em;
+    }
+    //------------------------------------------------------------------------------------------------
+    // Competences block (used for diplomas)
+    //------------------------------------------------------------------------------------------------
+    .swipeCompetencesSuperDiv{
+      display: block;
+      text-align: center;
+      align-items: center;
+      margin: auto;
+      width: 60%;
+    }
+    
+    .swipeCompetencesDiv{
+      display: block;
+      width: fit-content;
+      text-align: center;
+      padding-right: 0%;
+    }
+    .swipeCompetencesTable{
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      margin-right: 0em;
+    }
+    
+    //------------------------------------------------------------------------------------------------
+    // Date block (used for diplomas)
+    //------------------------------------------------------------------------------------------------
+    .swipeDateTable{
+      padding-left: 0.5em;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+    
+    .hrWhite{
+      border: 2px solid white;
+    }
+  
+    .labelDateSwipe{
+      font-weight: 550;
+      color: grey;
+      margin-right: 1em;
+      margin-left: 1em;
+    }
+  
+    .labelSwipe{
+      font-weight: 550;
+      color: grey;
+      font-size: 16px;
+      // padding-left: 0.5em;
+      // padding-right: 0.5em;
+      padding-left: 0.5em;
+      padding-right: 0em;
+      
+    }
+    //------------------------------------------------------------------------------------------------
+    // Side buttons
+    //------------------------------------------------------------------------------------------------
+    .btn-refus, .btn-accepter{
+      height: auto;
+      //width: $buttonSideWidth;
+      border-style: none;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .btn-refus, .btn-refus:hover {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      color: $RejectColor;
+      font-weight: 700;
+    }
+    .btn-refus{
+      background-color: $Background;
+      color: $RejectColor;
+    }
+    .btn-refus:hover{
+      background-color: $RejectColor;
+      color: white;
+    }
+    .btn-accepter, .btn-accepter:hover {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      color: $ValidateColor;
+      font-weight: 700;
+    }
+    .btn-accepter{
+      background-color: $Background;
+      color: $ValidateColor;
+    }
+    .btn-accepter:hover{
+      background-color: $ValidateColor;
+      color: $Background;
+    }
+    .btn-later{
+      border-radius: 6px;
+      font-weight: 500;
+      background-color: $TrypanBlue;
+      color: $Background;
+      justify-content: center;
+      align-self: center;
+      justify-self: center;
+      justify-items: center;
+      width: 100%;
+      height: 100%;
+      right: 50%;
+      border: none;
+    }
+    .btn-later:hover{
+      border-radius: 6px;
+      color: $TrypanBlue;
+      font-weight: 700;
+      background-color: $TrypanBlue;
+      color: $Background;
+      border: none;
+    }
+    .tableSwipe{
+      display:inline-table;
+      width: 100%;
+      flex-direction: row;
+      display: inline-table; 
+    }
+
+    .testPoint{
+      display: flow-root;
+    }
+
+    //----------------------------------------------------------
+    //Languages stuff
+    //----------------------------------------------------------
+    .tableLanguagesTitle{
+      padding-left: 1em;
+      text-align: center;
+    }
+
+    .languagesSwipeDiv{
+      display: inline-table;
+      text-align: center;
+    }
+
+    .tableLanguages tr > *{
+      display: inline-table;
+    }
+    .tableLanguages tr {
+      display: table-cell;
+    }
+
+    //----------------------------------------------------------
+    //Table formation
+    //----------------------------------------------------------
+    .tableFormations{
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      text-align: center;
+    }
+
+    .tableFormations tr > *{
+      display: block;
+    }
+    .tableFormations tr {
+      display: table-cell;
+    }
+
+    //----------------------------------------------------------
+    //Table experiences
+    //----------------------------------------------------------
+    .tableExp{
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      padding-left: 1em;
+      text-align: center;
+    }
+
+    .tableExp tr > *{
+      display: block;
+    }
+    
+    .tableExp tr {
+      display: table-cell;
+    }
+
+    //------------------------------------------------------------------------------------------------
+    // Enteprise zone
+    //------------------------------------------------------------------------------------------------
+    .tableImageEntreprise{
+      margin: auto;
+      width: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: block;
+    }
+
+    .tableEnteprise{
+      text-align: center;
+      padding-left: 0em;
+    }
+
+    .tableEnteprise tr > *{
+      display: block;
+    }
+
+    .entrepriseSwipeFields{
+      text-align: justify;
+      text-align-last: center;
+    }
+    
+    .tableFormations{
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      text-align: center;
+    }
+
+    .tableFormations tr > *{
+      display: block;
+    }
+    .tableFormations tr {
+      display: table-cell;
+    }
+
+    .test{
+      width: 70%;
+    }
+    
+    .btn-column-center{
+      align-self: center;
+      width: 33%;
+      flex: 1;
+    }
+    .btn-column-right{
+      width: 33%;
+      align-items: flex-end;
+    }
+    .btn-column-left{
+      width: 33%;
+      align-items: flex-start;
+    }
+  
+    .btn-full {
+      background-color: grey;
+      height: auto;
+      border-style: solid;
+      border-width: 4px;
+      width: 100%;
+      margin-top: 0.2em;
+      height: 3em;
+    }
+    .profil {
+      padding-top: 0em;
+      margin-right: auto;
+      margin-left:auto;
+      width:100%;
+      border-style: none;
+      display: inline-block;
+    }
+
+    .line-3 {
+      text-align: center;
+      columns: 3;
+      width: 100%;
     }
     .column {
-      text-align: left;
-      width: 50vh;
-    }
-  .line {
-      columns: 2;
-      width: 100%;
-      flex-direction: column;
-      margin-top: 1em;
-      display: block;
-  }
-  .line-simple {
-      columns: 1;
-      width: 100%;
-      flex-direction: column;
-      margin-top: 1em;
-  }
-  .line-half {
-      columns: 2;
-      width: 50%;
-      flex-direction: column;
-      margin-top: 1em;
-  }
-
-  .line-double {
-      columns: 2;
-      width: 100%;
-      flex-direction: column;
-  }
-
-  .intitulé {
-      flex: 1;
-      margin-left: 1em;
-  }
-  .form {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      padding-bottom: 1em;
-  }
-  .img {
-      flex: 1;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: darkgreen;
-      height: 120px;
-      width: 250px;
-  }
-  .btn-enregistrer {
-      margin-top: 1em;
-      margin-left: auto;
-      margin-right: 3em;
-      display: block;
-      width: 20%;
-  }
-  .btn-enregistrer-less-margin{
-      margin-top: 1em;
-      margin-left: auto;
-      margin-right: 0.5em;
-      display: block;
-      width: 20%;
-  }
-  .accordion{
-      margin-left: 0.5em;
-  }
-  .btn-full {
-      margin-top: 1em;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
       text-align: center;
-  }
-  .accordion-secondary{
-      background-color: brown;
-  }
-  .block {
-      padding-top: 1em;
-  }
-  .line5 {
-      columns: 5;
+      width: 35vh;
+      display: inline-table;
+      //padding-top: 1em;
+    }
+    .line-4 {
+      text-align: center;
+      columns: 4;
       width: 100%;
+      padding-top: 1em;
+    }
+    .infoGenerale {
       flex-direction: column;
-      margin-top: 1em;
-  }
-  .checkbox {
-      margin-left: 1em;
-  }
-  // .btn-click {
-  //     margin-top: 1em;
-  //     margin-left: auto;
-  //     margin-right: auto;
-  //     width: 100%;
-  //     text-align: center;
-  //     background-color: cadetblue;
-  // }
-  // .btn-unclick {
-  //     margin-top: 1em;
-  //     margin-left: auto;
-  //     margin-right: auto;
-  //     width: 100%;
-  //     text-align: center;
-  //     background-color: cornsilk;
-  // }
-  .btn-container {
+    }
+    .imagediv {
+      display: block;
+      vertical-align: top;
+      margin-top: 0.5em;
       margin-left: 0.5em;
       margin-right: 0.5em;
-  }
-
-
-  .column-mono {
-      columns: 1;
-      width: 50%;
-      flex-direction: column;
+      background-color: white;
+      border-radius: 8px;
+    }
+    .info {
+      display: inline-block;
+    }
+    .offre {
+      border-style: ridge;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
       margin-top: 1em;
-  }
-  .infoGenerale {
-    flex-direction: column;
-  }
-  .imagediv {
-    display: inline-block;
-    margin-left: 2em;
-    margin-right: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-  .info {
-    display: inline-block;
-    padding-left: 4em;
-  }
+      padding-bottom: 1em;
+      background-color: rgb(209, 209, 209);
+    }
+
+    .offerField{
+        display: block;
+        margin-right: 0em;
+        margin-left: 0em;
+        text-align: center;
+    }
+    .btn-container-3 {
+      width: 100%;
+      margin-top: 1em;
+      display: flex;
+      align-content: space-between;
+    }
+    .logo-entreprise {
+      height: 100px;
+      width: 100px;
+    }
   }

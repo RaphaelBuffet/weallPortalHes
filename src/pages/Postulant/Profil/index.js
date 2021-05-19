@@ -79,7 +79,7 @@ class Profil extends React.Component {
 
           <div className='section'>
             <div className="line">
-              <div className="column">
+              <div className="columnProfil">
                 <div>
                   <FormControlLabel
                     control={<Switch checked={this.state.publish} onChange={() => this.handleToogle()} color="primary" name="checkedA" />}
@@ -105,7 +105,7 @@ class Profil extends React.Component {
                 </div>
 
               </div>
-              <div className="column">
+              <div className="columnProfil">
                 <div className="btn-divRight">
                   <button className='btn-neutral'>Aperçus profil</button>
                   <button className='btn-neutral'>Commencer la recherche</button>

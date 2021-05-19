@@ -170,7 +170,7 @@
     width: 20%;
   }
   .accordion{
-    margin-left: 1em;
+    margin-left: 0.5em;
   }
 
   .accordion-secondary{
@@ -256,10 +256,12 @@
   /*style mobile*/
   @media screen and (max-width:$MobileScreenSize) {
 
+  $inputWidth:36.5vh;
+
   .basic-multi-select{
     margin-top: 0em;
     padding-top: 0em;
-    width: 90%;
+    width: 80%;
     margin-top: 0em;
     margin-right: 2em;
     margin-left: 0.5em;
@@ -302,20 +304,20 @@
   .intituleFiltre {
     flex: 1;
     margin-left: 0em;
-
+    font-size: 15px;
   }
 
   .inputDate {
-    width: 19.3vh;
+    width: 17.5vh;
     margin-right: 0em;
     margin-left: 0em;
     height: 2em;
     vertical-align:middle;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .inputCompetence {
-    width: 20vh;
+    width: 15vh;
     margin-right: 0em;
     margin-left: 0em;
     height: 2em;
@@ -348,7 +350,7 @@
   //   margin-top: 1em;
   // }
   .input {
-    width:  40vh;
+    width:  $inputWidth;
     margin-right: 2em;
     margin-left: 0.5em;
     height: 2em;

@@ -23,7 +23,7 @@ export default class experience extends React.Component {
     for (let i = 0; i < this.state.experienceData.length; i++) {
       experienceView.push(
         <div key={i}>
-        <table className="swipeDateTable">
+        <table className="tableExp">
             <tbody>
               <tr>
                 <td > A occupé le poste de 

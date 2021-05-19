@@ -30,7 +30,7 @@ class App extends React.Component {
       </div>
       <div className='main-page'>
         <div className='section'>
-          <h1>{this.state.offre.nom} - Swipe</h1>
+          <h1>{this.state.offre.nom}</h1>
           <p>Swipez pour découvrir les profils des candidats</p>
         </div>
         <div className='swipeSection'>
@@ -39,14 +39,12 @@ class App extends React.Component {
               <div className='explication'>
               <table class="tg">
                     <thead>
-                      <tr>
-                        <th rowspan="2">
+                        <tr rowspan="2">
                           <FaInfoCircle className='icon' />
-                        </th>
-                        <th>
+                        </tr>
+                        <tr>
                           <p className="info">Matchez pour discutez avec le candidat ! Attention, vous ne pourrez découvrir son profil complet que lors d'un entretien !</p>
-                        </th>
-                      </tr>
+                        </tr>
                       <tr>
                         <td>
                         <p className="info">Informations confidentiel jusqu'à l'entretien: Nom, prénom, âge, sexe</p>
@@ -95,23 +93,29 @@ class App extends React.Component {
         </div>
       </div>
       <div className='block'>
-            <div className='btn-container-3'>
-              <div className='btn-column-left'>
-              <button className='btn-accepter' onClick={() => alert("droite")}>
+      <table className="tableSwipe">
+          <thead>
+            <tr>
+              <th rowspan="2" className='btn-column-left'>
+              <button className='btn-refus' onClick={() => alert("droite")}>
+                <FaThumbsDown size="50" />
+                </button>
+              </th>
+              <th rowspan="2" className='btn-column-center'>
+              <button className='btn-later'>
+                  Revoir plus tard
+              </button>
+              </th>
+              <th rowspan="2" className='btn-column-right'>
+              <button className='btn-accepter' onClick={() => alert("gauche")}>
                   <FaThumbsUp size="50" />
                 </button>
-              </div>
-              <div className='btn-column-center'>
-                <button className='btn-later'>
-                  Revoir plus tard
-                  </button>
-                  </div>
-                  <div className='btn-column-right'>
-                <button className='btn-refus' onClick={() => alert("gauche")}>
-                  <FaThumbsDown size="50" />
-                </button>
-                </div>
-              </div>
+              </th>
+            </tr>
+            <tr>
+            </tr>
+          </thead>
+      </table>
           </div>
     </div>
     );

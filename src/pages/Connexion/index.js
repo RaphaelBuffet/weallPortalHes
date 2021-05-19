@@ -58,13 +58,13 @@ class Connexion extends React.Component {
                 <div className="section">
                     <div className='form-connection'>
                         <div className='line'>
-                            <div className='column'>
+                            <div className='columnProfil'>
                                 <p className='intituleProfil'>E-mail</p>
                                 <input type="text" value={this.state.email} onChange={this.handleEmail} className='inputConnexion' />
                             </div>
                         </div>
                         <div className='line'>
-                            <div className='column'>
+                            <div className='columnProfil'>
                                 <p className='intituleProfil'>Mot de passe</p>
                                 <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
                             </div>

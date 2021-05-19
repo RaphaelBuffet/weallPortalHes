@@ -82,4 +82,20 @@
     margin-top: 2em;
 }
 
+  /*style mobile*/
+  @media screen and (max-width:$MobileScreenSize) {
+
+    .inputConnexion{
+        width: 350px;
+        margin-right: 2em;
+        margin-left: 0.5em;
+        height: 2em;
+        vertical-align: middle;
+        border: 1px solid #ccc;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+  }
 

@@ -108,11 +108,11 @@ export default class Experience extends React.Component {
                     <AccordionSecondary title={this.state.experience[i].poste + " chez " + this.state.experience[i].entreprise} className='accordion-secondary'>
                         <div className='form'>
                             <div className='line'>
-                                <div className="column">
+                                <div className="columnProfil">
                                     <p className='intituleProfil'>Poste occupé</p>
                                     <input type="text" value={this.state.experience[i].poste} onChange={(value) => this.handlePoste(i, value)} className='input' />
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Durée</p>
                                     <table class="dateZone" cellspacing="0">
                                         <thead>
@@ -124,10 +124,10 @@ export default class Experience extends React.Component {
                                                 <td className="dateZoneA">
                                                     {
                                                         this.state.experience[i].actuelle ?
-                                                            <div className='column'>
+                                                            <div className='columnProfil'>
                                                                 <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='inputDate' disabled='true' />
                                                             </div>
-                                                            : <div className='column'>
+                                                            : <div className='columnProfil'>
                                                                 <input type="date" value={this.state.experience[i].fin} onChange={(value) => this.handleDateFin(i, value)} className='inputDate' />
                                                             </div>
                                                     }
@@ -154,11 +154,11 @@ export default class Experience extends React.Component {
                             </div>
 
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Entreprise</p>
                                     <input type="text" value={this.state.experience[i].entreprise} onChange={(value) => this.handleEntreprise(i, value)} className='input' />
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Secteur d'activité</p>
                                     <select value={this.state.experience[i].secteurs} onChange={(value) => this.handleSecteurs(i, value)} className='input'>
                                         <option value="0">Informatique de gestion</option>
@@ -168,10 +168,10 @@ export default class Experience extends React.Component {
                                 </div>
                             </div>
                             <div className='line'>
-                                <div className='column'>
+                                <div className='columnProfil'>
 
                                 </div>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Pays</p>
                                     <select value={this.state.experience[i].pays} onChange={(value) => this.handlePays(i, value)} className='input'>
                                         <option value="0">Suisse</option>
@@ -182,7 +182,7 @@ export default class Experience extends React.Component {
                             </div>
                             {this.state.experience[i].pays === "0" ?
                                 <div className='line-alone'>
-                                    <div className='column'>
+                                    <div className='columnProfil'>
                                         <p className='intituleProfil'>Localité</p>
                                         <select value={this.state.experience[i].localite} onChange={(value) => this.handleLocalite(i, value)} className='input'>
                                             <option value="0">Sion</option>
@@ -194,7 +194,7 @@ export default class Experience extends React.Component {
                             }
 
                             <div className='line-simple'>
-                                <div className='column'>
+                                <div className='columnProfil'>
                                     <p className='intituleProfil'>Tâches principales</p>
                                     <textarea value={this.state.experience[i].description} onChange={(value) => this.handleDescription(i, value)} className='inputlongmonoline' />
                                 </div>
