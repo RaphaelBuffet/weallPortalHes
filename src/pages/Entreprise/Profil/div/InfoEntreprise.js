@@ -22,6 +22,7 @@ export default class InfoEntreprise extends React.Component {
       ethique: data.ethique,
       label: data.label,
       benefice: data.benefice,
+      engagement:''
     };
     // changement des input
     this.handleEntreprise = this.handleEntreprise.bind(this);
@@ -36,6 +37,7 @@ export default class InfoEntreprise extends React.Component {
     this.handleEthique = this.handleEthique.bind(this);
     this.handleLabel = this.handleLabel.bind(this);
     this.handleBenefice = this.handleBenefice.bind(this);
+    this.handleEngagement = this.handleEngagement.bind(this);
     // gestion des actions des bouttons
     this.handleAddBenef = this.handleAddBenef.bind(this);
     this.handleImage = this.handleImage.bind(this);
@@ -76,6 +78,9 @@ export default class InfoEntreprise extends React.Component {
   }
   handleDescription(event) {
     this.setState({ descritpion: event.target.value });
+  }
+  handleEngagement(event) {
+    this.setState({ engagement: event.target.value });
   }
   handleNpa(event) {
     this.setState({ npa: event.target.value });
@@ -167,7 +172,7 @@ export default class InfoEntreprise extends React.Component {
         <div className='line-simple'>
           <div className='columnProfil'>
             <p className='intituleProfil'>Engagement environementaux</p>
-            <textarea value={this.state.descritpion} onChange={this.handleDescription} className='inputlongmonoline' />
+            <textarea value={this.state.engagement} onChange={this.handleEngagement} className='inputlongmonoline' />
           </div>
         </div>
 
@@ -233,11 +238,8 @@ export default class InfoEntreprise extends React.Component {
                     </button>
                   </th>
                   <th>
-                    <p >
-                      Format d'images:
-                    </p>
                     <p>
-                      JPG, JPEG et PNG.
+                      Format d'images: JPG, JPEG et PNG.
                     </p>
                   </th>
                 </tr>
@@ -245,11 +247,13 @@ export default class InfoEntreprise extends React.Component {
             </table>
           </div>
         </div>
-        <div className="btn-divLeft">
-            <button type="submit" value="enregistrer les informations" className='btn-neutral' >
-              Enregistrer les informations
-            </button>
+
+        <div className="finalButtonZone">
+          <button type="submit" value="enregistrer les informations" className='btn-neutral' >
+            Enregistrer les informations
+          </button>
         </div>
+
       </form>
     );
   }

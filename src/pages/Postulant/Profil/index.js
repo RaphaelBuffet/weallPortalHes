@@ -107,8 +107,7 @@ class Profil extends React.Component {
               </div>
               <div className="columnProfil">
                 <div className="btn-divRight">
-                  <button className='btn-neutral'>Aperçus profil</button>
-                  <button className='btn-neutral'>Commencer la recherche</button>
+                  <button className='btn-neutral'onClick={()=>this.props.history.push('./filtre')}>Commencer la recherche</button>
                 </div>
 
               </div>
