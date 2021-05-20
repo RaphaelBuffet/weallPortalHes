@@ -73,51 +73,69 @@ export default class Inscription extends React.Component {
                 </div>
                 <div className="section">
                     <div className='form-connection'>
-                        <div className='line'>
-                            <div className='column'>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
                                 <p className='intituleInscription'>E-mail</p>
                                 <input type="text" value={this.state.email} onChange={this.handleEmail} className='inputConnexion' />
-                            </div>
-                        </div>
-                        <div className='line'>
-                            <div className='column'>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
                                 <p className='intituleInscription'>Mot de passe</p>
                                 <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
-                            </div>
-                        </div>
-                        <div className='line'>
-                            <div className='column'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                 <p className='intituleInscription'>Confirmez le mot de passe</p>
                                 <input type="password" value={this.state.passwordConfirm} onChange={this.handleConfirmPassword} className='inputConnexion' />
-                            </div>
-                        </div>
-                        <div className='line'>
-                            <div className='column'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                 <p className='intituleInscription'>type de compte</p>
                                 <select value={this.state.type} className='inputConnexion' onChange={this.handleType}>
                                     <option value="0">Postulant</option>
                                     <option value="1">Entreprise</option>
                                 </select>
-                            </div>
-                        </div>
-                        <table class="confirmZone" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" className='intitulé' checked={this.state.condition} onClick={() => this.setState({ condition: !this.state.condition })} />
-                                    </td>
-                                    <td>
-                                        <label className='intitulé'> J'ai lu et j'accepte les conditions d'utilisation.</label>
-                                    </td>
-                                </tr>
-                            </thead>
-                        </table>
-                        <a href="http://app.weallbackend.ch/connexion">J'ai déjà un compte</a>
-                        <div className="connexionBtnDiv">
-                            <button className='btn-neutral' onClick={() => this.inscription()}>
-                                Créer mon compte
-                            </button>
-                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <table class="confirmZone" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" className='intitulé' checked={this.state.condition} onClick={() => this.setState({ condition: !this.state.condition })} />
+                                            </td>
+                                            <td>
+                                                <label className='intitulé'> J'ai lu et j'accepte les conditions d'utilisation.</label>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a className="linkAccount" href="http://app.weallbackend.ch/connexion">J'ai déjà un compte</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <div className="connexionBtnDiv">
+                                    <button className='btn-neutral' onClick={() => this.inscription()}>
+                                    Créer mon compte
+                                    </button>
+                                </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     </div>
                     <div className="connexionImgSection">
                         <img src={logo} alt="Logo" />
