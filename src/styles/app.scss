@@ -11,10 +11,10 @@ $MobileScreenSize: 480px;
   .page-container{
     display: flex;
     flex-direction: column;
-    //min-height: 100vh;   
-    height: -moz-available;          /* WebKit-based browsers will ignore this. */
-    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    min-height: 100vh;   
     background-color: $Background;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
   }
   .content-wrap{
     flex:1;
@@ -113,9 +113,8 @@ $MobileScreenSize: 480px;
       font-weight: normal;
     }
   }
-
-
-  //-----------------------------------------------------------------------------------
+  
+    //-----------------------------------------------------------------------------------
   // Apple shit
   //-----------------------------------------------------------------------------------
 
