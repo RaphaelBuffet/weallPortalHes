@@ -11,7 +11,9 @@ $MobileScreenSize: 480px;
   .page-container{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;   
+    //min-height: 100vh;   
+    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     background-color: $Background;
   }
   .content-wrap{
@@ -68,7 +70,7 @@ $MobileScreenSize: 480px;
     font-weight: 700;
   }
 
-  @media screen and (max-width:960px) {
+  @media screen and (max-width:$MobileScreenSize) {
     * {
       margin: 0;
       padding: 0;
@@ -111,6 +113,188 @@ $MobileScreenSize: 480px;
       font-weight: normal;
     }
   }
-  
-  
+
+
+  //-----------------------------------------------------------------------------------
+  // Apple shit
+  //-----------------------------------------------------------------------------------
+
+  /** 
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+  .foo {
+    height: 1024px;
+  }
+}
+
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+  .foo {
+    height: 500px;
+  }
+}
+
+/**
+ * iPhone X
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1125px ) and (device-height: 2436px) and (orientation:portrait){
+  .foo {
+    height: 2436px;
+  }
+}
+
+ /**
+ * iPhone 8 Plus
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1080px ) and (device-height: 1920px) and (orientation:portrait){
+  .foo {
+    height: 1920px;
+  }
+}
+
+ /**
+ * iPhone 8
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 750px ) and (device-height: 1334px) and (orientation:portrait){
+  .foo {
+    height: 1334px;
+  }
+}
+
+ /**
+ * iPhone 7 Plus
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1080px) and (device-height: 1920px) and (orientation:portrait){
+  .foo {
+    height: 1920px;
+  }
+}
+
+ /**
+ * iPhone 6s Plus
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1080px) and (device-height: 1920px) and (orientation:portrait){
+  .foo {
+    height: 1920px;
+  }
+}
+
+ /**
+ * iPhone 6 Plus
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1080px) and (device-height: 1920px) and (orientation:portrait){
+  .foo {
+    height: 1920px;
+  }
+}
+
+ /**
+ * iPhone 7
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 750px) and (device-height: 1334px) and (orientation:portrait){
+  .foo {
+    height: 1334px;
+  }
+}
+
+/**
+ * iPhone 6s
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 750px) and (device-height: 1334px) and (orientation:portrait){
+  .foo {
+    height: 1334px;
+  }
+}
+
+/**
+ * iPhone 6
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 750px ) and (device-height: 1334px) and (orientation:portrait){
+  .foo {
+    height: 1334px;
+  }
+}
+
+/**
+ * iPhone SE
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 640px ) and (device-height: 1136px) and (orientation:portrait){
+  .foo {
+    height: 1136px;
+  }
+}
+
+/**
+ * iPad Pro 12.9-inch (2nd generation)
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 2048px) and (device-height: 2732px) and (orientation:portrait){
+  .foo {
+    height: 2732px;
+  }
+}
+
+/**
+ * iPad Pro 10.5-inch
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width:  1668px) and (device-height: 2224px) and (orientation:portrait){
+  .foo {
+    height: 2224px;
+  }
+}
+
+/**
+ * iPad Pro (12.9-inch)
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 2048px ) and (device-height: 2732px) and (orientation:portrait){
+  .foo {
+    height: 2732px;
+  }
+}
+
+/**
+ * iPad Pro (9.7-inch)
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1536px) and (device-height: 2048px) and (orientation:portrait){
+  .foo {
+    height: 2048px;
+  }
+}
+
+/**
+ * iPad Air 2
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1536px) and (device-height: 2048px) and (orientation:portrait){
+  .foo {
+    height: 2048px;
+  }
+}
+
+/**
+ * iPad Mini 4
+ * You can also target devices with aspect ratio.
+ */
+ @media all and (device-width: 1536px) and (device-height: 2048px) and (orientation:portrait){
+  .foo {
+    height: 2048px;
+  }
+}
   
