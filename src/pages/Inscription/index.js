@@ -69,7 +69,7 @@ export default class Inscription extends React.Component {
             <div className="main-page">
                 <div className="connexionTitleSection">
                     <h1>Inscription</h1>
-                    <p>Connectez-vous afin de trouver le collaboratuer ou l'entreprise de vos rêves</p>
+                    <p>Connectez-vous afin de trouver le collaborateur ou l'entreprise de vos rêves</p>
                 </div>
                 <div className="section">
                     <div className='form-connection'>

@@ -1,14 +1,14 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar/NavbarEntreprise'
+import Navbar from '../../../../components/Navbar/NavbarEntreprise'
 import '../../../styles/swipe.scss'
 import '../../../styles/profil.scss';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Formation from './div/formations';
-import Experience from './div/experience';
-import Competences from './div/competences';
-import Langue from './div/langue';
-import Softskill from './div/softskill'
+import Formation from '../div/formations';
+import Experience from '../div/experience';
+import Competences from '../div/competences';
+import Langue from '../div/langue';
+import Softskill from '../div/softskill'
 import { FaThumbsUp } from 'react-icons/fa';
 import { FaThumbsDown } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
@@ -92,30 +92,17 @@ class App extends React.Component {
                     <Softskill />
                   </div>
                 </div>
+                <button className='btn-Center'>
+                    Revoir plus tard
+                </button>
               </div>
             </div>
+            <button className='btn-accepter' onClick={() => alert("droite")}>
+              <FaThumbsUp size="70" />
+            </button>
           </div>
         </div>
       </div>
-      <div className='block'>
-            <div className='btn-container-3'>
-              <div className='btn-column-left'>
-              <button className='btn-accepter' onClick={() => alert("droite")}>
-                  <FaThumbsUp size="50" />
-                </button>
-              </div>
-              <div className='btn-column-center'>
-                <button className='btn-later'>
-                  Revoir plus tard
-                  </button>
-                  </div>
-                  <div className='btn-column-right'>
-                <button className='btn-refus' onClick={() => alert("gauche")}>
-                  <FaThumbsDown size="50" />
-                </button>
-                </div>
-              </div>
-          </div>
     </div>
     );
   }

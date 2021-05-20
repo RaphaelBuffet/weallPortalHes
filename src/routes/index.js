@@ -11,7 +11,7 @@ import ChatEntreprise from '../pages/Entreprise/Chat';
 import FiltreEntreprise from '../pages/Entreprise/Filtres';
 import OffreEntreprise from '../pages/Entreprise/Offres';
 import ParametreEntreprise from '../pages/Entreprise/Parametre';
-import SwipeEntreprise from '../pages/Entreprise/Swipe/indexWeb';
+import SwipeEntreprise from '../pages/Entreprise/Swipe';
 import Connexion from '../pages/Connexion/index';
 import Inscription from '../pages/Inscription/index';
 
