@@ -9,6 +9,70 @@ import { connect } from "react-redux";
 import Moment from 'moment';
 import { getConfig } from '@testing-library/dom';
 
+
+const GOOGLE_VENDOR_NAME = 'Google Inc.';
+
+function isOpera() {
+    return Boolean(window.opr);
+}
+
+function isChromium() {
+    return Boolean(window.chrome);
+}
+
+function getBrowserName() {
+    const userAgent = window.navigator.userAgent;
+    const vendor = window.navigator.vendor;
+    switch (true) {
+        case /Edge|Edg|EdgiOS/.test(userAgent):
+            return 'Edge';
+        case /OPR|Opera/.test(userAgent) && isOpera():
+            return 'Opera';
+        case /Chrome|CriOS/.test(userAgent) && vendor === GOOGLE_VENDOR_NAME && isChromium():
+            return 'Chrome';
+        case /Vivaldi/.test(userAgent):
+            return 'Vivaldi';
+        case /YaBrowser/.test(userAgent):
+            return 'Yandex';
+        case /Firefox|FxiOS/.test(userAgent):
+            return 'Firefox';
+        case /Safari/.test(userAgent):
+            return 'Safari';
+        case /MSIE|Trident/.test(userAgent):
+            return 'Internet Explorer';
+        default:
+            return 'Unknown';
+    }
+}
+
+function isChrome() {
+    const name = getBrowserName();
+    return name === 'Chrome';
+}
+
+/**
+ * Determine the mobile operating system.
+ * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+ *
+ * @returns {String}
+ */
+ function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  
+  
+      if (/android/i.test(userAgent)) {
+          return "Android";
+      }
+  
+      // iOS detection from: http://stackoverflow.com/a/9039885/177710
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          return "iOS";
+      }
+  
+      return "unknown";
+  }
+
+
 class Connexion extends React.Component {
     constructor(props) {
         super(props);
@@ -57,41 +121,64 @@ class Connexion extends React.Component {
                 </div>
                 <div className="section">
                     <div className='form-connection'>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>
-                                <p className='intituleProfil'>E-mail</p>
-                                <input type="text" value={this.state.email} onChange={this.handleEmail} className='inputConnexion' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p className='intituleProfil'>Mot de passe</p>
-                                <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a className='linkAccount' href="http://app.weallbackend.ch/inscription">Je n'ai pas de compte</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <div className="connexionBtnDiv">
-                                <button className='btn-neutral' onClick={() => this.login()}>
-                                    Connexion
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p className='intituleProfil'>E-mail</p>
+                                        <input type="text" value={this.state.email} onChange={this.handleEmail} className='inputConnexion' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p className='intituleProfil'>Mot de passe</p>
+                                        <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a className='linkAccount' href="http://app.weallbackend.ch/inscription">Je n'ai pas de compte</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div className="connexionBtnDiv">
+                                            <button className='btn-neutral' onClick={() => this.login()}>
+                                                Connexion
                                 </button>
-                            </div>
-                            </td>
-                        </tr>
-                        </tbody>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
-                        
-
-
-
                     </div>
+                    {getBrowserName() !== 'Opera' && getBrowserName() !== 'Chrome' ?
+                        <div className='form-connection'>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p className='intituleFiltre'>Pour profiter au mieux de l'expérience WeAll, préférez l'utilisation de </p>
+                                        {getMobileOperatingSystem()==='unknown'?
+                                            <a target="_blank" rel="noreferrer" className='linkAccount' href="https://www.google.fr/chrome/" title="Cliquez pour télécharger Google Chrome">Google Chrome</a>
+                                        :null
+                                        }
+                                        {getMobileOperatingSystem()==='Android'?
+                                            <a target="_blank" rel="noreferrer" className='linkAccount' href="https://play.google.com/store/apps/details?id=com.android.chrome&hl=fr&gl=US" title="Cliquez pour télécharger Google Chrome">Google Chrome</a>
+                                        :null
+                                        }
+                                        {getMobileOperatingSystem()==='iOS'?
+                                            <a target="_blank" rel="noreferrer" className='linkAccount' href="https://apps.apple.com/fr/app/google-chrome/id535886823" title="Cliquez pour télécharger Google Chrome">Google Chrome</a>
+                                        :null
+                                        }
+                                      </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    : null
+                }
                     <div className="connexionImgSection">
                         <img src={logo} alt="Logo" />
                     </div>
@@ -108,7 +195,7 @@ class Connexion extends React.Component {
                     console.log("error in createEntreprise get")
                 }
                 else {
-                    let benefice=[response[0].benefice_externe_1,response[0].benefice_externe_2,response[0].benefice_externe_3]
+                    let benefice = [response[0].benefice_externe_1, response[0].benefice_externe_2, response[0].benefice_externe_3]
                     localStorage.setItem('entreprise', JSON.stringify({
                         nom: response[0].nom,
                         localite: response[0].localite,
@@ -144,7 +231,7 @@ class Connexion extends React.Component {
                     }));
                 }
             })
-            this.props.history.push('/entreprise/profil');
+        this.props.history.push('/entreprise/profil');
     }
     createPostulant(userid, token, isentreprise) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "postulant/user/" + userid, headers: { 'Authorization': 'Bearer ' + token } })
@@ -193,7 +280,7 @@ class Connexion extends React.Component {
                     this.createLangue(response[0].id_postulant, token)
                 }
             })
-            this.props.history.push('/postulant/profil');
+        this.props.history.push('/postulant/profil');
     }
     createOffre(id, token) {
         axios({ method: 'get', url: config.backEndURL + config.backEndApiURL + "offre/entreprise/" + id, headers: { 'Authorization': 'Bearer ' + token } })
@@ -203,18 +290,18 @@ class Connexion extends React.Component {
                     console.log("error in createEntreprise get")
                 }
                 else {
-                    let offres=[]
-                    for(let i=0;i<response.length;i++){
+                    let offres = []
+                    for (let i = 0; i < response.length; i++) {
                         offres.push({
-                            poste:response[i].nom,
-                            taux:response[i].taux,
-                            contrat:response[i].contrat,
-                            duree:response[i].duree,
-                            dispo:Moment(response[i].dispo).format('YYYY-MM-DD'),
-                            salaire:response[i].salaire_min+" - "+response[i].salaire_max,
-                            url:response[i].url,
-                            localite:response[i].NPA,
-                            publish:response[i].is_searchable,
+                            poste: response[i].nom,
+                            taux: response[i].taux,
+                            contrat: response[i].contrat,
+                            duree: response[i].duree,
+                            dispo: Moment(response[i].dispo).format('YYYY-MM-DD'),
+                            salaire: response[i].salaire_min + " - " + response[i].salaire_max,
+                            url: response[i].url,
+                            localite: response[i].NPA,
+                            publish: response[i].is_searchable,
                             filtre: response[i].id_filtre_offre
                         })
                     }

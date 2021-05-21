@@ -21,7 +21,7 @@ class Chat extends React.Component {
             <p>&gt; Discutez avec les entreprises matchées et organisez un entretien !</p>
           </div>
           <div className='chat'>
-            <p>en construction</p>
+            <p>En construction</p>
           </div>
         </div>
       </div>
