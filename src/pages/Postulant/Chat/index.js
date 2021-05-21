@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar/NavbarPostulant'
 import '../../../styles/chat.scss';
-import ChatShell from './containers/shell/ChatShell';
 
 class Chat extends React.Component {
   render() {
@@ -16,7 +15,7 @@ class Chat extends React.Component {
             <p>&gt; Discutez avec les entreprises matchées et organisez un entretien !</p>
           </div>
           <div className='chat'>
-            <ChatShell/>
+            <p>En construction</p>
           </div>
         </div>
       </div>

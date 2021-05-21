@@ -15,6 +15,7 @@ $MobileScreenSize: 480px;
     background-color: $Background;
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: intrinsic;               /* Non-safari browsers will ignore this. */
   }
   .content-wrap{
     flex:1;
