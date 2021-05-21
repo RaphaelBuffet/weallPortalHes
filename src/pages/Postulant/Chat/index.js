@@ -1,9 +1,15 @@
 import React from 'react'
+import { io } from 'socket.io-client';
 import Navbar from '../../../components/Navbar/NavbarPostulant'
+import config from '../../../config';
 import '../../../styles/chat.scss';
 
 class Chat extends React.Component {
   render() {
+    var socket = io('http://localhost:8080');
+    socket.on('connection', ()=>{
+      console.log("connected to backend")
+    })
     return (
       <div>
         <div className="Header">
