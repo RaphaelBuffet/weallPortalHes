@@ -57,25 +57,40 @@ class Connexion extends React.Component {
                 </div>
                 <div className="section">
                     <div className='form-connection'>
-                        <div className='line'>
-                            <div className='columnProfil'>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>
                                 <p className='intituleProfil'>E-mail</p>
                                 <input type="text" value={this.state.email} onChange={this.handleEmail} className='inputConnexion' />
-                            </div>
-                        </div>
-                        <div className='line'>
-                            <div className='columnProfil'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <p className='intituleProfil'>Mot de passe</p>
                                 <input type="password" value={this.state.password} onChange={this.handlePassword} className='inputConnexion' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a className='linkAccount' href="http://app.weallbackend.ch/inscription">Je n'ai pas de compte</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div className="connexionBtnDiv">
+                                <button className='btn-neutral' onClick={() => this.login()}>
+                                    Connexion
+                                </button>
                             </div>
-                        </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        
 
-                        <a href="http://app.weallbackend.ch/inscription">Je n'ai pas de compte</a>
-                        <div className="connexionBtnDiv">
-                            <button className='btn-neutral' onClick={() => this.login()}>
-                                Connexion
-                            </button>
-                        </div>
+
+
                     </div>
                     <div className="connexionImgSection">
                         <img src={logo} alt="Logo" />
